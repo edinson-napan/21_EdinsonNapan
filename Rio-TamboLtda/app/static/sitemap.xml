@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sitemap>
+    <sitio nombre="Cooperativa Agraria Cafetaera Rio Tambo Ltda.">
+
+        <pagina nombre="Inicio">
+            <seccion nombre="Banner principal"/>
+            <seccion nombre="Quienes Somos"/>
+            <seccion nombre="Valores Institucionales">
+                <valor nombre="Organico"/>
+                <valor nombre="Calidad"/>
+                <valor nombre="Sostenible"/>
+                <valor nombre="Social"/>
+            </seccion>
+            <seccion nombre="Ultima Novedades"/>
+        </pagina>
+
+        <pagina nombre="Nosotros">
+            <seccion nombre="Historia de la cooperativa"/>
+            <seccion nombre="Mision"/>
+            <seccion nombre="Vision"/>
+            <seccion nombre="Valores"/>
+        </pagina>
+
+
+        <pagina nombre="Productos">
+            <seccion nombre="Cafe Verde"/>
+            <seccion nombre="Cafe Pergamino"/>
+        </pagina>
+
+        <pagina nombre="Contacto">
+            <seccion nombre="Formulario de contacto"/>
+            <seccion nombre="Ubicacion"/>
+            <seccion nombre="Telefono"/>
+            <seccion nombre="Correo Electronico"/>
+            <seccion nombre="Redes Sociales"/>
+        </pagina>
+
+    </sitio>
+</sitemap>
