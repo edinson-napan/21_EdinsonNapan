@@ -1,0 +1,211 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Nuestra Cooperativa
+{% endblock %}
+
+
+{% block content %}
+
+
+<!-- HERO -->
+
+<section class="relative h-[650px]">
+
+<img 
+src="{{ url_for('static', filename='img/nosotros/hero-nosotros.jpg') }}"
+class="w-full h-full object-cover">
+
+
+<div class="absolute inset-0 bg-black/45 flex flex-col items-center justify-center text-center text-white px-10">
+
+
+<h1 class="text-7xl font-serif font-bold tracking-wide">
+    Nuestra Cooperativa
+</h1>
+
+
+<p class="mt-8 text-3xl max-w-4xl leading-relaxed">
+    Unidos por un café de calidad,
+    <br>
+    comprometidos con un futuro sostenible.
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- QUIENES SOMOS -->
+
+<section class="bg-[#f8f5ed] py-20 px-10">
+
+<div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+
+
+<!-- TEXTO -->
+
+<div>
+
+<h2 class="text-6xl font-serif font-bold text-[#24170f] mb-8">
+    ¿Quiénes Somos?
+</h2>
+
+
+<p class="text-2xl leading-relaxed text-gray-800">
+    La Cooperativa Agraria Cafetalera Río Tambo Ltda.,
+    es una organización de productores comprometidos 
+    con la calidad, la sostenibilidad y el desarrollo 
+    de nuestras comunidades.
+</p>
+
+
+<p class="mt-8 text-2xl leading-relaxed text-gray-800">
+    Trabajamos para llevar café peruano al mundo,
+    respetando nuestra tierra y nuestras tradiciones.
+</p>
+
+</div>
+
+
+<!-- IMAGEN -->
+
+<div class="flex justify-center">
+
+<img
+src="{{ url_for('static', filename='img/nosotros/productor-cafe.jpg') }}"
+class="rounded-[40px] shadow-xl w-[420px] h-[420px] object-cover"
+>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- MISION VISION VALORES -->
+
+
+<section class="bg-[#f8f5ed] px-10 py-16">
+
+
+<div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
+
+
+<!-- MISION -->
+
+
+<div class="bg-white rounded-[35px] shadow-md p-10 text-center">
+
+<div class="text-7xl mb-8">
+    🌱
+</div>
+
+<h3 class="text-xl font-bold mb-8">
+    Misión
+</h3>
+
+<p class="text-xl leading-relaxed">
+    Mejorar la calidad de vida 
+    de nuestros socios a través 
+    de la producción y comercialización
+    de café de alta calidad.
+</p>
+
+
+</div>
+
+
+<!-- VISION -->
+
+
+<div class="bg-white rounded-[35px] shadow-md p-10 text-center">
+
+<div class="text-7xl mb-8">
+    👁 
+</div>
+
+<h3 class="text-4xl font-bold mb-8">
+    Visión
+</h3>
+
+<p class="text-xl leading-relaxed">
+    Ser una cooperativa reconocida 
+    a nivel nacional e internacional
+    por nuestro café sostenible
+    y de excelencia.
+</p>
+
+
+</div>
+
+
+<!-- VALORES -->
+
+
+<div class="bg-white rounded-[35px] shadow-md p-10 text-center">
+
+<div class="text-7xl mb-8">
+    👥
+</div>
+
+<h3 class="text-4xl font-bold mb-8">
+    Valores
+</h3>
+
+
+<div class="text-xl leading-relaxed text-left ml-8">
+    <p>• Calidad</p>
+    <p>• Sostenibilidad</p>
+    <p>• Trabajo en equipo</p>
+    <p>• Responsabilidad social</p>
+    <p>• Honestidad</p>
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+<!-- IMAGEN FINAL -->
+
+<section class="relative h-[600px] mt-10">
+
+<img
+src="{{ url_for('static', filename='img/nosotros/cultivo-cafe.jpg') }}"
+class="w-full h-full object-cover"
+>
+
+
+<div class="absolute inset-0 bg-black/30">
+
+</div>
+
+<div class="absolute right-20 top-1/2 -translate-y-1/2">
+
+    <div class="bg-black/60 backdrop-blur-sm rounded-[40px] px-16 py-12">
+            
+    <h3 class="text-white text-5xl font-serif leading-relaxed text-center">
+        "Cuidamos hoy,
+        <br>
+        para un mejor mañana."
+    </h3>
+
+    </div>
+
+</div>
+
+</section>
+
+
+{% endblock %}
