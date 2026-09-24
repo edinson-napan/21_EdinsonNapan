@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Río Tambo{% endblock %}</title>
+    <!-- Tailwind CSS desde CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuración personalizada de tipografía (opcional) -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-[#FAF8F5] text-[#1F150C] flex flex-col min-h-screen">
+
+    <!-- NAVBAR / ENCABEZADO -->
+    <header class="bg-[#2B1A0F] text-white sticky top-0 z-50 shadow-md">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/" class="text-2xl font-serif font-bold tracking-wide text-[#E2C799]">
+                Río Tambo
+            </a>
+            
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                <a href="/" class="hover:text-[#E2C799] transition">Inicio</a>
+                <a href="/productos" class="hover:text-[#E2C799] transition">Productos</a>
+                <a href="/contacto" class="hover:text-[#E2C799] transition">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CONTENIDO DINÁMICO (AQUÍ SE INYECTA CONTACTO) -->
+    <main class="flex-grow">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- FOOTER / PIE DE PÁGINA -->
+    <footer class="bg-[#1F150C] text-gray-300 py-8 border-t border-[#3A281A]">
+        <div class="max-w-6xl mx-auto px-6 text-center text-sm">
+            <p>&copy; 2026 CAIIC - Río Tambo. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
