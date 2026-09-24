@@ -12,20 +12,20 @@
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <nav class="max-w-7xl mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
             <!-- LOGO -->
-            <a href="{{ safe_url_for('inicio.index') }}">
-                <img src="{{ url_for('static', filename='img/logo.png') }}" class="w-24 md:w-28 h-auto" alt="Logo Río Tambo">
+            <a href="{{ url_for('inicio.index') }}" class="shrink-0">
+                <img src="{{ url_for('static', filename='img/logo.png') }}" class="w-24 md:w-28 h-auto object-contain max-h-16" alt="Logo Río Tambo">
             </a>
 
             <!-- MENÚ PRINCIPAL -->
             <div id="main-nav" class="hidden md:flex gap-8 lg:gap-12 text-[#3e2723] text-lg font-bold tracking-wider transition-transform duration-300">
-                <a href="{{ safe_url_for('inicio.index') }}" class="hover:text-yellow-700 transition uppercase">INICIO</a>
-                <a href="{{ safe_url_for('productos.mostrar_productos') }}" class="hover:text-yellow-700 transition uppercase">PRODUCTOS</a>
-                <a href="{{ safe_url_for('nosotros.nosotros_page') }}" class="hover:text-yellow-700 transition uppercase">NOSOTROS</a>
-                <a href="{{ safe_url_for('contacto.contacto_page') }}" class="hover:text-yellow-700 transition uppercase">CONTACTO</a>
+                <a href="{{ url_for('inicio.index') }}" class="hover:text-yellow-700 transition uppercase">INICIO</a>
+                <a href="{{ url_for('productos.mostrarProductos') }}" class="hover:text-yellow-700 transition uppercase">PRODUCTOS</a>
+                <a href="{{ url_for('nosotros.nosotros_page') }}" class="hover:text-yellow-700 transition uppercase">NOSOTROS</a>
+                <a href="{{ url_for('contacto.contacto_page') }}" class="hover:text-yellow-700 transition uppercase">CONTACTO</a>
             </div>
 
             <!-- BUSCADOR E ÍCONOS -->
-            <div class="flex items-center gap-4 md:gap-6">
+            <div class="flex items-center gap-4 md:gap-6 shrink-0">
                 <div class="relative flex items-center">
                     <form action="#" method="get" id="search-form"
                           class="absolute right-9 top-1/2 -translate-y-1/2 h-9 rounded-full border border-gray-200 bg-white shadow-sm overflow-hidden transition-all duration-300 ease-in-out w-0 opacity-0 pointer-events-none">
@@ -33,17 +33,17 @@
                                class="h-full w-64 px-4 text-sm text-[#3e2723] outline-none bg-transparent">
                     </form>
                     <button type="button" onclick="toggleSearch()" id="search-toggle-btn"
-                            class="hover:opacity-70 transition cursor-pointer relative z-10" aria-label="Buscar">
-                        <img src="{{ url_for('static', filename='img/iconos/search.png') }}" class="w-6 h-6 md:w-7 md:h-7" alt="Buscar">
+                            class="hover:opacity-70 transition cursor-pointer relative z-10 flex items-center justify-center" aria-label="Buscar">
+                        <img src="{{ url_for('static', filename='img/iconos/search.png') }}" class="w-6 h-6 md:w-7 md:h-7 object-contain" alt="Buscar">
                     </button>
                 </div>
 
-                <button type="button" class="hover:opacity-70 transition cursor-pointer" aria-label="Carrito de compras">
-                    <img src="{{ url_for('static', filename='img/iconos/cart.png') }}" class="w-6 h-6 md:w-7 md:h-7" alt="Carrito">
+                <button type="button" class="hover:opacity-70 transition cursor-pointer flex items-center justify-center" aria-label="Carrito de compras">
+                    <img src="{{ url_for('static', filename='img/iconos/cart.png') }}" class="w-6 h-6 md:w-7 md:h-7 object-contain" alt="Carrito">
                 </button>
 
-                <button type="button" class="hover:opacity-70 transition cursor-pointer" aria-label="Idioma">
-                    <img src="{{ url_for('static', filename='img/iconos/peru.png') }}" class="w-6 h-6 md:w-7 md:h-7" alt="Perú">
+                <button type="button" class="hover:opacity-70 transition cursor-pointer flex items-center justify-center" aria-label="Idioma">
+                    <img src="{{ url_for('static', filename='img/iconos/peru.png') }}" class="w-6 h-6 md:w-7 md:h-7 object-contain rounded-full" alt="Perú">
                 </button>
             </div>
         </nav>
@@ -59,7 +59,7 @@
         <div class="max-w-7xl mx-auto px-8 lg:px-16 py-12">
             <div class="grid md:grid-cols-2 gap-10 items-center">
                 <div class="flex items-center gap-6 md:gap-8">
-                    <img src="{{ url_for('static', filename='img/logo.png') }}" class="w-24 md:w-32 h-auto" alt="Logo Footer">
+                    <img src="{{ url_for('static', filename='img/logo.png') }}" class="w-24 md:w-32 h-auto object-contain max-h-24 shrink-0" alt="Logo Footer">
                     <div>
                         <h3 class="text-xl md:text-2xl font-bold">Cooperativa Agraria Cafetalera<br>Río Tambo Ltda.</h3>
                         <p class="text-sm md:text-base text-gray-300 mt-2">Café peruano, calidad que transforma.</p>
@@ -68,11 +68,11 @@
 
                 <div>
                     <h3 class="text-2xl md:text-3xl font-bold text-center md:text-right mb-6">Síguenos</h3>
-                    <div class="flex justify-center md:justify-end gap-6 md:gap-8">
-                        <a href="#"><img src="{{ url_for('static', filename='img/iconos/facebook.png') }}" class="w-8 md:w-10 hover:opacity-80 transition" alt="Facebook"></a>
-                        <a href="#"><img src="{{ url_for('static', filename='img/iconos/instagram.png') }}" class="w-8 md:w-10 hover:opacity-80 transition" alt="Instagram"></a>
-                        <a href="#"><img src="{{ url_for('static', filename='img/iconos/whatsapp.png') }}" class="w-8 md:w-10 hover:opacity-80 transition" alt="WhatsApp"></a>
-                        <a href="#"><img src="{{ url_for('static', filename='img/iconos/gmail.png') }}" class="w-8 md:w-10 hover:opacity-80 transition" alt="Gmail"></a>
+                    <div class="flex justify-center md:justify-end gap-6 md:gap-8 items-center">
+                        <a href="#"><img src="{{ url_for('static', filename='img/iconos/facebook.png') }}" class="w-8 h-8 md:w-10 md:h-10 object-contain hover:opacity-80 transition" alt="Facebook"></a>
+                        <a href="#"><img src="{{ url_for('static', filename='img/iconos/instagram.png') }}" class="w-8 h-8 md:w-10 md:h-10 object-contain hover:opacity-80 transition" alt="Instagram"></a>
+                        <a href="#"><img src="{{ url_for('static', filename='img/iconos/whatsapp.png') }}" class="w-8 h-8 md:w-10 md:h-10 object-contain hover:opacity-80 transition" alt="WhatsApp"></a>
+                        <a href="#"><img src="{{ url_for('static', filename='img/iconos/gmail.png') }}" class="w-8 h-8 md:w-10 md:h-10 object-contain hover:opacity-80 transition" alt="Gmail"></a>
                     </div>
                 </div>
             </div>

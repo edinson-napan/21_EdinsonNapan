@@ -35,7 +35,7 @@
         </div>
         {% endif %}
 
-        <form method="POST" action="{{ safe_url_for('contacto.contacto') }}" class="space-y-5">
+        <form method="POST" action="{{ url_for('contacto.contacto_page') }}" class="space-y-5">
             
             <div>
                 <label for="nombre" class="block font-bold text-sm mb-1 text-[#1F150C]">Nombre completo:</label>
