@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Río Tambo{% endblock %}</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
+</head>
+
+<body class="bg-[#E1DCC9] text-[#1F150C]">
+
+    <nav class="bg-white shadow-md">
+        <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
+
+            <a href="{{ safe_url_for('inicio.inicio') }}">
+                <img src="{{ url_for('static', filename='img/logo.png') }}"
+                     class="w-16 h-16 object-contain"
+                     alt="Río Tambo">
+            </a>
+
+            <div class="hidden md:flex gap-10 font-medium">
+                <a href="{{ safe_url_for('inicio.inicio') }}" class="hover:text-[#8B5E34]">INICIO</a>
+
+                <a href="{{ safe_url_for('productos.mostrarProductos') }}" class="hover:text-[#8B5E34]">PRODUCTOS</a>
+                <a href="{{ safe_url_for('nosotros.nosotros') }}" class="hover:text-[#8B5E34]">NOSOTROS</a>
+                <a href="{{ safe_url_for('contacto.contacto') }}" class="hover:text-[#8B5E34]">CONTACTO</a>
+            </div>
+
+        </div>
+    </nav>
+
+    {% block content %}{% endblock %}
+
+    <footer class="bg-[#1F150C] text-white mt-16">
+
+        <div class="max-w-6xl mx-auto px-6 py-10 grid md:grid-cols-2 gap-8">
+
+            <div>
+                <h3 class="text-xl font-bold">
+                    Cooperativa Agraria Cafetalería Río Tambo Ltda.
+                </h3>
+
+                <p class="mt-3 text-gray-300">
+                    Café peruano, calidad que transforma.
+                </p>
+            </div>
+
+            <div>
+                <h3 class="text-xl font-bold mb-4">
+                    Síguenos
+                </h3>
+
+                <div class="flex gap-5 text-2xl">
+                    <span>●</span>
+                    <span>●</span>
+                    <span>●</span>
+                    <span>●</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="border-t border-white/20 px-6 py-5 text-center text-sm">
+            © 2025 CAICC. Todos los derechos reservados.
+        </div>
+
+    </footer>
+
+</body>
+</html>
