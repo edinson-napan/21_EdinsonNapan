@@ -3,49 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Río Tambo{% endblock %}</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-    </style>
+    <title>{% block title %}Cooperativa Agraria Cafetalera Río Tambo{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
 </head>
-<body class="bg-[#FAF8F5] text-[#1F150C] flex flex-col min-h-screen">
+<body class="bg-[#f8f5ed] flex flex-col min-h-screen text-[#1F150C]">
 
-    <!-- NAVBAR -->
-    <header class="bg-white border-b border-gray-100 shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-            
-            <a href="/" class="flex items-center">
-                <img src="{{ url_for('static', filename='img/logo.png') }}" 
-                     alt="Logo CAIIC" 
-                     class="h-12 w-auto object-contain">
+    <!-- HEADER / NAVBAR UNIFICADO -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
+            <!-- LOGO -->
+            <a href="{{ safe_url_for('inicio.index') }}">
+                <img src="{{ url_for('static', filename='img/logo.png') }}" class="w-24 md:w-28 h-auto" alt="Logo Río Tambo">
             </a>
-            
-            <nav class="hidden md:flex items-center space-x-10 text-sm font-bold tracking-wider text-black">
-                <a href="/" class="hover:text-[#8B5E34] transition uppercase">Inicio</a>
-                <a href="/productos" class="hover:text-[#8B5E34] transition uppercase">Productos</a>
-                <a href="/nosotros" class="hover:text-[#8B5E34] transition uppercase">Nosotros</a>
-                <a href="/contacto" class="hover:text-[#8B5E34] transition uppercase">Contacto</a>
-            </nav>
 
-        </div>
+            <!-- MENÚ PRINCIPAL -->
+            <div id="main-nav" class="hidden md:flex gap-8 lg:gap-12 text-[#3e2723] text-lg font-bold tracking-wider transition-transform duration-300">
+                <a href="{{ safe_url_for('inicio.index') }}" class="hover:text-yellow-700 transition uppercase">INICIO</a>
+                <a href="{{ safe_url_for('productos.mostrar_productos') }}" class="hover:text-yellow-700 transition uppercase">PRODUCTOS</a>
+                <a href="{{ safe_url_for('nosotros.nosotros_page') }}" class="hover:text-yellow-700 transition uppercase">NOSOTROS</a>
+                <a href="{{ safe_url_for('contacto.contacto_page') }}" class="hover:text-yellow-700 transition uppercase">CONTACTO</a>
+            </div>
+
+            <!-- BUSCADOR E ÍCONOS -->
+            <div class="flex items-center gap-4 md:gap-6">
+                <div class="relative flex items-center">
+                    <form action="#" method="get" id="search-form"
+                          class="absolute right-9 top-1/2 -translate-y-1/2 h-9 rounded-full border border-gray-200 bg-white shadow-sm overflow-hidden transition-all duration-300 ease-in-out w-0 opacity-0 pointer-events-none">
+                        <input type="text" name="q" placeholder="Buscar productos..."
+                               class="h-full w-64 px-4 text-sm text-[#3e2723] outline-none bg-transparent">
+                    </form>
+                    <button type="button" onclick="toggleSearch()" id="search-toggle-btn"
+                            class="hover:opacity-70 transition cursor-pointer relative z-10" aria-label="Buscar">
+                        <img src="{{ url_for('static', filename='img/iconos/search.png') }}" class="w-6 h-6 md:w-7 md:h-7" alt="Buscar">
+                    </button>
+                </div>
+
+                <button type="button" class="hover:opacity-70 transition cursor-pointer" aria-label="Carrito de compras">
+                    <img src="{{ url_for('static', filename='img/iconos/cart.png') }}" class="w-6 h-6 md:w-7 md:h-7" alt="Carrito">
+                </button>
+
+                <button type="button" class="hover:opacity-70 transition cursor-pointer" aria-label="Idioma">
+                    <img src="{{ url_for('static', filename='img/iconos/peru.png') }}" class="w-6 h-6 md:w-7 md:h-7" alt="Perú">
+                </button>
+            </div>
+        </nav>
     </header>
 
+    <!-- CONTENIDO PRINCIPAL -->
     <main class="flex-grow">
-        {% block content %}
-        {% endblock %}
+        {% block content %}{% endblock %}
     </main>
 
-    <!-- FOOTER -->
-    <footer class="bg-[#1F150C] text-gray-300 py-8 border-t border-[#3A281A]">
-        <div class="max-w-6xl mx-auto px-6 text-center text-sm">
-            <p>&copy; 2026 CAIIC - Río Tambo. Todos los derechos reservados.</p>
+    <!-- FOOTER UNIFICADO -->
+    <footer class="bg-[#2f1f12] text-white mt-16">
+        <div class="max-w-7xl mx-auto px-8 lg:px-16 py-12">
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <div class="flex items-center gap-6 md:gap-8">
+                    <img src="{{ url_for('static', filename='img/logo.png') }}" class="w-24 md:w-32 h-auto" alt="Logo Footer">
+                    <div>
+                        <h3 class="text-xl md:text-2xl font-bold">Cooperativa Agraria Cafetalera<br>Río Tambo Ltda.</h3>
+                        <p class="text-sm md:text-base text-gray-300 mt-2">Café peruano, calidad que transforma.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl md:text-3xl font-bold text-center md:text-right mb-6">Síguenos</h3>
+                    <div class="flex justify-center md:justify-end gap-6 md:gap-8">
+                        <a href="#"><img src="{{ url_for('static', filename='img/iconos/facebook.png') }}" class="w-8 md:w-10 hover:opacity-80 transition" alt="Facebook"></a>
+                        <a href="#"><img src="{{ url_for('static', filename='img/iconos/instagram.png') }}" class="w-8 md:w-10 hover:opacity-80 transition" alt="Instagram"></a>
+                        <a href="#"><img src="{{ url_for('static', filename='img/iconos/whatsapp.png') }}" class="w-8 md:w-10 hover:opacity-80 transition" alt="WhatsApp"></a>
+                        <a href="#"><img src="{{ url_for('static', filename='img/iconos/gmail.png') }}" class="w-8 md:w-10 hover:opacity-80 transition" alt="Gmail"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-white/20 mt-10 pt-6 flex flex-col sm:flex-row justify-between text-xs md:text-sm text-gray-400 gap-4 text-center sm:text-left">
+                <p>© 2026 Cooperativa Agraria Cafetalera Río Tambo Ltda. Todos los derechos reservados.</p>
+                <a href="#" class="hover:underline">Políticas de Privacidad</a>
+            </div>
         </div>
     </footer>
 
+    <!-- SCRIPT BUSCADOR -->
+    <script>
+    function toggleSearch() {
+        const form = document.getElementById('search-form');
+        const btn = document.getElementById('search-toggle-btn');
+        const nav = document.getElementById('main-nav');
+        const isOpen = form.classList.contains('w-64');
+
+        if (isOpen) {
+            form.classList.remove('w-64', 'opacity-100', 'pointer-events-auto');
+            form.classList.add('w-0', 'opacity-0', 'pointer-events-none');
+            if (nav) nav.classList.remove('-translate-x-[140px]', 'pointer-events-none');
+            btn.setAttribute('aria-expanded', 'false');
+        } else {
+            form.classList.remove('w-0', 'opacity-0', 'pointer-events-none');
+            form.classList.add('w-64', 'opacity-100', 'pointer-events-auto');
+            if (nav) nav.classList.add('-translate-x-[140px]', 'pointer-events-none');
+            btn.setAttribute('aria-expanded', 'true');
+            form.querySelector('input').focus();
+        }
+    }
+    </script>
 </body>
 </html>
