@@ -6,7 +6,7 @@
 
 <!-- HERO CONTACTO -->
 <section class="relative h-[420px] bg-cover bg-center flex items-center justify-start px-6 md:px-20"
-         style="background-image: url('{{ url_for('static', filename='img/contacto-hero.jpg') }}');">
+         style="background-image: url({{ url_for('static', filename='img/contacto-hero.jpg') }});">
     <!-- Overlay oscuro opcional para mejorar legibilidad si la imagen es muy clara -->
     <div class="absolute inset-0 bg-black/40"></div>
     
@@ -134,7 +134,7 @@
 
 <!-- BANNER INFERIOR DE GRANOS DE CAFÉ -->
 <section class="h-64 md:h-80 w-full bg-cover bg-center"
-         style="background-image: url('{{ url_for('static', filename='img/granos-banner.jpg') }}');">
+         style="background-image: url({{ url_for('static', filename='img/granos-banner.jpg') }});">
 </section>
 
 {% endblock %}
