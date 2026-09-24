@@ -1,1 +1,4 @@
 @import "tailwindcss";
+
+@source "../../templates/**/*.html";
+@source "../../../app/**/*.py";
