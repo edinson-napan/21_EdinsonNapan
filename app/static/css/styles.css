@@ -1,0 +1,772 @@
+@import "tailwindcss";
+
+@source "../../templates/**/*.html";
+@source "../../../app/**/*.py";
+
+/* ==========================================
+   BOTÓN MODO OSCURO / CLARO
+========================================== */
+
+#btn-tema {
+    width: 42px;
+    height: 42px;
+
+    margin-left: 10px;
+
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid #e5e5e5;
+    border-radius: 50%;
+
+    background-color: #f8f8f8;
+
+    font-size: 19px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+
+    vertical-align: middle;
+}
+
+
+/* Cuando pasamos el mouse */
+
+#btn-tema:hover {
+    transform: translateY(-2px);
+
+    background-color: #eeeeee;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+
+/* ==========================================
+   MODO OSCURO
+========================================== */
+
+body {
+    transition:
+        background-color 0.4s ease,
+        color 0.4s ease;
+}
+
+
+body.modo-oscuro {
+    background-color: #121212;
+    color: #f5f5f5;
+}
+
+
+/* Navbar */
+
+body.modo-oscuro header,
+body.modo-oscuro nav {
+    background-color: #181818;
+    color: white;
+}
+
+
+/* Enlaces del menú */
+
+body.modo-oscuro nav a,
+body.modo-oscuro header a {
+    color: #f5f5f5;
+}
+
+
+/* Secciones */
+
+body.modo-oscuro section {
+    background-color: #181818;
+    color: #f5f5f5;
+}
+
+
+/* Textos */
+
+body.modo-oscuro h1,
+body.modo-oscuro h2,
+body.modo-oscuro h3,
+body.modo-oscuro h4,
+body.modo-oscuro p {
+    color: #f5f5f5;
+}
+
+
+/* Botón cuando estamos en modo oscuro */
+
+body.modo-oscuro #btn-tema {
+    background-color: #292929;
+
+    border-color: #3a3a3a;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.30);
+}
+
+
+body.modo-oscuro #btn-tema:hover {
+    background-color: #363636;
+}
+
+
+/* Footer */
+
+body.modo-oscuro footer {
+    background-color: #101010;
+    color: white;
+}
+/* ==========================================
+   FUNCIONALIDAD 2: LOADER ANIMADO
+========================================== */
+
+#page-loader {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #ffffff;
+
+    z-index: 99999;
+
+    transition: opacity 0.5s ease,
+                visibility 0.5s ease;
+}
+
+.loader-contenido {
+    text-align: center;
+}
+
+.loader-contenido p {
+    margin-top: 15px;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    color: #3f6212;
+}
+
+
+/* Animación */
+
+.loader-cafe {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.loader-cafe span {
+    width: 15px;
+    height: 15px;
+
+    background-color: #3f6212;
+
+    border-radius: 50%;
+
+    animation: cargar 0.8s infinite alternate;
+}
+
+.loader-cafe span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.loader-cafe span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes cargar {
+
+    from {
+        transform: translateY(0);
+        opacity: 0.4;
+    }
+
+    to {
+        transform: translateY(-15px);
+        opacity: 1;
+    }
+
+}
+
+
+/* Ocultar loader */
+
+.loader-oculto {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* ==========================================
+   CHATBOT - RÍO TAMBO LTDA
+========================================== */
+
+/* BOTÓN FLOTANTE */
+#btn-chatbot {
+    position: fixed;
+    right: 28px;
+    bottom: 28px;
+
+    width: 64px;
+    height: 64px;
+
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+
+    background: linear-gradient(135deg, #365314, #4d7c0f);
+    color: white;
+
+    font-size: 27px;
+    cursor: pointer;
+
+    z-index: 9998;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow:
+        0 8px 25px rgba(54, 83, 20, 0.35),
+        0 3px 8px rgba(0, 0, 0, 0.15);
+
+    transition: all 0.3s ease;
+}
+
+#btn-chatbot:hover {
+    transform: translateY(-4px) scale(1.05);
+
+    box-shadow:
+        0 12px 30px rgba(54, 83, 20, 0.45),
+        0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+
+/* PEQUEÑO INDICADOR */
+#btn-chatbot::after {
+    content: "";
+
+    position: absolute;
+    top: 3px;
+    right: 3px;
+
+    width: 13px;
+    height: 13px;
+
+    background-color: #22c55e;
+
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+
+/* ==========================================
+   VENTANA PRINCIPAL
+========================================== */
+
+#chatbot {
+    position: fixed;
+
+    right: 28px;
+    bottom: 28px;
+
+    width: 370px;
+    height: 550px;
+
+    background-color: #ffffff;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    z-index: 9999;
+
+    display: flex;
+    flex-direction: column;
+
+    border: 1px solid rgba(0, 0, 0, 0.08);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.20),
+        0 5px 15px rgba(0, 0, 0, 0.10);
+
+    animation: abrirChat 0.35s ease;
+}
+
+
+/* ANIMACIÓN AL ABRIR */
+
+@keyframes abrirChat {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* ==========================================
+   CABECERA
+========================================== */
+
+.chatbot-header {
+    position: relative;
+
+    min-height: 75px;
+
+    padding: 16px 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #365314,
+            #4d7c0f
+        );
+
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* Icono antes del nombre */
+
+.chatbot-header > div {
+    position: relative;
+    padding-left: 52px;
+}
+
+
+/* Avatar */
+
+.chatbot-header > div::before {
+    content: "☕";
+
+    position: absolute;
+
+    left: 0;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #ffffff;
+
+    border-radius: 50%;
+
+    font-size: 21px;
+
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+
+.chatbot-header strong {
+    display: block;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    letter-spacing: 0.2px;
+}
+
+
+.chatbot-header p {
+    position: relative;
+
+    margin: 4px 0 0 0;
+    padding-left: 12px;
+
+    font-size: 12px;
+
+    color: #ecfccb;
+}
+
+
+/* Punto verde */
+
+.chatbot-header p::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    width: 7px;
+    height: 7px;
+
+    background-color: #4ade80;
+
+    border-radius: 50%;
+}
+
+
+/* BOTÓN CERRAR */
+
+#cerrar-chat {
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.12);
+
+    color: white;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+#cerrar-chat:hover {
+    background: rgba(255,255,255,0.25);
+    transform: rotate(90deg);
+}
+
+
+/* ==========================================
+   ÁREA DE MENSAJES
+========================================== */
+
+.chatbot-mensajes {
+    flex: 1;
+
+    padding: 20px 15px;
+
+    overflow-y: auto;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f8faf5,
+            #f5f7f2
+        );
+
+    scroll-behavior: smooth;
+}
+
+
+/* Scroll bonito */
+
+.chatbot-mensajes::-webkit-scrollbar {
+    width: 5px;
+}
+
+.chatbot-mensajes::-webkit-scrollbar-thumb {
+    background-color: #a3b18a;
+    border-radius: 20px;
+}
+
+
+/* ==========================================
+   MENSAJES
+========================================== */
+
+.mensaje {
+    max-width: 82%;
+
+    padding: 11px 14px;
+
+    margin-bottom: 13px;
+
+    font-size: 13.5px;
+    line-height: 1.5;
+
+    animation: mensajeEntrada 0.25s ease;
+}
+
+
+@keyframes mensajeEntrada {
+
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* MENSAJE DEL BOT */
+
+.mensaje.bot {
+    margin-right: auto;
+
+    background-color: #ffffff;
+    color: #374151;
+
+    border-radius:
+        5px 16px 16px 16px;
+
+    box-shadow:
+        0 2px 8px rgba(0,0,0,0.07);
+
+    border: 1px solid #eef0eb;
+}
+
+
+/* MENSAJE DEL USUARIO */
+
+.mensaje.usuario {
+    margin-left: auto;
+
+    background:
+        linear-gradient(
+            135deg,
+            #3f6212,
+            #4d7c0f
+        );
+
+    color: white;
+
+    border-radius:
+        16px 5px 16px 16px;
+
+    box-shadow:
+        0 3px 8px rgba(63,98,18,0.20);
+}
+
+
+/* ==========================================
+   OPCIONES RÁPIDAS
+========================================== */
+
+.chatbot-opciones {
+    display: flex;
+
+    gap: 7px;
+
+    padding: 10px 12px;
+
+    overflow-x: auto;
+
+    background-color: #ffffff;
+
+    border-top: 1px solid #f0f0f0;
+}
+
+
+.chatbot-opciones::-webkit-scrollbar {
+    display: none;
+}
+
+
+.chatbot-opciones button {
+    flex-shrink: 0;
+
+    padding: 7px 11px;
+
+    border: 1px solid #84a454;
+    border-radius: 20px;
+
+    background-color: #f7fee7;
+
+    color: #3f6212;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+
+.chatbot-opciones button:hover {
+    background-color: #4d7c0f;
+    color: white;
+
+    transform: translateY(-2px);
+}
+
+
+/* ==========================================
+   CAJA PARA ESCRIBIR
+========================================== */
+
+.chatbot-input {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 12px;
+
+    background-color: white;
+
+    border-top: 1px solid #eeeeee;
+}
+
+
+.chatbot-input input {
+    flex: 1;
+
+    height: 42px;
+
+    padding: 0 16px;
+
+    border: 1px solid #dfe3da;
+    border-radius: 25px;
+
+    background-color: #f8faf7;
+
+    color: #333;
+
+    font-size: 13px;
+
+    outline: none;
+
+    transition: 0.3s;
+}
+
+
+.chatbot-input input::placeholder {
+    color: #9ca3af;
+}
+
+
+.chatbot-input input:focus {
+    background-color: white;
+
+    border-color: #65a30d;
+
+    box-shadow:
+        0 0 0 3px rgba(101,163,13,0.10);
+}
+
+
+/* BOTÓN ENVIAR */
+
+.chatbot-input button {
+    flex-shrink: 0;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #365314,
+            #4d7c0f
+        );
+
+    color: white;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: 0.25s;
+}
+
+
+.chatbot-input button:hover {
+    transform: scale(1.08);
+}
+
+
+/* ==========================================
+   OCULTAR CHAT
+========================================== */
+
+.chatbot-oculto {
+    display: none !important;
+}
+
+
+/* ==========================================
+   MODO OSCURO
+========================================== */
+
+body.modo-oscuro #chatbot {
+    background-color: #181818;
+}
+
+body.modo-oscuro .chatbot-mensajes {
+    background: #202020;
+}
+
+body.modo-oscuro .mensaje.bot {
+    background-color: #292929;
+    color: #f3f3f3;
+
+    border-color: #333;
+}
+
+body.modo-oscuro .chatbot-opciones,
+body.modo-oscuro .chatbot-input {
+    background-color: #181818;
+
+    border-color: #333;
+}
+
+body.modo-oscuro .chatbot-input input {
+    background-color: #292929;
+    border-color: #444;
+    color: white;
+}
+
+
+/* ==========================================
+   CELULARES
+========================================== */
+
+@media (max-width: 500px) {
+
+    #chatbot {
+        width: calc(100% - 24px);
+        height: 75vh;
+
+        right: 12px;
+        bottom: 12px;
+
+        border-radius: 18px;
+    }
+
+    #btn-chatbot {
+        right: 18px;
+        bottom: 18px;
+    }
+
+}
