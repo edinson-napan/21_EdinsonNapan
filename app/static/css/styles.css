@@ -801,3 +801,129 @@ body.modo-oscuro .chatbot-input input {
     }
 
 }
+/* ==========================================
+   ESTABILIDAD VISUAL Y TRADUCCIONES
+   Evita que textos más largos en inglés
+   alteren tamaños, columnas o iconos.
+========================================== */
+
+html {
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+.site-footer {
+    width: 100%;
+}
+
+.footer-principal {
+    align-items: center;
+}
+
+.footer-identidad,
+.footer-redes {
+    min-width: 0;
+}
+
+.footer-logo {
+    width: 6rem;
+    min-width: 6rem;
+    height: 5.5rem;
+}
+
+.footer-nombre {
+    overflow-wrap: break-word;
+    text-wrap: balance;
+}
+
+.footer-redes h3 {
+    min-height: 1.75rem;
+}
+
+.footer-iconos {
+    flex-wrap: nowrap;
+}
+
+.footer-icono-link {
+    width: 2.5rem;
+    height: 2.5rem;
+    min-width: 2.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.footer-icono {
+    width: 2rem !important;
+    height: 2rem !important;
+    min-width: 2rem;
+    min-height: 2rem;
+    max-width: 2rem;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.footer-inferior p {
+    max-width: 48rem;
+}
+
+.inicio-icono {
+    width: 2rem;
+    height: 2rem;
+    min-width: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.inicio-flecha {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1rem;
+    min-width: 1rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+/* Los textos traducibles pueden crecer, pero no cambian la escala */
+[data-translation] {
+    overflow-wrap: break-word;
+}
+
+@media (max-width: 767px) {
+    .footer-principal {
+        text-align: center;
+    }
+
+    .footer-identidad {
+        justify-content: center;
+        text-align: left;
+    }
+
+    .footer-redes h3 {
+        text-align: center;
+    }
+
+    .footer-inferior p {
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .footer-identidad {
+        justify-content: flex-start;
+    }
+
+    .footer-redes {
+        justify-self: end;
+        width: 100%;
+    }
+}

@@ -108,34 +108,72 @@
     </main>
 
     <!-- FOOTER UNIFICADO -->
-    <footer class="bg-[#2f1f12] text-white mt-16">
-        <div class="max-w-7xl mx-auto px-8 lg:px-16 py-12">
-            <div class="grid md:grid-cols-2 gap-10 items-center">
-                <div class="flex items-center gap-6 md:gap-8">
-                    <img src="{{ url_for('static', filename='img/logo.png') }}" class="w-24 md:w-32 h-auto object-contain max-h-24 shrink-0" alt="Logo Footer">
-                    <div>
-                        <h3 class="text-xl md:text-2xl font-bold">Cooperativa Agraria Cafetalera<br>Río Tambo Ltda.</h3>
-                        <p class="text-sm md:text-base text-gray-300 mt-2">
+    <footer class="site-footer bg-[#2f1f12] text-white mt-16">
+        <div class="footer-contenedor max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 py-12">
+            <div class="footer-principal grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-center">
+
+                <!-- IDENTIDAD -->
+                <div class="footer-identidad flex items-center gap-5 sm:gap-6">
+                    <img
+                        src="{{ url_for('static', filename='img/logo.png') }}"
+                        class="footer-logo w-24 md:w-28 h-auto object-contain shrink-0"
+                        alt="Logo Río Tambo"
+                    >
+
+                    <div class="min-w-0">
+                        <h3 class="footer-nombre text-lg sm:text-xl md:text-2xl font-bold leading-tight">
+                            Cooperativa Agraria Cafetalera<br>
+                            Río Tambo Ltda.
+                        </h3>
+
+                        <p class="text-sm md:text-base text-gray-300 mt-2 leading-relaxed">
                             {{ _("Café peruano, calidad que transforma.") }}
                         </p>
+                    </div>
                 </div>
 
-                <div>
-                    <h3 class="text-2xl md:text-3xl font-bold text-center md:text-right mb-6">
+                <!-- REDES -->
+                <div class="footer-redes min-w-0">
+                    <h3 class="text-xl md:text-2xl font-bold text-center md:text-right mb-5 leading-tight">
                         {{ _("Síguenos") }}
                     </h3>
-                    <div class="flex justify-center md:justify-end gap-6 md:gap-8 items-center">
-                        <a href="#"><img src="{{ url_for('static', filename='img/iconos/facebook.png') }}" class="w-8 h-8 md:w-10 md:h-10 object-contain hover:opacity-80 transition" alt="Facebook"></a>
-                        <a href="#"><img src="{{ url_for('static', filename='img/iconos/instagram.png') }}" class="w-8 h-8 md:w-10 md:h-10 object-contain hover:opacity-80 transition" alt="Instagram"></a>
-                        <a href="#"><img src="{{ url_for('static', filename='img/iconos/whatsapp.png') }}" class="w-8 h-8 md:w-10 md:h-10 object-contain hover:opacity-80 transition" alt="WhatsApp"></a>
-                        <a href="#"><img src="{{ url_for('static', filename='img/iconos/gmail.png') }}" class="w-8 h-8 md:w-10 md:h-10 object-contain hover:opacity-80 transition" alt="Gmail"></a>
+
+                    <div class="footer-iconos flex justify-center md:justify-end gap-5 sm:gap-6 items-center">
+                        <a href="#" class="footer-icono-link" aria-label="Facebook">
+                            <img src="{{ url_for('static', filename='img/iconos/facebook.png') }}"
+                                 class="footer-icono w-8 h-8 object-contain"
+                                 alt="Facebook">
+                        </a>
+
+                        <a href="#" class="footer-icono-link" aria-label="Instagram">
+                            <img src="{{ url_for('static', filename='img/iconos/instagram.png') }}"
+                                 class="footer-icono w-8 h-8 object-contain"
+                                 alt="Instagram">
+                        </a>
+
+                        <a href="#" class="footer-icono-link" aria-label="WhatsApp">
+                            <img src="{{ url_for('static', filename='img/iconos/whatsapp.png') }}"
+                                 class="footer-icono w-8 h-8 object-contain"
+                                 alt="WhatsApp">
+                        </a>
+
+                        <a href="#" class="footer-icono-link" aria-label="Gmail">
+                            <img src="{{ url_for('static', filename='img/iconos/gmail.png') }}"
+                                 class="footer-icono w-8 h-8 object-contain"
+                                 alt="Gmail">
+                        </a>
                     </div>
                 </div>
             </div>
 
-            <div class="border-t border-white/20 mt-10 pt-6 flex flex-col sm:flex-row justify-between text-xs md:text-sm text-gray-400 gap-4 text-center sm:text-left">
-                <p>© 2026 Cooperativa Agraria Cafetalera Río Tambo Ltda. Todos los derechos reservados.</p>
-                <a href="#" class="hover:underline">{{ _("Políticas de Privacidad") }}</a>
+            <div class="footer-inferior border-t border-white/20 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs md:text-sm text-gray-400 gap-3 text-center sm:text-left">
+                <p class="leading-relaxed">
+                    © 2026 Cooperativa Agraria Cafetalera Río Tambo Ltda. Todos los derechos reservados.
+                </p>
+
+                <a href="#" class="shrink-0 hover:underline">
+                    {{ _("Políticas de Privacidad") }}
+                </a>
             </div>
         </div>
     </footer>
