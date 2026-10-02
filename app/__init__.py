@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, session
 from flask_babel import Babel, get_locale
 
@@ -19,7 +21,9 @@ def create_app():
 
     app.config["BABEL_DEFAULT_LOCALE"] = "es"
     app.config["BABEL_SUPPORTED_LOCALES"] = ["es", "en"]
-    app.config["BABEL_TRANSLATION_DIRECTORIES"] = "translations"
+    app.config["BABEL_TRANSLATION_DIRECTORIES"] = os.path.abspath(
+        os.path.join(app.root_path, "..", "translations")
+    )
 
     babel = Babel(
         app,

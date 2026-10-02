@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Productos | Río Tambo{% endblock %}
+{% block title %}{{ _("Productos") }} | Río Tambo{% endblock %}
 
 {% block content %}
 
@@ -10,11 +10,11 @@
 
     <div class="bg-black/55 text-white text-center px-10 py-8 rounded-xl">
         <h1 class="text-5xl font-serif font-bold">
-            Nuestros Productos
+            {{ _("Nuestros Productos") }}
         </h1>
 
         <p class="text-xl mt-3">
-            Café de origen, calidad que se siente
+            {{ _("Café de origen, calidad que se siente") }}
         </p>
     </div>
 
@@ -27,9 +27,7 @@
     <div class="bg-[#F3F1EC] rounded-2xl p-8 text-center shadow-sm">
 
         <p class="text-lg">
-            Ofrecemos granos de café de alta calidad,
-            cultivados con prácticas sostenibles en el Valle
-            de Río Tambo, listos para los mercados más exigentes.
+            {{ _("Ofrecemos granos de café de alta calidad, cultivados con prácticas sostenibles en el Valle de Río Tambo, listos para los mercados más exigentes.") }}
         </p>
 
     </div>
@@ -43,28 +41,27 @@
 
             <img src="{{ url_for('static', filename='img/cafe-verde.jpg') }}"
                  class="w-full h-48 object-cover"
-                 alt="Café Verde">
+                 alt="{{ _('Café Verde') }}">
 
             <div class="p-6">
 
                 <h2 class="text-2xl font-bold">
-                    Café Verde
+                    {{ _("Café Verde") }}
                 </h2>
 
                 <p class="mt-2">
-                    Grano crudo de alta calidad, ideal para procesos
-                    de selección y tostado.
+                    {{ _("Grano crudo de alta calidad, ideal para procesos de selección y tostado.") }}
                 </p>
 
                 <ul class="list-disc ml-5 mt-4">
-                    <li>100% orgánico.</li>
-                    <li>Alta calidad.</li>
-                    <li>Cultivado en el Valle de Río Tambo.</li>
+                    <li>{{ _("100 por ciento orgánico.") }}</li>
+                    <li>{{ _("Alta calidad.") }}</li>
+                    <li>{{ _("Cultivado en el Valle de Río Tambo.") }}</li>
                 </ul>
 
                 <button class="w-full mt-6 bg-[#2B1A0F] text-white py-3
                                rounded-xl hover:bg-[#543722] transition">
-                    Solicita cotización →
+                    {{ _("Solicita cotización") }} →
                 </button>
 
             </div>
@@ -76,28 +73,27 @@
 
             <img src="{{ url_for('static', filename='img/cafe-pergamino.jpg') }}"
                  class="w-full h-48 object-cover"
-                 alt="Café Pergamino">
+                 alt="{{ _('Café Pergamino') }}">
 
             <div class="p-6">
 
                 <h2 class="text-2xl font-bold">
-                    Café Pergamino
+                    {{ _("Café Pergamino") }}
                 </h2>
 
                 <p class="mt-2">
-                    Grano con capa de pergamino, seleccionado
-                    cuidadosamente de nuestras fincas.
+                    {{ _("Grano con capa de pergamino, seleccionado cuidadosamente de nuestras fincas.") }}
                 </p>
 
                 <ul class="list-disc ml-5 mt-4">
-                    <li>100% orgánico.</li>
-                    <li>Proceso natural.</li>
-                    <li>Cultivado en el Valle de Río Tambo.</li>
+                    <li>{{ _("100 por ciento orgánico.") }}</li>
+                    <li>{{ _("Proceso natural.") }}</li>
+                    <li>{{ _("Cultivado en el Valle de Río Tambo.") }}</li>
                 </ul>
 
                 <button class="w-full mt-6 bg-[#2B1A0F] text-white py-3
                                rounded-xl hover:bg-[#543722] transition">
-                    Solicita cotización →
+                    {{ _("Solicita cotización") }} →
                 </button>
 
             </div>
@@ -114,20 +110,18 @@
     <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-8">
 
         <div class="text-center">
-            <h2 class="text-2xl font-bold mb-3">Misión</h2>
+            <h2 class="text-2xl font-bold mb-3">{{ _("Misión") }}</h2>
 
             <p>
-                Ofrecer café de calidad, producido responsablemente
-                y con compromiso hacia nuestros clientes y productores.
+                {{ _("Ofrecer café de calidad, producido responsablemente y con compromiso hacia nuestros clientes y productores.") }}
             </p>
         </div>
 
         <div class="text-center">
-            <h2 class="text-2xl font-bold mb-3">Visión</h2>
+            <h2 class="text-2xl font-bold mb-3">{{ _("Visión") }}</h2>
 
             <p>
-                Fortalecer nuestra presencia en los mercados nacionales
-                e internacionales mediante productos de calidad.
+                {{ _("Fortalecer nuestra presencia en los mercados nacionales e internacionales mediante productos de calidad.") }}
             </p>
         </div>
 
@@ -140,14 +134,14 @@
 <section class="max-w-5xl mx-auto px-6 py-12">
 
     <h2 class="text-3xl font-bold text-center mb-8">
-        Calidad desde el origen
+        {{ _("Calidad desde el origen") }}
     </h2>
 
     <div class="overflow-hidden rounded-2xl shadow-lg">
 
         <img src="{{ url_for('static', filename='img/cafe-origen.jpg') }}"
              class="w-full h-72 object-cover"
-             alt="Café desde el origen">
+             alt="{{ _('Café desde el origen') }}">
 
     </div>
 
@@ -158,16 +152,16 @@
 <section class="bg-[#E1DCC9] py-12 text-center">
 
     <h2 class="text-3xl font-bold">
-        ¿Quieres conocer nuestros productos?
+        {{ _("¿Quieres conocer nuestros productos?") }}
     </h2>
 
     <p class="mt-3">
-        Contáctanos para conocer más sobre nuestra oferta.
+        {{ _("Contáctanos para conocer más sobre nuestra oferta.") }}
     </p>
 
     <a href="{{ url_for('contacto.contacto_page') }}"
         class="inline-block mt-6 bg-[#2B1A0F] text-white px-8 py-3 rounded-xl hover:bg-[#543722] transition">
-            Contáctanos
+            {{ _("Contáctanos") }}
     </a>
 
 </section>

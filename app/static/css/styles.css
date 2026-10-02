@@ -11,7 +11,7 @@
     width: 42px;
     height: 42px;
 
-    margin-left: 10px;
+    margin-left: 0;
 
     display: inline-flex;
     justify-content: center;
@@ -80,6 +80,19 @@ body.modo-oscuro header a {
 }
 
 
+/* El selector de idioma conserva fondo claro en ambos temas */
+
+#language-menu,
+#language-menu a,
+#language-menu span {
+    color: #1f150c;
+}
+
+#language-menu {
+    background-color: #ffffff;
+}
+
+
 /* Secciones */
 
 body.modo-oscuro section {
@@ -96,6 +109,24 @@ body.modo-oscuro h3,
 body.modo-oscuro h4,
 body.modo-oscuro p {
     color: #f5f5f5;
+}
+
+
+/* Superficies claras necesitan contraste propio en modo oscuro */
+
+body.modo-oscuro article,
+body.modo-oscuro .bg-white,
+body.modo-oscuro [class*="bg-[#F3F1EC]"],
+body.modo-oscuro [class*="bg-[#E1DCC9]"] {
+    background-color: #242424;
+    color: #f5f5f5;
+}
+
+body.modo-oscuro input,
+body.modo-oscuro select,
+body.modo-oscuro textarea {
+    background-color: #ffffff;
+    color: #1f150c;
 }
 
 

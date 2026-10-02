@@ -53,6 +53,7 @@
                     <img src="{{ url_for('static', filename='img/iconos/cart.png') }}" class="w-6 h-6 md:w-7 md:h-7 object-contain" alt="Carrito">
                 </button>
 
+                <div id="language-controls" class="flex items-center gap-3">
                 <div class="relative">
 
     <button
@@ -60,12 +61,15 @@
         onclick="toggleLanguageMenu()"
         class="hover:opacity-70 transition cursor-pointer flex items-center justify-center"
         aria-label="{{ _('Idioma') }}"
+        aria-expanded="false"
+        aria-controls="language-menu"
     >
-        <img
-            src="{{ url_for('static', filename='img/iconos/peru.png') }}"
-            class="w-6 h-6 md:w-7 md:h-7 object-contain rounded-full"
-            alt="{{ _('Idioma') }}"
-        >
+        <span
+            id="language-icon"
+            class="text-2xl leading-none"
+            role="img"
+            aria-label="{{ _('Idioma') }}"
+        >{% if idiomaActual == 'en' %}🇺🇸{% else %}🇵🇪{% endif %}</span>
     </button>
 
     <div
@@ -92,6 +96,8 @@
     </div>
 
 </div>
+                    <div id="theme-button-slot"></div>
+                </div>
             </div>
         </nav>
     </header>
@@ -158,13 +164,21 @@
 
     function toggleLanguageMenu() {
         const menu = document.getElementById('language-menu');
+        const button = document.querySelector('[aria-controls="language-menu"]');
+        const isHidden = menu.classList.toggle('hidden');
 
-        if (menu.classList.contains('hidden')) {
-            menu.classList.remove('hidden');
-        } else {
-            menu.classList.add('hidden');
-        }
+        button.setAttribute('aria-expanded', String(!isHidden));
     }
+
+    document.addEventListener('click', (event) => {
+        const languageMenu = document.getElementById('language-menu');
+        const languageButton = document.querySelector('[aria-controls="language-menu"]');
+
+        if (!languageMenu.contains(event.target) && !languageButton.contains(event.target)) {
+            languageMenu.classList.add('hidden');
+            languageButton.setAttribute('aria-expanded', 'false');
+        }
+    });
     </script>
     <script src="{{ url_for('static', filename='js/funcionalidad1.js') }}"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">

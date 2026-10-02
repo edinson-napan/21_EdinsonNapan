@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-01 12:40-0500\n"
+"POT-Creation-Date: 2026-10-01 21:39-0500\n"
 "PO-Revision-Date: 2026-10-01 12:43-0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -20,41 +20,398 @@ msgstr ""
 
 #: app/templates/base.html:22
 msgid "INICIO"
-msgstr ""
+msgstr "HOME"
 
 #: app/templates/base.html:26
 msgid "PRODUCTOS"
-msgstr ""
+msgstr "PRODUCTS"
 
 #: app/templates/base.html:30
 msgid "NOSOTROS"
-msgstr ""
+msgstr "ABOUT US"
 
 #: app/templates/base.html:34
 msgid "CONTACTO"
-msgstr ""
+msgstr "CONTACT"
 
 #: app/templates/base.html:43
 msgid "Buscar productos..."
-msgstr ""
+msgstr "Search products..."
 
 #: app/templates/base.html:47 app/templates/base.html:48
 msgid "Buscar"
-msgstr ""
+msgstr "Search"
 
-#: app/templates/base.html:62 app/templates/base.html:67
+#: app/templates/base.html:63 app/templates/base.html:71
 msgid "Idioma"
-msgstr ""
-
-#: app/templates/base.html:113
-msgid "Café peruano, calidad que transforma."
-msgstr ""
+msgstr "Language"
 
 #: app/templates/base.html:119
-msgid "Síguenos"
-msgstr ""
+msgid "Café peruano, calidad que transforma."
+msgstr "Peruvian coffee, quality that transforms."
 
-#: app/templates/base.html:132
+#: app/templates/base.html:125
+msgid "Síguenos"
+msgstr "Follow us"
+
+#: app/templates/base.html:138
 msgid "Políticas de Privacidad"
+msgstr "Privacy Policy"
+
+#: app/templates/contacto/index.html:3
+msgid "Contacto"
+msgstr "Contact"
+
+#: app/templates/contacto/index.html:15 app/templates/productos/index.html:164
+msgid "Contáctanos"
+msgstr "Contact us"
+
+#: app/templates/contacto/index.html:18
+msgid "Estamos aquí para atenderte"
+msgstr "We are here to assist you"
+
+#: app/templates/contacto/index.html:28
+msgid "Envíanos un mensaje"
+msgstr "Send us a message"
+
+#: app/templates/contacto/index.html:29
+msgid "Escríbenos y nuestro equipo te responderá a la brevedad."
+msgstr "Write to us and our team will respond shortly."
+
+#: app/templates/contacto/index.html:33
+msgid "¡Mensaje enviado!"
+msgstr "Message sent!"
+
+#: app/templates/contacto/index.html:34
+msgid "Gracias por contactarnos. Te responderemos pronto."
+msgstr "Thank you for contacting us. We will respond soon."
+
+#: app/templates/contacto/index.html:41
+msgid "Nombre completo:"
+msgstr "Full name:"
+
+#: app/templates/contacto/index.html:42
+msgid "Tu nombre"
+msgstr "Your name"
+
+#: app/templates/contacto/index.html:47
+msgid "Correo electrónico:"
+msgstr "Email address:"
+
+#: app/templates/contacto/index.html:53
+msgid "Teléfono:"
+msgstr "Phone:"
+
+#: app/templates/contacto/index.html:59
+msgid "Motivo de consulta:"
+msgstr "Reason for inquiry:"
+
+#: app/templates/contacto/index.html:62
+msgid "Selecciona una opción"
+msgstr "Select an option"
+
+#: app/templates/contacto/index.html:63
+msgid "Cotización de productos"
+msgstr "Product quote"
+
+#: app/templates/contacto/index.html:64
+msgid "Información general"
+msgstr "General information"
+
+#: app/templates/contacto/index.html:65
+msgid "Quiero ser socio"
+msgstr "I want to become a member"
+
+#: app/templates/contacto/index.html:66
+msgid "Otros"
+msgstr "Other"
+
+#: app/templates/contacto/index.html:71
+msgid "Mensaje:"
+msgstr "Message:"
+
+#: app/templates/contacto/index.html:72
+msgid "Cuéntanos qué necesitas..."
+msgstr "Tell us what you need..."
+
+#: app/templates/contacto/index.html:78
+msgid "Enviar mensaje"
+msgstr "Send message"
+
+#: app/templates/contacto/index.html:93
+msgid "Ubicación"
+msgstr "Location"
+
+#: app/templates/contacto/index.html:105
+msgid "Teléfono"
+msgstr "Phone"
+
+#: app/templates/contacto/index.html:116
+msgid "Correo Electrónico"
+msgstr "Email"
+
+#: app/templates/contacto/index.html:127
+msgid "Horario de atención"
+msgstr "Business hours"
+
+#: app/templates/contacto/index.html:128
+msgid "Lunes - Viernes"
+msgstr "Monday - Friday"
+
+#: app/templates/inicio/index.html:3
+msgid "Inicio"
+msgstr "Home"
+
+#: app/templates/inicio/index.html:17
+msgid "Café que cultiva un mejor mañana"
+msgstr "Coffee that cultivates a better tomorrow"
+
+#: app/templates/inicio/index.html:20
+msgid ""
+"Desde nuestras tierras en el Valle del Río Tambo, llevamos el mejor café "
+"peruano a tu taza."
 msgstr ""
+"From our lands in the Tambo River Valley, we bring the finest Peruvian "
+"coffee to your cup."
+
+#: app/templates/inicio/index.html:23
+msgid "Descubre nuestro café"
+msgstr "Discover our coffee"
+
+#: app/templates/inicio/index.html:36
+msgid "Orgánico"
+msgstr "Organic"
+
+#: app/templates/inicio/index.html:37
+msgid "Sin agroquímicos"
+msgstr "Without agrochemicals"
+
+#: app/templates/inicio/index.html:43 app/templates/nosotros/index.html:152
+msgid "Calidad"
+msgstr "Quality"
+
+#: app/templates/inicio/index.html:44
+msgid "En cada grano"
+msgstr "In every bean"
+
+#: app/templates/inicio/index.html:50 app/templates/nosotros/index.html:153
+msgid "Sostenibilidad"
+msgstr "Sustainability"
+
+#: app/templates/inicio/index.html:51
+msgid "Con nuestras comunidades"
+msgstr "With our communities"
+
+#: app/templates/inicio/index.html:57
+msgid "Social"
+msgstr "Social impact"
+
+#: app/templates/inicio/index.html:58
+msgid "Impulsamos el desarrollo local"
+msgstr "We promote local development"
+
+#: app/templates/inicio/index.html:69
+msgid "Nuestra esencia"
+msgstr "Our essence"
+
+#: app/templates/inicio/index.html:71
+msgid "De nuestra tierra a tu taza, cultivamos calidad que inspira"
+msgstr "From our land to your cup, we cultivate quality that inspires"
+
+#: app/templates/inicio/index.html:74
+msgid "Conoce más sobre nosotros"
+msgstr "Learn more about us"
+
+#: app/templates/inicio/index.html:83
+msgid "Últimas Novedades"
+msgstr "Latest news"
+
+#: app/templates/inicio/index.html:85
+msgid "Ver todos"
+msgstr "View all"
+
+#: app/templates/inicio/index.html:94
+msgid "La importancia del café para el mundo"
+msgstr "The importance of coffee to the world"
+
+#: app/templates/inicio/index.html:102
+msgid "Buenas prácticas en el cultivo de café"
+msgstr "Good practices in coffee cultivation"
+
+#: app/templates/inicio/index.html:110
+msgid "Trabajo por un futuro sostenible"
+msgstr "Working toward a sustainable future"
+
+#: app/templates/nosotros/index.html:5 app/templates/nosotros/index.html:25
+msgid "Nuestra Cooperativa"
+msgstr "Our Cooperative"
+
+#: app/templates/nosotros/index.html:30
+msgid "Unidos por un café de calidad,"
+msgstr "United by quality coffee,"
+
+#: app/templates/nosotros/index.html:32
+msgid "comprometidos con un futuro sostenible."
+msgstr "committed to a sustainable future."
+
+#: app/templates/nosotros/index.html:53
+msgid "¿Quiénes Somos?"
+msgstr "Who are we?"
+
+#: app/templates/nosotros/index.html:58
+msgid ""
+"La Cooperativa Agraria Cafetalera Río Tambo Ltda., es una organización de"
+" productores comprometidos con la calidad, la sostenibilidad y el "
+"desarrollo de nuestras comunidades."
+msgstr ""
+"Río Tambo Agricultural Coffee Cooperative Ltd. is an organization of "
+"producers committed to quality, sustainability, and the development of "
+"our communities."
+
+#: app/templates/nosotros/index.html:63
+msgid ""
+"Trabajamos para llevar café peruano al mundo, respetando nuestra tierra y"
+" nuestras tradiciones."
+msgstr ""
+"We work to bring Peruvian coffee to the world while respecting our land "
+"and traditions."
+
+#: app/templates/nosotros/index.html:105 app/templates/productos/index.html:113
+msgid "Misión"
+msgstr "Mission"
+
+#: app/templates/nosotros/index.html:109
+msgid ""
+"Mejorar la calidad de vida de nuestros socios a través de la producción y"
+" comercialización de café de alta calidad."
+msgstr ""
+"Improve the quality of life of our members through the production and "
+"marketing of high-quality coffee."
+
+#: app/templates/nosotros/index.html:126 app/templates/productos/index.html:121
+msgid "Visión"
+msgstr "Vision"
+
+#: app/templates/nosotros/index.html:130
+msgid ""
+"Ser una cooperativa reconocida a nivel nacional e internacional por "
+"nuestro café sostenible y de excelencia."
+msgstr ""
+"Be a cooperative recognized nationally and internationally for our "
+"sustainable coffee and excellence."
+
+#: app/templates/nosotros/index.html:147
+msgid "Valores"
+msgstr "Values"
+
+#: app/templates/nosotros/index.html:154
+msgid "Trabajo en equipo"
+msgstr "Teamwork"
+
+#: app/templates/nosotros/index.html:155
+msgid "Responsabilidad social"
+msgstr "Social responsibility"
+
+#: app/templates/nosotros/index.html:156
+msgid "Honestidad"
+msgstr "Honesty"
+
+#: app/templates/nosotros/index.html:189
+msgid "Cuidamos hoy,"
+msgstr "We care today,"
+
+#: app/templates/nosotros/index.html:191
+msgid "para un mejor mañana."
+msgstr "for a better tomorrow."
+
+#: app/templates/productos/index.html:3
+msgid "Productos"
+msgstr "Products"
+
+#: app/templates/productos/index.html:13
+msgid "Nuestros Productos"
+msgstr "Our Products"
+
+#: app/templates/productos/index.html:17
+msgid "Café de origen, calidad que se siente"
+msgstr "Origin coffee, quality you can taste"
+
+#: app/templates/productos/index.html:30
+msgid ""
+"Ofrecemos granos de café de alta calidad, cultivados con prácticas "
+"sostenibles en el Valle de Río Tambo, listos para los mercados más "
+"exigentes."
+msgstr ""
+"We offer high-quality coffee beans, grown using sustainable practices in "
+"the Tambo River Valley and ready for the most demanding markets."
+
+#: app/templates/productos/index.html:44 app/templates/productos/index.html:49
+msgid "Café Verde"
+msgstr "Green Coffee"
+
+#: app/templates/productos/index.html:53
+msgid "Grano crudo de alta calidad, ideal para procesos de selección y tostado."
+msgstr "High-quality raw beans, ideal for sorting and roasting."
+
+#: app/templates/productos/index.html:57 app/templates/productos/index.html:89
+msgid "100 por ciento orgánico."
+msgstr "100 percent organic."
+
+#: app/templates/productos/index.html:58
+msgid "Alta calidad."
+msgstr "High quality."
+
+#: app/templates/productos/index.html:59 app/templates/productos/index.html:91
+msgid "Cultivado en el Valle de Río Tambo."
+msgstr "Grown in the Tambo River Valley."
+
+#: app/templates/productos/index.html:64 app/templates/productos/index.html:96
+msgid "Solicita cotización"
+msgstr "Request a quote"
+
+#: app/templates/productos/index.html:76 app/templates/productos/index.html:81
+msgid "Café Pergamino"
+msgstr "Parchment Coffee"
+
+#: app/templates/productos/index.html:85
+msgid ""
+"Grano con capa de pergamino, seleccionado cuidadosamente de nuestras "
+"fincas."
+msgstr "Beans with a parchment layer, carefully selected from our farms."
+
+#: app/templates/productos/index.html:90
+msgid "Proceso natural."
+msgstr "Natural process."
+
+#: app/templates/productos/index.html:116
+msgid ""
+"Ofrecer café de calidad, producido responsablemente y con compromiso "
+"hacia nuestros clientes y productores."
+msgstr ""
+"Offer quality coffee produced responsibly and with commitment to our "
+"customers and producers."
+
+#: app/templates/productos/index.html:124
+msgid ""
+"Fortalecer nuestra presencia en los mercados nacionales e internacionales"
+" mediante productos de calidad."
+msgstr ""
+"Strengthen our presence in national and international markets through "
+"quality products."
+
+#: app/templates/productos/index.html:137
+msgid "Calidad desde el origen"
+msgstr "Quality from the source"
+
+#: app/templates/productos/index.html:144
+msgid "Café desde el origen"
+msgstr "Coffee from the source"
+
+#: app/templates/productos/index.html:155
+msgid "¿Quieres conocer nuestros productos?"
+msgstr "Would you like to learn about our products?"
+
+#: app/templates/productos/index.html:159
+msgid "Contáctanos para conocer más sobre nuestra oferta."
+msgstr "Contact us to learn more about our offering."
 

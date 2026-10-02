@@ -11,5 +11,6 @@ def cambiarIdioma(idioma):
 
     if idioma in idiomasPermitidos:
         session["idioma"] = idioma
+        session.modified = True
 
     return redirect(request.referrer or "/")

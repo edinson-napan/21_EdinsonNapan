@@ -16,17 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // COLOCAR BOTÓN AL LADO DE LA BANDERA
     // ==========================================
 
-    const bandera = document.querySelector(
-        'img[alt="Perú"], img[alt="Peru"]'
-    );
+    const espacioTema = document.getElementById("theme-button-slot");
 
-    if (bandera) {
+    if (espacioTema) {
 
-        // Colocar después de la bandera
-        bandera.insertAdjacentElement(
-            "afterend",
-            botonTema
-        );
+        espacioTema.appendChild(botonTema);
 
     } else {
 
