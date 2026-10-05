@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@source "../../templates/**/*.html";
+@source "../../../app/**/*.py";
+
+/* Tokens de marca: un solo lugar para colores y radios.
+   Uso en plantillas: bg-crema, bg-arena, bg-cafe-900, text-cafe-950,
+   bg-oro, text-acento, rounded-tarjeta */
+@theme {
+  --color-crema: #f8f5ed;      /* fondo general */
+  --color-arena: #f1e7d0;      /* bandas alternas */
+  --color-cafe-950: #24170f;   /* títulos */
+  --color-cafe-900: #2f1f12;   /* fondo del footer y de la franja de cifras */
+  --color-cafe-800: #3e2723;   /* texto y navegación */
+  --color-acento: #8f5605;     /* etiquetas, enlaces, foco (contraste mínimo 4.8:1 sobre crema, blanco y arena) */
+  --color-oro: #e3a72f;        /* botones principales (tomado del dorado del logo) */
+  --color-oro-600: #cf9722;    /* hover del botón principal */
+  --radius-tarjeta: 1.25rem;
+
+  /* Tipografía: se mantiene la serif del sistema. Si se elige una fuente de marca,
+     cargarla con @font-face (autoalojada) y declararla aquí:
+     --font-serif: "NombreFuente", Georgia, serif; */
+}
+
+/* Etiqueta pequeña sobre los títulos: <p class="etiqueta text-acento">Nosotros</p>
+   El color se pone aparte para poder cambiarlo sobre fondos oscuros. */
+@utility etiqueta {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+@layer base {
+  html {
+    scroll-padding-top: 5.5rem; /* la cabecera es fija */
+  }
+
+  body {
+    background-color: var(--color-crema);
+    color: var(--color-cafe-950);
+  }
+
+  /* Foco visible para quien navega con teclado */
+  :focus-visible {
+    outline: 3px solid var(--color-acento);
+    outline-offset: 3px;
+  }
+
+  /* Sobre fondo oscuro el foco debe ser claro */
+  footer :focus-visible {
+    outline-color: #fff;
+  }
+}
+
+/* Respeta la preferencia de movimiento reducido del sistema */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

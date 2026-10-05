@@ -1,202 +1,298 @@
 {% extends "base.html" %}
 
-
-{% block title %}
-{{ _("Nuestra Cooperativa") }}
-{% endblock %}
+{% block title %}Nosotros | Cooperativa Río Tambo{% endblock %}
+{% block description %}Conoce a la Cooperativa Agraria Cafetalera Río Tambo: nuestra historia, misión, visión, valores, certificaciones y premios.{% endblock %}
 
 
 {% block content %}
 
+{# =====================================================================
+   DATOS DE LA PÁGINA. Se editan aquí; lo que quede vacío no se muestra.
+   Los textos marcados "por confirmar" deben contrastarse con el texto
+   oficial de la cooperativa antes de publicar.
+   ===================================================================== #}
+
+{# Franja de cifras: (valor, descripción). Agregar solo datos reales.
+   Ejemplo cuando se tenga el dato: ('XX', 'Socios productores') #}
+{% set cifras = [
+  ('2017', 'Año de fundación'),
+  ('5', 'Variedades de café'),
+  ('5', 'Etapas del proceso, de la cosecha al almacén'),
+] %}
+
+{# Valores: título y una frase. Frases por confirmar con la cooperativa. #}
+{% set valores = [
+  ('Calidad', 'Cuidamos cada etapa, de la cosecha al almacenado, para entregar un café de alta calidad.'),
+  ('Sostenibilidad', 'Producimos con respeto por nuestra tierra y por las comunidades donde trabajamos.'),
+  ('Trabajo en equipo', 'Somos una organización de productores: decidimos y avanzamos juntos.'),
+  ('Responsabilidad social', 'Buscamos mejorar la calidad de vida de nuestros socios y de nuestras comunidades.'),
+  ('Honestidad', 'Actuamos con transparencia con nuestros socios y con quienes nos compran.'),
+] %}
+
+{# Certificaciones. Confirmar estado, entidad y vigencia con cada certificado.
+   pdf: ruta dentro de /static, por ejemplo 'docs/certificado-comercio-justo.pdf'. #}
+{% set certificaciones = [
+  {'nombre': 'Comercio justo',
+   'descripcion': 'Certificación que reconoce condiciones comerciales justas para los productores.',
+   'estado': 'Vigente', 'entidad': '', 'vigencia': '', 'pdf': ''},
+  {'nombre': 'Orgánico',
+   'descripcion': 'Certificación de producción orgánica para el café de la cooperativa.',
+   'estado': 'Vigente', 'entidad': '', 'vigencia': '', 'pdf': ''},
+] %}
+{% set estado_clase = {
+  'Vigente': 'bg-emerald-100 text-emerald-900',
+  'En proceso': 'bg-amber-100 text-amber-900',
+  'default': 'bg-gray-100 text-gray-800',
+} %}
+
+{# Premios: fotos de los certificados de premios. Si la lista está vacía, la
+   sección no se muestra. Ejemplo:
+   {'nombre': 'Nombre del concurso', 'anio': '2024', 'imagen': 'img/premios/premio-2024.jpg',
+    'alt': 'Certificado del premio ...'} #}
+{% set premios = [] %}
+
 
 <!-- HERO -->
+<section class="relative isolate flex min-h-[340px] items-center justify-center sm:min-h-[420px]">
 
-<section class="relative h-[650px]">
+  <img src="{{ url_for('static', filename='img/nosotros/hero-nosotros.jpg') }}"
+       alt="" fetchpriority="high"
+       class="absolute inset-0 -z-10 h-full w-full object-cover">
+  <div class="absolute inset-0 -z-10 bg-black/55"></div>
 
-<img 
-src="{{ url_for('static', filename='img/nosotros/hero-nosotros.jpg') }}"
-class="w-full h-full object-cover">
-
-
-<div class="absolute inset-0 bg-black/45 flex flex-col items-center justify-center text-center text-white px-10">
-
-
-<h1 class="text-7xl font-serif font-bold tracking-wide">
-    {{ _("Nuestra Cooperativa") }}
-</h1>
-
-
-<p class="mt-8 text-3xl max-w-4xl leading-relaxed">
-    {{ _("Unidos por un café de calidad,") }}
-    <br>
-    {{ _("comprometidos con un futuro sostenible.") }}
-</p>
-
-</div>
+  <div class="relative px-6 py-16 text-center text-white sm:px-10">
+    <p class="etiqueta text-white">Nosotros</p>
+    <h1 class="mt-3 font-serif text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+      Nuestra Cooperativa
+    </h1>
+    <p class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-balance sm:text-xl">
+      Unidos por un café de calidad, comprometidos con un futuro sostenible.
+    </p>
+  </div>
 
 </section>
 
 
+<!-- HISTORIA -->
+<section class="px-6 py-14 sm:px-10 lg:py-20" aria-labelledby="titulo-historia">
 
-<!-- QUIENES SOMOS -->
+  <div class="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-2 lg:gap-16">
 
-<section class="bg-[#f8f5ed] py-20 px-10">
+    <div>
+      <p class="etiqueta text-acento">Quiénes somos</p>
+      <h2 id="titulo-historia" class="mt-3 font-serif text-3xl font-bold text-cafe-950 text-balance lg:text-4xl">
+        Una organización de productores de Río Tambo
+      </h2>
 
-<div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+      <p class="mt-6 text-lg leading-relaxed text-cafe-800">
+        La Cooperativa Agraria Cafetalera Río Tambo Ltda. es una organización de productores
+        comprometidos con la calidad, la sostenibilidad y el desarrollo de nuestras comunidades.
+      </p>
 
+      <p class="mt-5 text-lg leading-relaxed text-cafe-800">
+        Trabajamos para llevar café peruano al mundo, respetando nuestra tierra y nuestras tradiciones.
+      </p>
+    </div>
 
-<!-- TEXTO -->
+    <div class="relative mx-auto w-full max-w-md">
+      <img src="{{ url_for('static', filename='img/nosotros/productor-cafe.jpg') }}"
+           alt="Productor de café cosechando cerezas en una plantación de montaña"
+           loading="lazy" decoding="async"
+           class="aspect-[4/5] w-full rounded-tarjeta object-cover shadow-xl">
+      <div class="absolute bottom-5 left-5 rounded-xl bg-oro px-5 py-3 text-cafe-950 shadow-md">
+        <p class="font-serif text-2xl font-bold leading-none">Desde 2017</p>
+        <p class="mt-1 text-sm font-medium">Río Tambo, Junín</p>
+      </div>
+    </div>
 
-<div>
-
-<h2 class="text-6xl font-serif font-bold text-[#24170f] mb-8">
-    {{ _("¿Quiénes Somos?") }}
-</h2>
-
-
-<p class="text-2xl leading-relaxed text-gray-800">
-    {{ _("La Cooperativa Agraria Cafetalera Río Tambo Ltda., es una organización de productores comprometidos con la calidad, la sostenibilidad y el desarrollo de nuestras comunidades.") }}
-</p>
-
-
-<p class="mt-8 text-2xl leading-relaxed text-gray-800">
-    {{ _("Trabajamos para llevar café peruano al mundo, respetando nuestra tierra y nuestras tradiciones.") }}
-</p>
-
-</div>
-
-
-<!-- IMAGEN -->
-
-<div class="flex justify-center">
-
-<img
-src="{{ url_for('static', filename='img/nosotros/productor-cafe.jpg') }}"
-class="rounded-[40px] shadow-xl w-[420px] h-[420px] object-cover"
->
-
-
-</div>
-
-</div>
+  </div>
 
 </section>
 
 
-<!-- MISION VISION VALORES -->
+<!-- MISIÓN Y VISIÓN -->
+<section class="bg-arena px-6 py-14 sm:px-10 lg:py-20" aria-label="Misión y visión">
+
+  <div class="mx-auto grid max-w-6xl gap-12 md:grid-cols-2 lg:gap-20">
+
+    <div>
+      <p class="etiqueta text-acento">Qué hacemos</p>
+      <h2 class="mt-3 font-serif text-3xl font-bold text-cafe-950 lg:text-4xl">Nuestra misión</h2>
+      <p class="mt-5 text-xl leading-relaxed text-cafe-800">
+        Mejorar la calidad de vida de nuestros socios a través de la producción y comercialización
+        de café de alta calidad.
+      </p>
+    </div>
+
+    <div>
+      <p class="etiqueta text-acento">A dónde vamos</p>
+      <h2 class="mt-3 font-serif text-3xl font-bold text-cafe-950 lg:text-4xl">Nuestra visión</h2>
+      <p class="mt-5 text-xl leading-relaxed text-cafe-800">
+        Ser una cooperativa reconocida a nivel nacional e internacional por nuestro café sostenible
+        y de excelencia.
+      </p>
+    </div>
+
+  </div>
+
+</section>
 
 
-<section class="bg-[#f8f5ed] px-10 py-16">
+<!-- CIFRAS -->
+{% if cifras %}
+<section class="bg-cafe-900 px-6 py-12 text-white sm:px-10" aria-label="La cooperativa en cifras">
 
+  <dl class="mx-auto flex max-w-6xl flex-wrap justify-center gap-x-16 gap-y-8 text-center">
+    {% for valor, descripcion in cifras %}
+    <div class="flex min-w-[10rem] max-w-[14rem] flex-col">
+      <dt class="mt-2 text-sm font-medium uppercase tracking-wider text-white/80">{{ descripcion }}</dt>
+      <dd class="order-first font-serif text-5xl font-bold lg:text-6xl">{{ valor }}</dd>
+    </div>
+    {% endfor %}
+  </dl>
 
-<div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
-
-
-<!-- MISION -->
-
-
-<div class="bg-white rounded-[35px] shadow-md p-10 text-center">
-
-<div class="text-7xl mb-8">
-    🌱
-</div>
-
-<h3 class="text-xl font-bold mb-8">
-    {{ _("Misión") }}
-</h3>
-
-<p class="text-xl leading-relaxed">
-    {{ _("Mejorar la calidad de vida de nuestros socios a través de la producción y comercialización de café de alta calidad.") }}
-</p>
-
-
-</div>
-
-
-<!-- VISION -->
-
-
-<div class="bg-white rounded-[35px] shadow-md p-10 text-center">
-
-<div class="text-7xl mb-8">
-    👁 
-</div>
-
-<h3 class="text-4xl font-bold mb-8">
-    {{ _("Visión") }}
-</h3>
-
-<p class="text-xl leading-relaxed">
-    {{ _("Ser una cooperativa reconocida a nivel nacional e internacional por nuestro café sostenible y de excelencia.") }}
-</p>
-
-
-</div>
+</section>
+{% endif %}
 
 
 <!-- VALORES -->
+<section class="px-6 py-14 sm:px-10 lg:py-20" aria-labelledby="titulo-valores">
 
+  <div class="mx-auto max-w-6xl">
 
-<div class="bg-white rounded-[35px] shadow-md p-10 text-center">
+    <p class="etiqueta text-acento">Cómo trabajamos</p>
+    <h2 id="titulo-valores" class="mt-3 font-serif text-3xl font-bold text-cafe-950 lg:text-4xl">Lo que nos guía</h2>
 
-<div class="text-7xl mb-8">
-    👥
-</div>
+    <ol class="mt-10 border-b border-cafe-800/20">
+      {% for titulo, frase in valores %}
+      <li class="grid gap-2 border-t border-cafe-800/20 py-6 md:grid-cols-[16rem_1fr] md:gap-8">
+        <h3 class="font-serif text-2xl font-bold text-cafe-950">
+          <span class="mr-3 text-acento" aria-hidden="true">{{ '%02d' | format(loop.index) }}</span>{{ titulo }}
+        </h3>
+        <p class="text-lg leading-relaxed text-cafe-800">{{ frase }}</p>
+      </li>
+      {% endfor %}
+    </ol>
 
-<h3 class="text-4xl font-bold mb-8">
-    {{ _("Valores") }}
-</h3>
-
-
-<div class="text-xl leading-relaxed text-left ml-8">
-    <p>• {{ _("Calidad") }}</p>
-    <p>• {{ _("Sostenibilidad") }}</p>
-    <p>• {{ _("Trabajo en equipo") }}</p>
-    <p>• {{ _("Responsabilidad social") }}</p>
-    <p>• {{ _("Honestidad") }}</p>
-</div>
-
-
-</div>
-
-
-</div>
-
+  </div>
 
 </section>
 
 
+<!-- CERTIFICACIONES Y PREMIOS -->
+<section class="bg-white px-6 py-14 sm:px-10 lg:py-20" aria-labelledby="titulo-certificaciones">
 
-<!-- IMAGEN FINAL -->
+  <div class="mx-auto max-w-6xl">
 
-<section class="relative h-[600px] mt-10">
+    <p class="etiqueta text-acento">Respaldo</p>
+    <h2 id="titulo-certificaciones" class="mt-3 font-serif text-3xl font-bold text-cafe-950 lg:text-4xl">
+      Certificaciones y premios
+    </h2>
 
-<img
-src="{{ url_for('static', filename='img/nosotros/cultivo-cafe.jpg') }}"
-class="w-full h-full object-cover"
->
+    {% if certificaciones %}
+    <ul class="mt-10 grid gap-6 md:grid-cols-2">
+      {% for c in certificaciones %}
+      <li class="rounded-tarjeta border border-cafe-800/15 bg-crema p-6">
+        <div class="flex flex-wrap items-center gap-3">
+          <h3 class="font-serif text-2xl font-bold text-cafe-950">{{ c.nombre }}</h3>
+          <span class="rounded-full px-3 py-1 text-sm font-semibold {{ estado_clase.get(c.estado, estado_clase['default']) }}">{{ c.estado }}</span>
+        </div>
+        <p class="mt-3 leading-relaxed text-cafe-800">{{ c.descripcion }}</p>
+        {% if c.entidad or c.vigencia %}
+        <dl class="mt-4 grid gap-x-6 gap-y-2 text-sm text-cafe-800 sm:grid-cols-2">
+          {% if c.entidad %}
+          <div><dt class="font-semibold">Entidad certificadora</dt><dd>{{ c.entidad }}</dd></div>
+          {% endif %}
+          {% if c.vigencia %}
+          <div><dt class="font-semibold">Vigencia</dt><dd>{{ c.vigencia }}</dd></div>
+          {% endif %}
+        </dl>
+        {% endif %}
+        {% if c.pdf %}
+        <a href="{{ url_for('static', filename=c.pdf) }}" target="_blank" rel="noopener"
+           class="mt-4 inline-flex items-center gap-2 font-semibold text-acento underline underline-offset-4 hover:text-cafe-950">
+          Ver certificado (PDF)
+        </a>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
 
+    {% if premios %}
+    <h3 class="mt-14 font-serif text-2xl font-bold text-cafe-950">Premios</h3>
+    <ul class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {% for p in premios %}
+      <li>
+        <figure>
+          <img src="{{ url_for('static', filename=p.imagen) }}"
+               alt="{{ p.alt or ('Certificado de premio: ' ~ p.nombre) }}"
+               loading="lazy" decoding="async"
+               class="aspect-[4/3] w-full rounded-tarjeta border border-cafe-800/15 bg-crema object-contain p-2">
+          <figcaption class="mt-3 font-medium text-cafe-800">{{ p.nombre }}{% if p.anio %} · {{ p.anio }}{% endif %}</figcaption>
+        </figure>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
 
-<div class="absolute inset-0 bg-black/30">
-
-</div>
-
-<div class="absolute right-20 top-1/2 -translate-y-1/2">
-
-    <div class="bg-black/60 backdrop-blur-sm rounded-[40px] px-16 py-12">
-            
-    <h3 class="text-white text-5xl font-serif leading-relaxed text-center">
-        {{ _("Cuidamos hoy,") }}
-        <br>
-        {{ _("para un mejor mañana.") }}
-    </h3>
-
+    {# TODO: confirmar con la cooperativa que enviarán fichas técnicas y certificados. #}
+    <div class="mt-12 rounded-tarjeta bg-arena p-6 sm:flex sm:items-center sm:justify-between sm:gap-8 lg:p-8">
+      <div>
+        <h3 class="font-serif text-2xl font-bold text-cafe-950">¿Necesitas documentación específica?</h3>
+        <p class="mt-2 max-w-xl text-cafe-800">Escríbenos y te indicamos cómo recibir la ficha técnica y los certificados.</p>
+      </div>
+      <a href="{{ request.script_root }}/contacto"
+         class="mt-5 inline-flex shrink-0 items-center justify-center rounded-full bg-oro px-6 py-3 font-semibold text-cafe-950 transition hover:bg-oro-600 sm:mt-0">
+        Solicitar documentación
+      </a>
     </div>
 
-</div>
+  </div>
 
 </section>
- <script src="{{ url_for('static', filename='js/funcionalidad2.js') }}"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+
+<!-- CITA -->
+<section class="relative isolate flex min-h-[320px] items-center justify-center" aria-label="Lema de la cooperativa">
+
+  <img src="{{ url_for('static', filename='img/nosotros/cultivo-cafe.jpg') }}"
+       alt="" loading="lazy" decoding="async"
+       class="absolute inset-0 -z-10 h-full w-full object-cover">
+  <div class="absolute inset-0 -z-10 bg-black/55"></div>
+
+  <blockquote class="relative px-6 py-16 text-center sm:px-10">
+    <p class="mx-auto max-w-3xl font-serif text-3xl leading-tight text-white text-balance sm:text-4xl lg:text-5xl">
+      «Cuidamos hoy, para un mejor mañana.»
+    </p>
+  </blockquote>
+
+</section>
+
+
+<!-- CIERRE -->
+<section class="px-6 py-14 text-center sm:px-10 lg:py-20" aria-labelledby="titulo-cierre">
+
+  <div class="mx-auto max-w-2xl">
+    <h2 id="titulo-cierre" class="font-serif text-3xl font-bold text-cafe-950 text-balance lg:text-4xl">
+      Conoce nuestro café
+    </h2>
+    <p class="mt-4 text-lg leading-relaxed text-cafe-800">
+      Trabajamos con exportadores, importadores, cafeterías y centros comerciales.
+      Escríbenos y conversemos.
+    </p>
+    <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+      <a href="{{ request.script_root }}/productos"
+         class="inline-flex w-full items-center justify-center rounded-full bg-oro px-7 py-3 font-semibold text-cafe-950 transition hover:bg-oro-600 sm:w-auto">
+        Ver productos
+      </a>
+      <a href="{{ request.script_root }}/contacto"
+         class="inline-flex w-full items-center justify-center rounded-full border-2 border-cafe-800 px-7 py-3 font-semibold text-cafe-800 transition hover:bg-cafe-800 hover:text-white sm:w-auto">
+        Contactar
+      </a>
+    </div>
+  </div>
+
+</section>
 
 {% endblock %}

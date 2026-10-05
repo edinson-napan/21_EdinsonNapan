@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{% block title %}Cooperativa Río Tambo{% endblock %}</title>
+  <meta name="description" content="{% block description %}Cooperativa Agraria Cafetalera Río Tambo Ltda. Café peruano de calidad, producido por socios de Río Tambo, Junín.{% endblock %}">
+  <meta name="theme-color" content="#2f1f12">
+  <link rel="icon" href="{{ url_for('static', filename='img/logo.png') }}">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
+</head>
+
+{# =====================================================================
+   DATOS DEL SITIO. Se editan aquí y se reflejan en cabecera y footer.
+   Lo que se deja vacío ('') no se muestra, así no quedan enlaces rotos.
+   ===================================================================== #}
+{% set sitio = {
+  'nombre': 'Cooperativa Río Tambo',
+  'nombre_legal': 'Cooperativa Agraria Cafetalera Río Tambo Ltda.',
+  'lema': 'Café peruano, calidad que transforma.',
+  'ubicacion': 'Río Tambo, Junín, Perú',
+  'whatsapp': '',
+  'correo': '',
+  'privacidad_url': '',
+} %}
+{# TODO: whatsapp va solo con dígitos y código de país, por ejemplo 51999999999.
+         Con él se activan el botón flotante y el dato de contacto del footer.
+         correo: dirección real. privacidad_url: ruta de la política cuando exista. #}
+
+{% set redes = [
+  {'nombre': 'Facebook', 'icono': 'facebook', 'url': ''},
+  {'nombre': 'Instagram', 'icono': 'instagram', 'url': ''},
+  {'nombre': 'WhatsApp', 'icono': 'whatsapp', 'url': ''},
+  {'nombre': 'Correo electrónico', 'icono': 'gmail', 'url': ''},
+] %}
+{# TODO: poner la URL real de cada red; las que queden vacías no se muestran. #}
+
+{% set enlaces = [
+  ('/', 'Inicio'),
+  ('/productos', 'Productos'),
+  ('/nosotros', 'Nosotros'),
+  ('/contacto', 'Contacto'),
+] %}
+{% set actual = request.path.rstrip('/') or '/' %}
+{% set redes_activas = redes | selectattr('url') | list %}
+
+<body class="flex min-h-screen flex-col">
+
+  <a href="#contenido"
+     class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-white focus:px-5 focus:py-3 focus:font-medium focus:text-cafe-800 focus:shadow-md">
+    Saltar al contenido
+  </a>
+
+  <header id="cabecera" class="sticky top-0 z-40 border-b border-cafe-800/10 bg-white transition-shadow">
+
+    <nav aria-label="Principal"
+         class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-3 lg:px-10">
+
+      <a href="{{ request.script_root }}/" aria-label="{{ sitio.nombre }}, ir al inicio"
+         class="flex shrink-0 items-center gap-3">
+        <img src="{{ url_for('static', filename='img/logo.png') }}" class="h-12 w-auto lg:h-14" alt="">
+        <span class="hidden leading-tight xl:block">
+          <span class="block font-serif text-lg font-bold text-cafe-950">{{ sitio.nombre }}</span>
+          <span class="etiqueta block text-acento">Café de Junín · Perú</span>
+        </span>
+      </a>
+
+      <ul class="hidden gap-6 text-[15px] font-medium uppercase tracking-wide text-cafe-800 lg:flex xl:gap-10">
+        {% for ruta, texto in enlaces %}
+        <li>
+          <a href="{{ request.script_root }}{{ ruta }}"
+             {% if actual == ruta %}aria-current="page"{% endif %}
+             class="border-b-2 pb-1 transition hover:text-acento {% if actual == ruta %}border-acento{% else %}border-transparent{% endif %}">
+            {{ texto }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+
+      <div class="flex items-center gap-1">
+
+        <a href="{{ request.script_root }}/contacto"
+           class="mr-3 hidden rounded-full bg-oro px-5 py-2.5 text-sm font-semibold text-cafe-950 transition hover:bg-oro-600 xl:inline-flex">
+          Solicitar cotización
+        </a>
+
+        <button type="button" id="search-toggle-btn"
+                class="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-full transition hover:opacity-70"
+                aria-label="Buscar" aria-expanded="false" aria-controls="search-panel">
+          <img src="{{ url_for('static', filename='img/iconos/search.png') }}" class="h-7 w-7" alt="">
+        </button>
+
+        <button type="button"
+                class="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-full transition hover:opacity-70"
+                aria-label="Carrito de compras">
+          <img src="{{ url_for('static', filename='img/iconos/cart.png') }}" class="h-7 w-7" alt="">
+        </button>
+
+        <button type="button"
+                class="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-full transition hover:opacity-70"
+                aria-label="Idioma: español">
+          <img src="{{ url_for('static', filename='img/iconos/peru.png') }}" class="h-7 w-7" alt="">
+        </button>
+
+        <button type="button" id="menu-toggle"
+                class="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-full text-cafe-800 transition hover:opacity-70 lg:hidden"
+                aria-label="Menú" aria-expanded="false" aria-controls="menu-movil">
+          <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+
+      </div>
+
+    </nav>
+
+    <div id="search-panel" hidden class="border-t border-cafe-800/10 bg-white">
+      <form action="{{ request.script_root }}/buscar" method="get" role="search"
+            class="mx-auto flex max-w-7xl items-center gap-3 px-6 py-3 lg:px-10">
+        <label for="search-input" class="sr-only">Buscar productos</label>
+        <input id="search-input" type="search" name="q" placeholder="Buscar productos..."
+               class="h-11 w-full rounded-full border border-cafe-800/25 bg-white px-5 text-base text-cafe-800">
+        <button type="submit"
+                class="h-11 shrink-0 cursor-pointer rounded-full bg-cafe-800 px-6 font-medium text-white transition hover:bg-cafe-950">
+          Buscar
+        </button>
+      </form>
+    </div>
+
+    <div id="menu-movil" hidden class="border-t border-cafe-800/10 bg-white lg:hidden">
+      <ul class="mx-auto max-w-7xl px-6 pt-2 text-lg font-medium uppercase tracking-wide text-cafe-800">
+        {% for ruta, texto in enlaces %}
+        <li>
+          <a href="{{ request.script_root }}{{ ruta }}"
+             {% if actual == ruta %}aria-current="page"{% endif %}
+             class="block py-3 transition hover:text-acento {% if actual == ruta %}text-acento{% endif %}">
+            {{ texto }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+      <div class="mx-auto max-w-7xl px-6 pb-5 pt-2">
+        <a href="{{ request.script_root }}/contacto"
+           class="inline-flex w-full items-center justify-center rounded-full bg-oro px-6 py-3 font-semibold text-cafe-950 transition hover:bg-oro-600">
+          Solicitar cotización
+        </a>
+      </div>
+    </div>
+
+  </header>
+
+  <main id="contenido" class="flex-1">
+    {% block content %}{% endblock %}
+  </main>
+
+  {% if sitio.whatsapp %}
+  <a href="https://wa.me/{{ sitio.whatsapp }}?text={{ 'Hola, quisiera información sobre el café de la cooperativa.' | urlencode }}"
+     target="_blank" rel="noopener"
+     class="fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 rounded-full bg-[#0f7a3d] px-5 py-3 font-semibold text-white shadow-lg transition hover:bg-[#0c6232]">
+    <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z" />
+    </svg>
+    <span>Escríbenos<span class="sr-only"> por WhatsApp</span></span>
+  </a>
+  {% endif %}
+
+  <footer class="bg-cafe-900 text-white/80">
+
+    <div class="mx-auto max-w-7xl px-6 py-12 lg:px-10 lg:py-16">
+
+      <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr]">
+
+        <div>
+          <div class="flex items-center gap-4">
+            <img src="{{ url_for('static', filename='img/logo.png') }}"
+                 class="h-16 w-auto shrink-0 rounded-xl bg-white p-1.5" alt="">
+            <p class="min-w-0 font-serif text-xl font-bold text-white text-balance">{{ sitio.nombre_legal }}</p>
+          </div>
+          <p class="mt-5 max-w-md text-lg">{{ sitio.lema }}</p>
+
+          {% if redes_activas %}
+          <ul class="mt-6 flex gap-3">
+            {% for red in redes_activas %}
+            <li>
+              <a href="{{ red.url }}" aria-label="{{ red.nombre }}"
+                 class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/10 transition hover:bg-white/20">
+                <img src="{{ url_for('static', filename='img/iconos/' ~ red.icono ~ '.png') }}" class="h-6 w-6" alt="">
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+
+        <nav aria-label="Páginas del sitio">
+          <h2 class="etiqueta text-white/70">Páginas</h2>
+          <ul class="mt-5 space-y-3">
+            {% for ruta, texto in enlaces %}
+            <li>
+              <a href="{{ request.script_root }}{{ ruta }}" class="transition hover:text-white">{{ texto }}</a>
+            </li>
+            {% endfor %}
+          </ul>
+        </nav>
+
+        <div>
+          <h2 class="etiqueta text-white/70">Contacto</h2>
+          <ul class="mt-5 space-y-3">
+            <li>{{ sitio.ubicacion }}</li>
+            {% if sitio.correo %}
+            <li><a href="mailto:{{ sitio.correo }}" class="transition hover:text-white">{{ sitio.correo }}</a></li>
+            {% endif %}
+            {% if sitio.whatsapp %}
+            <li>
+              <a href="https://wa.me/{{ sitio.whatsapp }}" target="_blank" rel="noopener"
+                 class="transition hover:text-white">WhatsApp: +{{ sitio.whatsapp }}</a>
+            </li>
+            {% endif %}
+            <li>
+              <a href="{{ request.script_root }}/contacto" class="font-semibold text-white underline underline-offset-4">
+                Escríbenos desde el formulario
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="mt-10 flex flex-col gap-3 border-t border-white/20 pt-8 text-sm text-white/70 sm:flex-row sm:justify-between {% if sitio.whatsapp %}pb-16 sm:pb-0{% endif %}">
+        <p>© <span id="anio">2026</span> {{ sitio.nombre_legal }} Todos los derechos reservados.</p>
+        {% if sitio.privacidad_url %}
+        <a href="{{ sitio.privacidad_url }}" class="underline underline-offset-4 transition hover:text-white">Política de privacidad</a>
+        {% endif %}
+      </div>
+
+    </div>
+
+  </footer>
+
+  <script>
+    (function () {
+      var cabecera = document.getElementById('cabecera');
+      var searchBtn = document.getElementById('search-toggle-btn');
+      var searchPanel = document.getElementById('search-panel');
+      var searchInput = document.getElementById('search-input');
+      var menuBtn = document.getElementById('menu-toggle');
+      var menuPanel = document.getElementById('menu-movil');
+      var anio = document.getElementById('anio');
+
+      if (anio) anio.textContent = new Date().getFullYear();
+
+      function setOpen(btn, panel, open) {
+        panel.hidden = !open;
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+
+      function sombra() {
+        cabecera.classList.toggle('shadow-md', window.scrollY > 8);
+      }
+      sombra();
+      window.addEventListener('scroll', sombra, { passive: true });
+
+      searchBtn.addEventListener('click', function () {
+        var open = searchPanel.hidden;
+        setOpen(searchBtn, searchPanel, open);
+        if (open) {
+          setOpen(menuBtn, menuPanel, false);
+          searchInput.focus();
+        }
+      });
+
+      menuBtn.addEventListener('click', function () {
+        var open = menuPanel.hidden;
+        setOpen(menuBtn, menuPanel, open);
+        if (open) setOpen(searchBtn, searchPanel, false);
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape') return;
+        if (!searchPanel.hidden) {
+          setOpen(searchBtn, searchPanel, false);
+          searchBtn.focus();
+        } else if (!menuPanel.hidden) {
+          setOpen(menuBtn, menuPanel, false);
+          menuBtn.focus();
+        }
+      });
+
+      window.matchMedia('(min-width: 64rem)').addEventListener('change', function (e) {
+        if (e.matches) setOpen(menuBtn, menuPanel, false);
+      });
+    })();
+  </script>
+
+</body>
+
+</html>
