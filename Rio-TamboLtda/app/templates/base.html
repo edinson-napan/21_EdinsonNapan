@@ -6,37 +6,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>{% block title %}Cooperativa Río Tambo{% endblock %}</title>
-  <meta name="description" content="{% block description %}Cooperativa Agraria Cafetalera Río Tambo Ltda. Café peruano de calidad, producido por socios de Río Tambo, Junín.{% endblock %}">
+  <meta name="description" content="{% block description %}Cooperativa Agraria Cafetalera Río Tambo Ltda. Café producido por socios de Río Tambo, provincia de Satipo, región Junín.{% endblock %}">
   <meta name="theme-color" content="#2f1f12">
   <link rel="icon" href="{{ url_for('static', filename='img/logo.png') }}">
 
   <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
 </head>
 
-{# =====================================================================
-   DATOS DEL SITIO. Se editan aquí y se reflejan en cabecera y footer.
-   Lo que se deja vacío ('') no se muestra, así no quedan enlaces rotos.
-   ===================================================================== #}
 {% set sitio = {
   'nombre': 'Cooperativa Río Tambo',
   'nombre_legal': 'Cooperativa Agraria Cafetalera Río Tambo Ltda.',
   'lema': 'Café peruano, calidad que transforma.',
-  'ubicacion': 'Río Tambo, Junín, Perú',
-  'whatsapp': '',
-  'correo': '',
+  'ubicacion': 'Av. La Unión, Mz. Z, Lt. 1, Caña Edén, Río Tambo, Satipo, Junín',
+  'whatsapp': '51962854114',
+  'whatsapp_texto': '+51 962 854 114',
+  'correo': 'cacriotambo@hotmail.com',
+  'ruc': '20602712657',
   'privacidad_url': '',
 } %}
-{# TODO: whatsapp va solo con dígitos y código de país, por ejemplo 51999999999.
-         Con él se activan el botón flotante y el dato de contacto del footer.
-         correo: dirección real. privacidad_url: ruta de la política cuando exista. #}
 
 {% set redes = [
-  {'nombre': 'Facebook', 'icono': 'facebook', 'url': ''},
+  {'nombre': 'Facebook', 'icono': 'facebook', 'url': 'https://www.facebook.com/cacriotamboltda'},
   {'nombre': 'Instagram', 'icono': 'instagram', 'url': ''},
-  {'nombre': 'WhatsApp', 'icono': 'whatsapp', 'url': ''},
+  {'nombre': 'WhatsApp', 'icono': 'whatsapp', 'url': 'https://wa.me/51962854114'},
   {'nombre': 'Correo electrónico', 'icono': 'gmail', 'url': ''},
 ] %}
-{# TODO: poner la URL real de cada red; las que queden vacías no se muestran. #}
 
 {% set enlaces = [
   ('/', 'Inicio'),
@@ -211,14 +205,20 @@
         <div>
           <h2 class="etiqueta text-white/70">Contacto</h2>
           <ul class="mt-5 space-y-3">
-            <li>{{ sitio.ubicacion }}</li>
+            <li>
+              {% if sitio.direccion %}{{ sitio.direccion }}<br>{% endif %}
+              {{ sitio.ubicacion }}
+            </li>
+            {% if sitio.ruc %}
+            <li>RUC {{ sitio.ruc }}</li>
+            {% endif %}
             {% if sitio.correo %}
             <li><a href="mailto:{{ sitio.correo }}" class="transition hover:text-white">{{ sitio.correo }}</a></li>
             {% endif %}
             {% if sitio.whatsapp %}
             <li>
               <a href="https://wa.me/{{ sitio.whatsapp }}" target="_blank" rel="noopener"
-                 class="transition hover:text-white">WhatsApp: +{{ sitio.whatsapp }}</a>
+                 class="transition hover:text-white">WhatsApp: {{ sitio.whatsapp_texto or ('+' ~ sitio.whatsapp) }}</a>
             </li>
             {% endif %}
             <li>

@@ -1,26 +1,18 @@
 {% extends "base.html" %}
 
 {% block title %}Nosotros | Cooperativa Río Tambo{% endblock %}
-{% block description %}Conoce a la Cooperativa Agraria Cafetalera Río Tambo: nuestra historia, misión, visión, valores, certificaciones y premios.{% endblock %}
+{% block description %}Conoce a la Cooperativa Agraria Cafetalera Río Tambo, de Satipo, Junín: nuestra historia, misión, visión, valores, origen del café y registros.{% endblock %}
 
 
 {% block content %}
 
-{# =====================================================================
-   DATOS DE LA PÁGINA. Se editan aquí; lo que quede vacío no se muestra.
-   Los textos marcados "por confirmar" deben contrastarse con el texto
-   oficial de la cooperativa antes de publicar.
-   ===================================================================== #}
-
-{# Franja de cifras: (valor, descripción). Agregar solo datos reales.
-   Ejemplo cuando se tenga el dato: ('XX', 'Socios productores') #}
 {% set cifras = [
   ('2017', 'Año de fundación'),
-  ('5', 'Variedades de café'),
-  ('5', 'Etapas del proceso, de la cosecha al almacén'),
+  ('95', 'Socios productores'),
+  ('38', 'Mujeres entre los socios'),
+  ('380', 'Hectáreas de la organización'),
 ] %}
 
-{# Valores: título y una frase. Frases por confirmar con la cooperativa. #}
 {% set valores = [
   ('Calidad', 'Cuidamos cada etapa, de la cosecha al almacenado, para entregar un café de alta calidad.'),
   ('Sostenibilidad', 'Producimos con respeto por nuestra tierra y por las comunidades donde trabajamos.'),
@@ -29,26 +21,36 @@
   ('Honestidad', 'Actuamos con transparencia con nuestros socios y con quienes nos compran.'),
 ] %}
 
-{# Certificaciones. Confirmar estado, entidad y vigencia con cada certificado.
-   pdf: ruta dentro de /static, por ejemplo 'docs/certificado-comercio-justo.pdf'. #}
+{% set origen = [
+  ('Zona de origen', 'Distrito de Río Tambo, provincia de Satipo, región Junín'),
+  ('Altitud', '1200 a 1700 msnm'),
+  ('Variedades', 'Catuai, catimor, caturra, geisha, castillo y obata'),
+  ('Cosecha', 'De marzo a setiembre'),
+  ('Disponibilidad', 'Para embarque o entrega: de mayo a octubre'),
+  ('Producción estimada, cosecha 2026', '6320 quintales de café verde'),
+  ('Calidad prevista, cosecha 2026', 'Grados 1, 2, 3 y 4'),
+  ('Café tostado', 'Marca KIMOSHIRI, en grano y molido, en envases de 50 g a 1 kg'),
+] %}
+
 {% set certificaciones = [
-  {'nombre': 'Comercio justo',
-   'descripcion': 'Certificación que reconoce condiciones comerciales justas para los productores.',
-   'estado': 'Vigente', 'entidad': '', 'vigencia': '', 'pdf': ''},
-  {'nombre': 'Orgánico',
-   'descripcion': 'Certificación de producción orgánica para el café de la cooperativa.',
-   'estado': 'Vigente', 'entidad': '', 'vigencia': '', 'pdf': ''},
+  {'nombre': 'Registro sanitario',
+   'descripcion': 'La cooperativa cuenta con registro sanitario vigente.',
+   'estado': 'Vigente',
+   'detalles': [('Número', 'Q0233419N/KFCOAR'), ('Vigente hasta', '22 de octubre de 2029')],
+   'pdf': ''},
+  {'nombre': 'Formalización',
+   'descripcion': 'Cooperativa constituida legalmente, con RUC activo y habido ante la SUNAT.',
+   'estado': 'Activo',
+   'detalles': [('RUC', '20602712657'), ('Estado verificado el', '24 de febrero de 2026')],
+   'pdf': ''},
 ] %}
 {% set estado_clase = {
   'Vigente': 'bg-emerald-100 text-emerald-900',
+  'Activo': 'bg-emerald-100 text-emerald-900',
   'En proceso': 'bg-amber-100 text-amber-900',
   'default': 'bg-gray-100 text-gray-800',
 } %}
 
-{# Premios: fotos de los certificados de premios. Si la lista está vacía, la
-   sección no se muestra. Ejemplo:
-   {'nombre': 'Nombre del concurso', 'anio': '2024', 'imagen': 'img/premios/premio-2024.jpg',
-    'alt': 'Certificado del premio ...'} #}
 {% set premios = [] %}
 
 
@@ -87,6 +89,12 @@
       <p class="mt-6 text-lg leading-relaxed text-cafe-800">
         La Cooperativa Agraria Cafetalera Río Tambo Ltda. es una organización de productores
         comprometidos con la calidad, la sostenibilidad y el desarrollo de nuestras comunidades.
+      </p>
+
+      <p class="mt-5 text-lg leading-relaxed text-cafe-800">
+        Fundada el 20 de agosto de 2017, cuenta con 95 socios en el distrito de Río Tambo,
+        provincia de Satipo, región Junín. Nos dedicamos a la producción, acopio y comercialización
+        de café y de otros productos agrícolas de la zona.
       </p>
 
       <p class="mt-5 text-lg leading-relaxed text-cafe-800">
@@ -142,9 +150,9 @@
 {% if cifras %}
 <section class="bg-cafe-900 px-6 py-12 text-white sm:px-10" aria-label="La cooperativa en cifras">
 
-  <dl class="mx-auto flex max-w-6xl flex-wrap justify-center gap-x-16 gap-y-8 text-center">
+  <dl class="mx-auto grid max-w-6xl grid-cols-[repeat(auto-fit,minmax(9rem,1fr))] gap-8 text-center">
     {% for valor, descripcion in cifras %}
-    <div class="flex min-w-[10rem] max-w-[14rem] flex-col">
+    <div class="flex flex-col">
       <dt class="mt-2 text-sm font-medium uppercase tracking-wider text-white/80">{{ descripcion }}</dt>
       <dd class="order-first font-serif text-5xl font-bold lg:text-6xl">{{ valor }}</dd>
     </div>
@@ -179,39 +187,63 @@
 </section>
 
 
-<!-- CERTIFICACIONES Y PREMIOS -->
-<section class="bg-white px-6 py-14 sm:px-10 lg:py-20" aria-labelledby="titulo-certificaciones">
+<!-- ORIGEN Y PRODUCCIÓN -->
+{% if origen %}
+<section class="bg-white px-6 py-14 sm:px-10 lg:py-20" aria-labelledby="titulo-origen">
+
+  <div class="mx-auto max-w-6xl">
+
+    <p class="etiqueta text-acento">Origen y producción</p>
+    <h2 id="titulo-origen" class="mt-3 font-serif text-3xl font-bold text-cafe-950 lg:text-4xl">Nuestro café</h2>
+    <p class="mt-4 max-w-2xl text-lg leading-relaxed text-cafe-800">
+      Lo que nuestros compradores suelen preguntar primero: de dónde viene, cuánto hay y cuándo está disponible.
+    </p>
+
+    <dl class="mt-10 grid border-b border-cafe-800/20 md:grid-cols-2 md:gap-x-16">
+      {% for rotulo, dato in origen %}
+      <div class="border-t border-cafe-800/20 py-5">
+        <dt class="text-sm font-semibold uppercase tracking-wider text-acento">{{ rotulo }}</dt>
+        <dd class="mt-1 text-lg text-cafe-950">{{ dato }}</dd>
+      </div>
+      {% endfor %}
+    </dl>
+
+  </div>
+
+</section>
+{% endif %}
+
+
+<!-- FORMALIZACIÓN Y RESPALDO -->
+<section class="px-6 py-14 sm:px-10 lg:py-20" aria-labelledby="titulo-certificaciones">
 
   <div class="mx-auto max-w-6xl">
 
     <p class="etiqueta text-acento">Respaldo</p>
     <h2 id="titulo-certificaciones" class="mt-3 font-serif text-3xl font-bold text-cafe-950 lg:text-4xl">
-      Certificaciones y premios
+      Formalización y respaldo
     </h2>
 
     {% if certificaciones %}
     <ul class="mt-10 grid gap-6 md:grid-cols-2">
       {% for c in certificaciones %}
-      <li class="rounded-tarjeta border border-cafe-800/15 bg-crema p-6">
+      <li class="rounded-tarjeta border border-cafe-800/15 bg-white p-6">
         <div class="flex flex-wrap items-center gap-3">
           <h3 class="font-serif text-2xl font-bold text-cafe-950">{{ c.nombre }}</h3>
           <span class="rounded-full px-3 py-1 text-sm font-semibold {{ estado_clase.get(c.estado, estado_clase['default']) }}">{{ c.estado }}</span>
         </div>
         <p class="mt-3 leading-relaxed text-cafe-800">{{ c.descripcion }}</p>
-        {% if c.entidad or c.vigencia %}
+        {% if c.detalles %}
         <dl class="mt-4 grid gap-x-6 gap-y-2 text-sm text-cafe-800 sm:grid-cols-2">
-          {% if c.entidad %}
-          <div><dt class="font-semibold">Entidad certificadora</dt><dd>{{ c.entidad }}</dd></div>
-          {% endif %}
-          {% if c.vigencia %}
-          <div><dt class="font-semibold">Vigencia</dt><dd>{{ c.vigencia }}</dd></div>
-          {% endif %}
+          {% for rotulo, valor in c.detalles %}
+          <div><dt class="font-semibold">{{ rotulo }}</dt><dd>{{ valor }}</dd></div>
+          {% endfor %}
         </dl>
         {% endif %}
         {% if c.pdf %}
         <a href="{{ url_for('static', filename=c.pdf) }}" target="_blank" rel="noopener"
            class="mt-4 inline-flex items-center gap-2 font-semibold text-acento underline underline-offset-4 hover:text-cafe-950">
-          Ver certificado (PDF)
+          Ver documento (PDF)
         </a>
         {% endif %}
       </li>
@@ -228,7 +260,7 @@
           <img src="{{ url_for('static', filename=p.imagen) }}"
                alt="{{ p.alt or ('Certificado de premio: ' ~ p.nombre) }}"
                loading="lazy" decoding="async"
-               class="aspect-[4/3] w-full rounded-tarjeta border border-cafe-800/15 bg-crema object-contain p-2">
+               class="aspect-[4/3] w-full rounded-tarjeta border border-cafe-800/15 bg-white object-contain p-2">
           <figcaption class="mt-3 font-medium text-cafe-800">{{ p.nombre }}{% if p.anio %} · {{ p.anio }}{% endif %}</figcaption>
         </figure>
       </li>
@@ -236,11 +268,11 @@
     </ul>
     {% endif %}
 
-    {# TODO: confirmar con la cooperativa que enviarán fichas técnicas y certificados. #}
+    {# TODO: confirmar con la cooperativa que enviarán fichas técnicas y documentos. #}
     <div class="mt-12 rounded-tarjeta bg-arena p-6 sm:flex sm:items-center sm:justify-between sm:gap-8 lg:p-8">
       <div>
         <h3 class="font-serif text-2xl font-bold text-cafe-950">¿Necesitas documentación específica?</h3>
-        <p class="mt-2 max-w-xl text-cafe-800">Escríbenos y te indicamos cómo recibir la ficha técnica y los certificados.</p>
+        <p class="mt-2 max-w-xl text-cafe-800">Escríbenos y te indicamos cómo recibir la ficha técnica y los documentos de la cooperativa.</p>
       </div>
       <a href="{{ request.script_root }}/contacto"
          class="mt-5 inline-flex shrink-0 items-center justify-center rounded-full bg-oro px-6 py-3 font-semibold text-cafe-950 transition hover:bg-oro-600 sm:mt-0">
