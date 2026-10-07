@@ -6,6 +6,13 @@
 
 {% block content %}
 
+<div class="nosotros-pagina bg-crema text-cafe-950">
+
+<style>
+  /* Foco visible solo en esta página, sin afectar a las demás */
+  .nosotros-pagina :focus-visible { outline: 3px solid #8f5605; outline-offset: 3px; }
+</style>
+
 {% set cifras = [
   ('2017', 'Año de fundación'),
   ('95', 'Socios productores'),
@@ -274,7 +281,7 @@
         <h3 class="font-serif text-2xl font-bold text-cafe-950">¿Necesitas documentación específica?</h3>
         <p class="mt-2 max-w-xl text-cafe-800">Escríbenos y te indicamos cómo recibir la ficha técnica y los documentos de la cooperativa.</p>
       </div>
-      <a href="{{ request.script_root }}/contacto"
+      <a href="{{ url_for('contacto.contacto_page') }}"
          class="mt-5 inline-flex shrink-0 items-center justify-center rounded-full bg-oro px-6 py-3 font-semibold text-cafe-950 transition hover:bg-oro-600 sm:mt-0">
         Solicitar documentación
       </a>
@@ -314,11 +321,11 @@
       Escríbenos y conversemos.
     </p>
     <div class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-      <a href="{{ request.script_root }}/productos"
+      <a href="{{ url_for('productos.mostrarProductos') }}"
          class="inline-flex w-full items-center justify-center rounded-full bg-oro px-7 py-3 font-semibold text-cafe-950 transition hover:bg-oro-600 sm:w-auto">
         Ver productos
       </a>
-      <a href="{{ request.script_root }}/contacto"
+      <a href="{{ url_for('contacto.contacto_page') }}"
          class="inline-flex w-full items-center justify-center rounded-full border-2 border-cafe-800 px-7 py-3 font-semibold text-cafe-800 transition hover:bg-cafe-800 hover:text-white sm:w-auto">
         Contactar
       </a>
@@ -326,5 +333,7 @@
   </div>
 
 </section>
+
+</div>
 
 {% endblock %}
