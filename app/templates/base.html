@@ -4,7 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Cooperativa Agraria Cafetalera Río Tambo{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/output.css') }}">
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+            --color-crema: #f8f5ed;
+            --color-arena: #f1e7d0;
+            --color-cafe-950: #24170f;
+            --color-cafe-900: #2f1f12;
+            --color-cafe-800: #3e2723;
+            --color-acento: #8f5605;
+            --color-oro: #e3a72f;
+            --color-oro-600: #cf9722;
+            --radius-tarjeta: 1.25rem;
+        }
+
+        @utility etiqueta {
+            font-size: 0.75rem;
+            line-height: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+    </style>
 </head>
 <body class="bg-[#f8f5ed] flex flex-col min-h-screen text-[#1F150C]">
 
