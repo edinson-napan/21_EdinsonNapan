@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="{{ idiomaActual }}">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Cooperativa Agraria Cafetalera Río Tambo{% endblock %}</title>
-        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <meta name="description" content="{% block description %}Cooperativa Agraria Cafetalera Río Tambo Ltda. Café producido por socios de Río Tambo, provincia de Satipo, región Junín.{% endblock %}">
+    <meta name="theme-color" content="#2f1f12">
+    <link rel="icon" href="{{ url_for('static', filename='img/logo.png') }}">
+
+    <!-- Tailwind por CDN (v4) y tokens de marca -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style type="text/tailwindcss">
         @theme {
             --color-crema: #f8f5ed;
@@ -18,6 +24,8 @@
             --radius-tarjeta: 1.25rem;
         }
 
+        @custom-variant dark (&:where(body.modo-oscuro, body.modo-oscuro *));
+
         @utility etiqueta {
             font-size: 0.75rem;
             line-height: 1rem;
@@ -26,223 +34,348 @@
             text-transform: uppercase;
         }
     </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
-<body class="bg-[#f8f5ed] flex flex-col min-h-screen text-[#1F150C]">
+
+{# =====================================================================
+   DATOS DEL SITIO. Se editan aquí y se reflejan en cabecera y footer.
+   Lo que se deja vacío ('') no se muestra, así no quedan enlaces rotos.
+   ===================================================================== #}
+{% set sitio = {
+    'nombre': 'Cooperativa Río Tambo',
+    'nombre_legal': 'Cooperativa Agraria Cafetalera Río Tambo Ltda.',
+    'lema': 'Café peruano, calidad que transforma.',
+    'ubicacion': 'Av. La Unión, Mz. Z, Lt. 1, Caña Edén, Río Tambo, Satipo, Junín',
+    'whatsapp': '51962854114',
+    'whatsapp_texto': '+51 962 854 114',
+    'correo': 'cacriotambo@hotmail.com',
+    'ruc': '20602712657',
+    'privacidad_url': '',
+} %}
+{# TODO: confirmar cuál es el WhatsApp de la cooperativa (la ficha lista 962854114
+         y 921140072) y que quieran publicarlo. Solo dígitos con código de país.
+         privacidad_url: ruta de la política cuando exista. #}
+
+{% set redes = [
+    {'nombre': 'Facebook', 'icono': 'facebook', 'url': 'https://www.facebook.com/cacriotamboltda'},
+    {'nombre': 'Instagram', 'icono': 'instagram', 'url': ''},
+    {'nombre': 'WhatsApp', 'icono': 'whatsapp', 'url': ''},
+] %}
+{# TODO: poner la URL real de cada red; las que queden vacías no se muestran. #}
+
+{% set enlaces = [
+    ('inicio.index', 'INICIO'),
+    ('productos.mostrarProductos', 'PRODUCTOS'),
+    ('nosotros.nosotros_page', 'NOSOTROS'),
+    ('contacto.contacto_page', 'CONTACTO'),
+] %}
+{% set redes_activas = redes | selectattr('url') | list %}
+
+<body class="flex min-h-screen flex-col bg-crema text-cafe-950">
+
+    <a href="#contenido"
+       class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-white focus:px-5 focus:py-3 focus:font-medium focus:text-cafe-800 focus:shadow-md">
+        {{ _("Saltar al contenido") }}
+    </a>
 
     <!-- HEADER / NAVBAR UNIFICADO -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <nav class="max-w-7xl mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
+    <header id="cabecera" class="sticky top-0 z-40 border-b border-cafe-800/10 bg-[#ffffff] transition-shadow">
+
+        <nav aria-label="{{ _('Principal') }}"
+             class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-3 lg:px-10">
+
             <!-- LOGO -->
-            <a href="{{ url_for('inicio.index') }}" class="shrink-0">
-                <img src="{{ url_for('static', filename='img/logo.png') }}" class="w-24 md:w-28 h-auto object-contain max-h-16" alt="Logo Río Tambo">
+            <a href="{{ url_for('inicio.index') }}" aria-label="{{ sitio.nombre }}"
+               class="flex shrink-0 items-center gap-3">
+                <img src="{{ url_for('static', filename='img/logo.png') }}" class="h-12 w-auto lg:h-14" alt="">
+                <span class="hidden leading-tight xl:block">
+                    <span class="block font-serif text-lg font-bold">{{ sitio.nombre }}</span>
+                    <span class="etiqueta block text-acento dark:text-oro">{{ _("Café de Junín · Perú") }}</span>
+                </span>
             </a>
 
-            <!-- MENÚ PRINCIPAL -->
-            <div id="main-nav" class="hidden md:flex gap-8 lg:gap-12 text-[#3e2723] text-lg font-bold tracking-wider transition-transform duration-300">
-                <a href="{{ url_for('inicio.index') }}" class="hover:text-yellow-700 transition uppercase">
-                    {{ _("INICIO") }}
+            <!-- MENÚ PRINCIPAL (escritorio) -->
+            <ul id="main-nav"
+                class="hidden gap-6 text-[15px] font-medium uppercase tracking-wide text-cafe-800 lg:flex xl:gap-10">
+                {% for endpoint, texto in enlaces %}
+                <li>
+                    <a href="{{ url_for(endpoint) }}"
+                       {% if request.endpoint == endpoint %}aria-current="page"{% endif %}
+                       class="border-b-2 pb-1 transition hover:text-acento {% if request.endpoint == endpoint %}border-acento dark:border-oro{% else %}border-transparent{% endif %}">
+                        {{ _(texto) }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+
+            <!-- BUSCADOR, CARRITO, IDIOMA, TEMA Y MENÚ MÓVIL -->
+            <div class="flex items-center gap-1">
+
+                <a href="{{ url_for('contacto.contacto_page') }}"
+                   class="mr-3 hidden rounded-full bg-oro px-5 py-2.5 text-sm font-semibold text-cafe-950 transition hover:bg-oro-600 xl:inline-flex">
+                    {{ _("Solicitar cotización") }}
                 </a>
 
-                <a href="{{ url_for('productos.mostrarProductos') }}" class="hover:text-yellow-700 transition uppercase">
-                    {{ _("PRODUCTOS") }}
-                </a>
-
-                <a href="{{ url_for('nosotros.nosotros_page') }}" class="hover:text-yellow-700 transition uppercase">
-                    {{ _("NOSOTROS") }}
-                </a>
-
-                <a href="{{ url_for('contacto.contacto_page') }}" class="hover:text-yellow-700 transition uppercase">
-                    {{ _("CONTACTO") }}
-                </a>
-            </div>
-
-            <!-- BUSCADOR E ÍCONOS -->
-            <div class="flex items-center gap-4 md:gap-6 shrink-0">
-                <div class="relative flex items-center">
-                    <form action="#" method="get" id="search-form"
-                          class="absolute right-9 top-1/2 -translate-y-1/2 h-9 rounded-full border border-gray-200 bg-white shadow-sm overflow-hidden transition-all duration-300 ease-in-out w-0 opacity-0 pointer-events-none">
-                        <input type="text" name="q" placeholder="{{ _('Buscar productos...') }}"
-                               class="h-full w-64 px-4 text-sm text-[#3e2723] outline-none bg-transparent">
-                    </form>
-                    <button type="button" onclick="toggleSearch()" id="search-toggle-btn"
-                            class="hover:opacity-70 transition cursor-pointer relative z-10 flex items-center justify-center" aria-label="{{ _('Buscar') }}">
-                        <img src="{{ url_for('static', filename='img/iconos/search.png') }}" class="w-6 h-6 md:w-7 md:h-7 object-contain" alt="{{ _('Buscar') }}">
-                    </button>
-                </div>
-
-                <button type="button" class="hover:opacity-70 transition cursor-pointer flex items-center justify-center" aria-label="Carrito de compras">
-                    <img src="{{ url_for('static', filename='img/iconos/cart.png') }}" class="w-6 h-6 md:w-7 md:h-7 object-contain" alt="Carrito">
+                <button type="button" id="search-toggle-btn"
+                        class="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-full transition hover:opacity-70"
+                        aria-label="{{ _('Buscar') }}" aria-expanded="false" aria-controls="search-panel">
+                    <img src="{{ url_for('static', filename='img/iconos/search.png') }}" class="h-7 w-7" alt="">
                 </button>
 
-                <div id="language-controls" class="flex items-center gap-3">
-                <div class="relative">
+                <button type="button"
+                        class="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-full transition hover:opacity-70"
+                        aria-label="{{ _('Carrito de compras') }}">
+                    <img src="{{ url_for('static', filename='img/iconos/cart.png') }}" class="h-7 w-7" alt="">
+                </button>
 
-    <button
-        type="button"
-        onclick="toggleLanguageMenu()"
-        class="hover:opacity-70 transition cursor-pointer flex items-center justify-center"
-        aria-label="{{ _('Idioma') }}"
-        aria-expanded="false"
-        aria-controls="language-menu"
-    >
-        <span
-            id="language-icon"
-            class="text-2xl leading-none"
-            role="img"
-            aria-label="{{ _('Idioma') }}"
-        >{% if idiomaActual == 'en' %}🇺🇸{% else %}🇵🇪{% endif %}</span>
-    </button>
+                <div id="language-controls" class="flex items-center gap-1">
 
-    <div
-        id="language-menu"
-        class="hidden absolute right-0 mt-3 w-40 bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden z-50"
-    >
+                    <div class="relative">
+                        <button type="button" id="language-toggle-btn"
+                                class="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-full transition hover:opacity-70"
+                                aria-label="{{ _('Idioma') }}" aria-expanded="false" aria-controls="language-menu">
+                            <span id="language-icon" class="inline-flex items-center justify-center">
+                                {% if idiomaActual == 'en' %}
+                                <span class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-cafe-800 text-[11px] font-bold text-white">EN</span>
+                                {% else %}
+                                <img src="{{ url_for('static', filename='img/iconos/peru.png') }}" class="h-7 w-7" alt="">
+                                {% endif %}
+                            </span>
+                        </button>
 
-        <a
-            href="{{ url_for('idioma.cambiarIdioma', idioma='es') }}"
-            class="flex items-center gap-3 px-4 py-3 hover:bg-gray-100 transition"
-        >
-            🇵🇪
-            <span>Español</span>
-        </a>
+                        <div id="language-menu"
+                             class="hidden absolute right-0 mt-3 w-44 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-lg z-50">
+                            <a href="{{ url_for('idioma.cambiarIdioma', idioma='es') }}"
+                               class="flex items-center gap-3 px-4 py-3 transition hover:bg-gray-100">
+                                <img src="{{ url_for('static', filename='img/iconos/peru.png') }}" class="h-6 w-6" alt="">
+                                <span>Español</span>
+                            </a>
+                            <a href="{{ url_for('idioma.cambiarIdioma', idioma='en') }}"
+                               class="flex items-center gap-3 px-4 py-3 transition hover:bg-gray-100">
+                                <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-cafe-800 text-[10px] font-bold text-white">EN</span>
+                                <span>English</span>
+                            </a>
+                        </div>
+                    </div>
 
-        <a
-            href="{{ url_for('idioma.cambiarIdioma', idioma='en') }}"
-            class="flex items-center gap-3 px-4 py-3 hover:bg-gray-100 transition"
-        >
-            🇬🇧
-            <span>English</span>
-        </a>
-
-    </div>
-
-</div>
+                    <!-- Botón de tema (modo claro/oscuro): lo agrega funcionalidad1.js -->
                     <div id="theme-button-slot"></div>
                 </div>
+
+                <button type="button" id="menu-toggle"
+                        class="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-full text-cafe-800 dark:text-white transition hover:opacity-70 lg:hidden"
+                        aria-label="{{ _('Menú') }}" aria-expanded="false" aria-controls="menu-movil">
+                    <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                         stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                        <path d="M4 7h16M4 12h16M4 17h16" />
+                    </svg>
+                </button>
+
             </div>
+
         </nav>
+
+        <div id="search-panel" hidden class="border-t border-cafe-800/10 bg-inherit">
+            <form action="#" method="get" role="search" id="search-form"
+                  class="mx-auto flex max-w-7xl items-center gap-3 px-6 py-3 lg:px-10">
+                <label for="search-input" class="sr-only">{{ _("Buscar productos...") }}</label>
+                <input id="search-input" type="search" name="q" placeholder="{{ _('Buscar productos...') }}"
+                       class="h-11 w-full rounded-full border border-cafe-800/25 bg-white px-5 text-base text-cafe-800">
+                <button type="submit"
+                        class="h-11 shrink-0 cursor-pointer rounded-full bg-cafe-800 px-6 font-medium text-white transition hover:bg-cafe-950">
+                    {{ _("Buscar") }}
+                </button>
+            </form>
+        </div>
+
+        <div id="menu-movil" hidden class="border-t border-cafe-800/10 bg-inherit lg:hidden">
+            <ul class="mx-auto max-w-7xl px-6 pt-2 text-lg font-medium uppercase tracking-wide text-cafe-800">
+                {% for endpoint, texto in enlaces %}
+                <li>
+                    <a href="{{ url_for(endpoint) }}"
+                       {% if request.endpoint == endpoint %}aria-current="page"{% endif %}
+                       class="block py-3 transition hover:text-acento {% if request.endpoint == endpoint %}text-acento dark:text-oro{% endif %}">
+                        {{ _(texto) }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+            <div class="mx-auto max-w-7xl px-6 pb-5 pt-2">
+                <a href="{{ url_for('contacto.contacto_page') }}"
+                   class="inline-flex w-full items-center justify-center rounded-full bg-oro px-6 py-3 font-semibold text-cafe-950 transition hover:bg-oro-600">
+                    {{ _("Solicitar cotización") }}
+                </a>
+            </div>
+        </div>
+
     </header>
 
     <!-- CONTENIDO PRINCIPAL -->
-    <main class="flex-grow">
+    <main id="contenido" class="flex-1">
         {% block content %}{% endblock %}
     </main>
 
     <!-- FOOTER UNIFICADO -->
-    <footer class="site-footer bg-[#2f1f12] text-white mt-16">
-        <div class="footer-contenedor max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 py-12">
-            <div class="footer-principal grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-14 items-center">
+    <footer class="bg-cafe-900 text-white/80">
 
-                <!-- IDENTIDAD -->
-                <div class="footer-identidad flex items-center gap-5 sm:gap-6">
-                    <img
-                        src="{{ url_for('static', filename='img/logo.png') }}"
-                        class="footer-logo w-24 md:w-28 h-auto object-contain shrink-0"
-                        alt="Logo Río Tambo"
-                    >
+        <div class="mx-auto max-w-7xl px-6 py-12 lg:px-10 lg:py-16">
 
-                    <div class="min-w-0">
-                        <h3 class="footer-nombre text-lg sm:text-xl md:text-2xl font-bold leading-tight">
-                            Cooperativa Agraria Cafetalera<br>
-                            Río Tambo Ltda.
-                        </h3>
+            <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr]">
 
-                        <p class="text-sm md:text-base text-gray-300 mt-2 leading-relaxed">
-                            {{ _("Café peruano, calidad que transforma.") }}
-                        </p>
+                <div>
+                    <div class="flex items-center gap-4">
+                        <img src="{{ url_for('static', filename='img/logo.png') }}"
+                             class="h-16 w-auto shrink-0 rounded-xl bg-white p-1.5" alt="">
+                        <p class="min-w-0 font-serif text-xl font-bold text-white text-balance">{{ sitio.nombre_legal }}</p>
                     </div>
+                    <p class="mt-5 max-w-md text-lg">{{ _(sitio.lema) }}</p>
+
+                    {% if redes_activas %}
+                    <ul class="mt-6 flex gap-3">
+                        {% for red in redes_activas %}
+                        <li>
+                            <a href="{{ red.url }}" aria-label="{{ red.nombre }}" target="_blank" rel="noopener"
+                               class="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/10 transition hover:bg-white/20">
+                                <img src="{{ url_for('static', filename='img/iconos/' ~ red.icono ~ '.png') }}" class="h-6 w-6" alt="">
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
                 </div>
 
-                <!-- REDES -->
-                <div class="footer-redes min-w-0">
-                    <h3 class="text-xl md:text-2xl font-bold text-center md:text-right mb-5 leading-tight">
-                        {{ _("Síguenos") }}
-                    </h3>
-
-                    <div class="footer-iconos flex justify-center md:justify-end gap-5 sm:gap-6 items-center">
-                        <a href="#" class="footer-icono-link" aria-label="Facebook">
-                            <img src="{{ url_for('static', filename='img/iconos/facebook.png') }}"
-                                 class="footer-icono w-8 h-8 object-contain"
-                                 alt="Facebook">
-                        </a>
-
-                        <a href="#" class="footer-icono-link" aria-label="Instagram">
-                            <img src="{{ url_for('static', filename='img/iconos/instagram.png') }}"
-                                 class="footer-icono w-8 h-8 object-contain"
-                                 alt="Instagram">
-                        </a>
-
-                        <a href="#" class="footer-icono-link" aria-label="WhatsApp">
-                            <img src="{{ url_for('static', filename='img/iconos/whatsapp.png') }}"
-                                 class="footer-icono w-8 h-8 object-contain"
-                                 alt="WhatsApp">
-                        </a>
-
-                        <a href="#" class="footer-icono-link" aria-label="Gmail">
-                            <img src="{{ url_for('static', filename='img/iconos/gmail.png') }}"
-                                 class="footer-icono w-8 h-8 object-contain"
-                                 alt="Gmail">
-                        </a>
-                    </div>
+                <div role="navigation" aria-label="{{ _('Páginas del sitio') }}">
+                    <h2 class="etiqueta text-white/70">{{ _("Páginas") }}</h2>
+                    <ul class="mt-5 space-y-3">
+                        {% for endpoint, texto in enlaces %}
+                        <li>
+                            <a href="{{ url_for(endpoint) }}" class="transition hover:text-white">{{ _(texto) | lower | capitalize }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
                 </div>
+
+                <div>
+                    <h2 class="etiqueta text-white/70">{{ _("CONTACTO") }}</h2>
+                    <ul class="mt-5 space-y-3">
+                        <li>{{ sitio.ubicacion }}</li>
+                        {% if sitio.ruc %}
+                        <li>RUC {{ sitio.ruc }}</li>
+                        {% endif %}
+                        {% if sitio.correo %}
+                        <li><a href="mailto:{{ sitio.correo }}" class="break-words transition hover:text-white">{{ sitio.correo }}</a></li>
+                        {% endif %}
+                        {% if sitio.whatsapp %}
+                        <li>
+                            <a href="https://wa.me/{{ sitio.whatsapp }}" target="_blank" rel="noopener"
+                               class="transition hover:text-white">WhatsApp: {{ sitio.whatsapp_texto or ('+' ~ sitio.whatsapp) }}</a>
+                        </li>
+                        {% endif %}
+                        <li>
+                            <a href="{{ url_for('contacto.contacto_page') }}" class="font-semibold text-white underline underline-offset-4">
+                                {{ _("Escríbenos desde el formulario") }}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
             </div>
 
-            <div class="footer-inferior border-t border-white/20 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs md:text-sm text-gray-400 gap-3 text-center sm:text-left">
-                <p class="leading-relaxed">
-                    © 2026 Cooperativa Agraria Cafetalera Río Tambo Ltda. Todos los derechos reservados.
-                </p>
-
-                <a href="#" class="shrink-0 hover:underline">
-                    {{ _("Políticas de Privacidad") }}
-                </a>
+            <div class="mt-10 flex flex-col gap-3 border-t border-white/20 pt-8 text-sm text-white/70 sm:flex-row sm:justify-between">
+                <p>© <span id="anio">2026</span> {{ sitio.nombre_legal }} {{ _("Todos los derechos reservados.") }}</p>
+                {% if sitio.privacidad_url %}
+                <a href="{{ sitio.privacidad_url }}" class="underline underline-offset-4 transition hover:text-white">{{ _("Políticas de Privacidad") }}</a>
+                {% endif %}
             </div>
+
         </div>
+
     </footer>
 
-    <!-- SCRIPT BUSCADOR -->
+    <!-- SCRIPT DE LA CABECERA: buscador, menú móvil, idioma y sombra al hacer scroll -->
     <script>
-    function toggleSearch() {
-        const form = document.getElementById('search-form');
-        const btn = document.getElementById('search-toggle-btn');
-        const nav = document.getElementById('main-nav');
-        const isOpen = form.classList.contains('w-64');
+        (function () {
+            var cabecera = document.getElementById('cabecera');
+            var searchBtn = document.getElementById('search-toggle-btn');
+            var searchPanel = document.getElementById('search-panel');
+            var searchInput = document.getElementById('search-input');
+            var menuBtn = document.getElementById('menu-toggle');
+            var menuPanel = document.getElementById('menu-movil');
+            var langBtn = document.getElementById('language-toggle-btn');
+            var langMenu = document.getElementById('language-menu');
+            var anio = document.getElementById('anio');
 
-        if (isOpen) {
-            form.classList.remove('w-64', 'opacity-100', 'pointer-events-auto');
-            form.classList.add('w-0', 'opacity-0', 'pointer-events-none');
-            if (nav) nav.classList.remove('-translate-x-[140px]', 'pointer-events-none');
-            btn.setAttribute('aria-expanded', 'false');
-        } else {
-            form.classList.remove('w-0', 'opacity-0', 'pointer-events-none');
-            form.classList.add('w-64', 'opacity-100', 'pointer-events-auto');
-            if (nav) nav.classList.add('-translate-x-[140px]', 'pointer-events-none');
-            btn.setAttribute('aria-expanded', 'true');
-            form.querySelector('input').focus();
-        }
-    }
+            if (anio) anio.textContent = new Date().getFullYear();
 
-    function toggleLanguageMenu() {
-        const menu = document.getElementById('language-menu');
-        const button = document.querySelector('[aria-controls="language-menu"]');
-        const isHidden = menu.classList.toggle('hidden');
+            function setOpen(btn, panel, open) {
+                panel.hidden = !open;
+                btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            }
 
-        button.setAttribute('aria-expanded', String(!isHidden));
-    }
+            function setLang(open) {
+                langMenu.classList.toggle('hidden', !open);
+                langBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            }
 
-    document.addEventListener('click', (event) => {
-        const languageMenu = document.getElementById('language-menu');
-        const languageButton = document.querySelector('[aria-controls="language-menu"]');
+            function sombra() {
+                cabecera.classList.toggle('shadow-md', window.scrollY > 8);
+            }
+            sombra();
+            window.addEventListener('scroll', sombra, { passive: true });
 
-        if (!languageMenu.contains(event.target) && !languageButton.contains(event.target)) {
-            languageMenu.classList.add('hidden');
-            languageButton.setAttribute('aria-expanded', 'false');
-        }
-    });
+            searchBtn.addEventListener('click', function () {
+                var open = searchPanel.hidden;
+                setOpen(searchBtn, searchPanel, open);
+                if (open) {
+                    setOpen(menuBtn, menuPanel, false);
+                    setLang(false);
+                    searchInput.focus();
+                }
+            });
+
+            menuBtn.addEventListener('click', function () {
+                var open = menuPanel.hidden;
+                setOpen(menuBtn, menuPanel, open);
+                if (open) {
+                    setOpen(searchBtn, searchPanel, false);
+                    setLang(false);
+                }
+            });
+
+            langBtn.addEventListener('click', function () {
+                setLang(langMenu.classList.contains('hidden'));
+            });
+
+            document.addEventListener('click', function (e) {
+                if (!langMenu.contains(e.target) && !langBtn.contains(e.target)) setLang(false);
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key !== 'Escape') return;
+                if (!langMenu.classList.contains('hidden')) {
+                    setLang(false);
+                    langBtn.focus();
+                } else if (!searchPanel.hidden) {
+                    setOpen(searchBtn, searchPanel, false);
+                    searchBtn.focus();
+                } else if (!menuPanel.hidden) {
+                    setOpen(menuBtn, menuPanel, false);
+                    menuBtn.focus();
+                }
+            });
+
+            window.matchMedia('(min-width: 64rem)').addEventListener('change', function (e) {
+                if (e.matches) setOpen(menuBtn, menuPanel, false);
+            });
+
+            // Compatibilidad con llamadas anteriores desde otros scripts
+            window.toggleSearch = function () { searchBtn.click(); };
+            window.toggleLanguageMenu = function () { langBtn.click(); };
+        })();
     </script>
     <script src="{{ url_for('static', filename='js/funcionalidad1.js') }}"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    </body> 
     <script src="{{ url_for('static', filename='js/chatbot.js') }}"></script>
-    
+
 </body>
+
 </html>
