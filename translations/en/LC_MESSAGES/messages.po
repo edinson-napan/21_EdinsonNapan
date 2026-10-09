@@ -1,13 +1,15 @@
-# English translations for PROJECT.
+# English translations for Rio Tambo.
 # Copyright (C) 2026 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
+# This file is distributed under the same license as the Rio Tambo project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Rio Tambo Website\n"
-"POT-Creation-Date: 2026-10-08 23:44-0500\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-10-09 01:20-0500\n"
 "PO-Revision-Date: 2026-10-08 23:44-0500\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
 "Language-Team: English\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -16,281 +18,790 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.18.0\n"
 
-msgid "Saltar al contenido"
-msgstr "Skip to content"
+#: app/templates/base.html:48
+msgid "Café peruano, calidad que transforma."
+msgstr "Peruvian coffee, quality that transforms."
 
-msgid "Principal"
-msgstr "Home"
+#: app/templates/base.html:70
+msgid "INICIO"
+msgstr "HOME"
 
-msgid "Café de Junín · Perú"
-msgstr "Coffee from Junín · Peru"
+#: app/templates/base.html:71
+msgid "PRODUCTOS"
+msgstr "PRODUCTS"
 
-msgid "Solicitar cotización"
-msgstr "Request a quote"
+#: app/templates/base.html:72
+msgid "NOSOTROS"
+msgstr "ABOUT US"
 
-msgid "Buscar"
-msgstr "Search"
-
-msgid "Carrito de compras"
-msgstr "Shopping cart"
-
-msgid "Idioma"
-msgstr "Language"
-
-msgid "Menú"
-msgstr "Menu"
-
-msgid "Buscar productos..."
-msgstr "Search products..."
-
-msgid "Páginas del sitio"
-msgstr "Site pages"
-
-msgid "Páginas"
-msgstr "Pages"
-
+#: app/templates/base.html:73 app/templates/base.html:277
 msgid "CONTACTO"
 msgstr "CONTACT"
 
+#: app/templates/base.html:82
+msgid "Saltar al contenido"
+msgstr "Skip to content"
+
+#: app/templates/base.html:88
+msgid "Principal"
+msgstr "Home"
+
+#: app/templates/base.html:97
+msgid "Café de Junín · Perú"
+msgstr "Coffee from Junín · Peru"
+
+#: app/templates/base.html:120 app/templates/base.html:224
+#: app/templates/carrito/index.html:94
+msgid "Solicitar cotización"
+msgstr "Request a quote"
+
+#: app/templates/base.html:125 app/templates/base.html:204
+msgid "Buscar"
+msgstr "Search"
+
+#: app/templates/base.html:132 app/templates/carrito/index.html:14
+msgid "Carrito de compras"
+msgstr "Shopping cart"
+
+#: app/templates/base.html:154
+msgid "Idioma"
+msgstr "Language"
+
+#: app/templates/base.html:185
+msgid "Menú"
+msgstr "Menu"
+
+#: app/templates/base.html:199 app/templates/base.html:200
+msgid "Buscar productos..."
+msgstr "Search products..."
+
+#: app/templates/base.html:265
+msgid "Páginas del sitio"
+msgstr "Site pages"
+
+#: app/templates/base.html:266
+msgid "Páginas"
+msgstr "Pages"
+
+#: app/templates/base.html:294
 msgid "Escríbenos desde el formulario"
 msgstr "Write to us using the form"
 
+#: app/templates/base.html:303
 msgid "Todos los derechos reservados."
 msgstr "All rights reserved."
 
+#: app/templates/base.html:305
 msgid "Políticas de Privacidad"
 msgstr "Privacy Policy"
 
+#: app/templates/carrito/index.html:11
 msgid "Tu selección"
 msgstr "Your selection"
 
+#: app/templates/carrito/index.html:17
 msgid "Revisa los productos que deseas solicitar a Río Tambo."
 msgstr "Review the products you would like to request from Río Tambo."
 
+#: app/templates/carrito/index.html:37
 msgid "Producto seleccionado para cotización."
 msgstr "Product selected for quotation."
 
+#: app/templates/carrito/index.html:63
 msgid "Eliminar"
 msgstr "Remove"
 
+#: app/templates/carrito/index.html:73
 msgid "Resumen"
 msgstr "Summary"
 
+#: app/templates/carrito/index.html:77 app/templates/productos/index.html:3
 msgid "Productos"
 msgstr "Products"
 
+#: app/templates/carrito/index.html:81
 msgid "Unidades"
 msgstr "Units"
 
+#: app/templates/carrito/index.html:87
 msgid "Los productos de esta sección se gestionan mediante cotización."
 msgstr "Products in this section are handled through a quotation request."
 
+#: app/templates/carrito/index.html:88
 msgid "El precio final dependerá de la solicitud realizada."
 msgstr "The final price will depend on the request submitted."
 
+#: app/templates/carrito/index.html:100
 msgid "Vaciar carrito"
 msgstr "Empty cart"
 
+#: app/templates/carrito/index.html:114
 msgid "Tu carrito está vacío"
 msgstr "Your cart is empty"
 
+#: app/templates/carrito/index.html:118
 msgid "Agrega alguno de nuestros productos para verlo aquí."
 msgstr "Add one of our products to see it here."
 
+#: app/templates/carrito/index.html:124 app/templates/nosotros/index.html:355
 msgid "Ver productos"
 msgstr "View products"
 
+#: app/templates/contacto/index.html:3
 msgid "Contacto"
 msgstr "Contact"
 
+#: app/templates/contacto/index.html:15 app/templates/productos/index.html:169
 msgid "Contáctanos"
 msgstr "Contact us"
 
+#: app/templates/contacto/index.html:18
 msgid "Estamos aquí para atenderte"
 msgstr "We are here to assist you"
 
+#: app/templates/contacto/index.html:28
 msgid "Envíanos un mensaje"
 msgstr "Send us a message"
 
+#: app/templates/contacto/index.html:29
 msgid "Escríbenos y nuestro equipo te responderá a la brevedad."
 msgstr "Write to us and our team will respond shortly."
 
+#: app/templates/contacto/index.html:33
 msgid "¡Mensaje enviado!"
 msgstr "Message sent!"
 
+#: app/templates/contacto/index.html:34
 msgid "Gracias por contactarnos. Te responderemos pronto."
 msgstr "Thank you for contacting us. We will respond soon."
 
+#: app/templates/contacto/index.html:41
 msgid "Nombre completo:"
 msgstr "Full name:"
 
+#: app/templates/contacto/index.html:42
 msgid "Tu nombre"
 msgstr "Your name"
 
+#: app/templates/contacto/index.html:47
 msgid "Correo electrónico:"
 msgstr "Email address:"
 
+#: app/templates/contacto/index.html:53
 msgid "Teléfono:"
 msgstr "Phone:"
 
+#: app/templates/contacto/index.html:59
 msgid "Motivo de consulta:"
 msgstr "Reason for inquiry:"
 
+#: app/templates/contacto/index.html:62
 msgid "Selecciona una opción"
 msgstr "Select an option"
 
+#: app/templates/contacto/index.html:63
 msgid "Cotización de productos"
 msgstr "Product quotation"
 
+#: app/templates/contacto/index.html:64
 msgid "Información general"
 msgstr "General information"
 
+#: app/templates/contacto/index.html:65
 msgid "Quiero ser socio"
 msgstr "I want to become a member"
 
+#: app/templates/contacto/index.html:66
 msgid "Otros"
 msgstr "Other"
 
+#: app/templates/contacto/index.html:71
 msgid "Mensaje:"
 msgstr "Message:"
 
+#: app/templates/contacto/index.html:72
 msgid "Cuéntanos qué necesitas..."
 msgstr "Tell us what you need..."
 
+#: app/templates/contacto/index.html:78
 msgid "Enviar mensaje"
 msgstr "Send message"
 
+#: app/templates/contacto/index.html:93
 msgid "Ubicación"
 msgstr "Location"
 
+#: app/templates/contacto/index.html:105
 msgid "Teléfono"
 msgstr "Phone"
 
+#: app/templates/contacto/index.html:116
 msgid "Correo Electrónico"
 msgstr "Email"
 
+#: app/templates/contacto/index.html:127
 msgid "Horario de atención"
 msgstr "Business hours"
 
+#: app/templates/contacto/index.html:128
 msgid "Lunes - Viernes"
 msgstr "Monday - Friday"
 
+#: app/templates/inicio/index.html:3
 msgid "Inicio"
 msgstr "Home"
 
+#: app/templates/inicio/index.html:17
 msgid "Café que cultiva un mejor mañana"
 msgstr "Coffee that cultivates a better tomorrow"
 
-msgid "Desde nuestras tierras en el Valle del Río Tambo, llevamos el mejor café peruano a tu taza."
-msgstr "From our lands in the Tambo River Valley, we bring the finest Peruvian coffee to your cup."
+#: app/templates/inicio/index.html:20
+msgid ""
+"Desde nuestras tierras en el Valle del Río Tambo, llevamos el mejor café "
+"peruano a tu taza."
+msgstr ""
+"From our lands in the Tambo River Valley, we bring the finest Peruvian "
+"coffee to your cup."
 
+#: app/templates/inicio/index.html:23
 msgid "Descubre nuestro café"
 msgstr "Discover our coffee"
 
+#: app/templates/inicio/index.html:36
 msgid "Orgánico"
 msgstr "Organic"
 
+#: app/templates/inicio/index.html:37
 msgid "Sin agroquímicos"
 msgstr "Free from agrochemicals"
 
+#: app/templates/inicio/index.html:43 app/templates/nosotros/index.html:26
 msgid "Calidad"
 msgstr "Quality"
 
+#: app/templates/inicio/index.html:44
 msgid "En cada grano"
 msgstr "In every bean"
 
+#: app/templates/inicio/index.html:50 app/templates/nosotros/index.html:27
 msgid "Sostenibilidad"
 msgstr "Sustainability"
 
+#: app/templates/inicio/index.html:51
 msgid "Con nuestras comunidades"
 msgstr "Alongside our communities"
 
+#: app/templates/inicio/index.html:57
 msgid "Social"
 msgstr "Social impact"
 
+#: app/templates/inicio/index.html:58
 msgid "Impulsamos el desarrollo local"
 msgstr "We promote local development"
 
+#: app/templates/inicio/index.html:69
 msgid "Nuestra esencia"
 msgstr "Our essence"
 
+#: app/templates/inicio/index.html:71
 msgid "De nuestra tierra a tu taza, cultivamos calidad que inspira"
 msgstr "From our land to your cup, we cultivate quality that inspires"
 
+#: app/templates/inicio/index.html:74
 msgid "Conoce más sobre nosotros"
 msgstr "Learn more about us"
 
+#: app/templates/inicio/index.html:83
 msgid "Últimas Novedades"
 msgstr "Latest news"
 
+#: app/templates/inicio/index.html:85
 msgid "Ver todos"
 msgstr "View all"
 
+#: app/templates/inicio/index.html:94
 msgid "La importancia del café para el mundo"
 msgstr "The importance of coffee to the world"
 
+#: app/templates/inicio/index.html:102
 msgid "Buenas prácticas en el cultivo de café"
 msgstr "Good practices in coffee cultivation"
 
+#: app/templates/inicio/index.html:110
 msgid "Trabajo por un futuro sostenible"
 msgstr "Working toward a sustainable future"
 
+#: app/templates/nosotros/index.html:4 app/templates/nosotros/index.html:86
+#, fuzzy
+msgid "Nosotros"
+msgstr "Other"
+
+#: app/templates/nosotros/index.html:5
+msgid ""
+"Conoce a la Cooperativa Agraria Cafetalera Río Tambo, de Satipo, Junín: "
+"nuestra historia, misión, visión, valores, origen del café y registros."
+msgstr ""
+"Get to know the Río Tambo Coffee Growers' Cooperative in Satipo, Junín: "
+"our history, mission, vision, values, coffee origins, and registrations."
+
+#: app/templates/nosotros/index.html:19
+#, fuzzy
+msgid "Año de fundación"
+msgstr "Business hours"
+
+#: app/templates/nosotros/index.html:20
+#, fuzzy
+msgid "Socios productores"
+msgstr "Our Products"
+
+#: app/templates/nosotros/index.html:21
+msgid "Mujeres entre los socios"
+msgstr "Women among the members"
+
+#: app/templates/nosotros/index.html:22
+msgid "Hectáreas de la organización"
+msgstr "Organization's hectares"
+
+#: app/templates/nosotros/index.html:26
+msgid ""
+"Cuidamos cada etapa, de la cosecha al almacenado, para entregar un café "
+"de alta calidad."
+msgstr ""
+"We oversee every stage, from harvest to storage, to deliver a high-"
+"quality coffee."
+
+#: app/templates/nosotros/index.html:27
+msgid ""
+"Producimos con respeto por nuestra tierra y por las comunidades donde "
+"trabajamos."
+msgstr "We produce with respect for our land and the communities where we work."
+
+#: app/templates/nosotros/index.html:28
+msgid "Trabajo en equipo"
+msgstr "Teamwork"
+
+#: app/templates/nosotros/index.html:28
+msgid "Somos una organización de productores: decidimos y avanzamos juntos."
+msgstr ""
+"We are a producers’ organization: we make decisions and move forward "
+"together."
+
+#: app/templates/nosotros/index.html:29
+msgid "Responsabilidad social"
+msgstr "Social Responsibility"
+
+#: app/templates/nosotros/index.html:29
+msgid ""
+"Buscamos mejorar la calidad de vida de nuestros socios y de nuestras "
+"comunidades."
+msgstr "We seek to improve the quality of life of our members and our communities."
+
+#: app/templates/nosotros/index.html:30
+msgid "Honestidad"
+msgstr "Integrity"
+
+#: app/templates/nosotros/index.html:30
+msgid "Actuamos con transparencia con nuestros socios y con quienes nos compran."
+msgstr "We act transparently with our members and our customers."
+
+#: app/templates/nosotros/index.html:34
+#, fuzzy
+msgid "Zona de origen"
+msgstr "Coffee from the source"
+
+#: app/templates/nosotros/index.html:34
+msgid "Distrito de Río Tambo, provincia de Satipo, región Junín"
+msgstr "Río Tambo District, Satipo Province, Junín Region"
+
+#: app/templates/nosotros/index.html:35
+msgid "Altitud"
+msgstr "Altitude"
+
+#: app/templates/nosotros/index.html:35
+msgid "1200 a 1700 msnm"
+msgstr "1,200 to 1,700 meters above sea level"
+
+#: app/templates/nosotros/index.html:36
+#, fuzzy
+msgid "Variedades"
+msgstr "Units"
+
+#: app/templates/nosotros/index.html:36
+msgid "Catuai, catimor, caturra, geisha, castillo y obata"
+msgstr "Catuai, Catimor, Caturra, Geisha, Castillo, and Obata"
+
+#: app/templates/nosotros/index.html:37
+msgid "Cosecha"
+msgstr "Harvest Season"
+
+#: app/templates/nosotros/index.html:37
+msgid "De marzo a setiembre"
+msgstr "From March to September"
+
+#: app/templates/nosotros/index.html:38
+#, fuzzy
+msgid "Disponibilidad"
+msgstr "Sustainability"
+
+#: app/templates/nosotros/index.html:38
+msgid "Para embarque o entrega: de mayo a octubre"
+msgstr "Available for shipment or delivery: May to October"
+
+#: app/templates/nosotros/index.html:39
+msgid "Producción estimada, cosecha 2026"
+msgstr "Estimated Production, 2026 Harvest"
+
+#: app/templates/nosotros/index.html:39
+msgid "6320 quintales de café verde"
+msgstr "6,320 quintals of green coffee"
+
+#: app/templates/nosotros/index.html:40
+msgid "Calidad prevista, cosecha 2026"
+msgstr "Expected Quality, 2026 Harvest"
+
+#: app/templates/nosotros/index.html:40
+msgid "Grados 1, 2, 3 y 4"
+msgstr "Grades 1, 2, 3, and 4"
+
+#: app/templates/nosotros/index.html:41
+msgid "Café tostado"
+msgstr "Roasted Coffee"
+
+#: app/templates/nosotros/index.html:41
+msgid "Marca KIMOSHIRI, en grano y molido, en envases de 50 g a 1 kg"
+msgstr ""
+"KIMOSHIRI brand, whole bean and ground coffee, in packages from 50 g to 1"
+" kg"
+
+#: app/templates/nosotros/index.html:46
+msgid "Registro sanitario"
+msgstr "Health Registration"
+
+#: app/templates/nosotros/index.html:47
+msgid "La cooperativa cuenta con registro sanitario vigente."
+msgstr "The cooperative has a valid health registration."
+
+#: app/templates/nosotros/index.html:48
+msgid "Vigente"
+msgstr "Valid"
+
+#: app/templates/nosotros/index.html:50
+msgid "Número"
+msgstr "Number"
+
+#: app/templates/nosotros/index.html:51
+msgid "Vigente hasta"
+msgstr "Valid until"
+
+#: app/templates/nosotros/index.html:51
+msgid "22 de octubre de 2029"
+msgstr "October 22, 2029"
+
+#: app/templates/nosotros/index.html:56
+msgid "Formalización"
+msgstr "Legal Status"
+
+#: app/templates/nosotros/index.html:57
+msgid "Cooperativa constituida legalmente, con RUC activo y habido ante la SUNAT."
+msgstr ""
+"A legally established cooperative with an active RUC registered with "
+"SUNAT."
+
+#: app/templates/nosotros/index.html:58
+msgid "Activo"
+msgstr "Active"
+
+#: app/templates/nosotros/index.html:60
+msgid "RUC"
+msgstr "RUC"
+
+#: app/templates/nosotros/index.html:61
+msgid "Estado verificado el"
+msgstr "Status verified on"
+
+#: app/templates/nosotros/index.html:61
+msgid "24 de febrero de 2026"
+msgstr "February 24, 2026"
+
+#: app/templates/nosotros/index.html:88
+#, fuzzy
+msgid "Nuestra Cooperativa"
+msgstr "Our essence"
+
+#: app/templates/nosotros/index.html:91
+msgid "Unidos por un café de calidad, comprometidos con un futuro sostenible."
+msgstr "United by quality coffee, committed to a sustainable future."
+
+#: app/templates/nosotros/index.html:104
+#, fuzzy
+msgid "Quiénes somos"
+msgstr "I want to become a member"
+
+#: app/templates/nosotros/index.html:106
+#, fuzzy
+msgid "Una organización de productores de Río Tambo"
+msgstr "Product quotation"
+
+#: app/templates/nosotros/index.html:110
+msgid ""
+"La Cooperativa Agraria Cafetalera Río Tambo Ltda. es una organización de "
+"productores comprometidos con la calidad, la sostenibilidad y el "
+"desarrollo de nuestras comunidades."
+msgstr ""
+"Río Tambo Agricultural Coffee Cooperative Ltd. is a producers’ "
+"organization committed to quality, sustainability, and the development of"
+" our communities."
+
+#: app/templates/nosotros/index.html:114
+msgid ""
+"Fundada el 20 de agosto de 2017, cuenta con 95 socios en el distrito de "
+"Río Tambo, provincia de Satipo, región Junín. Nos dedicamos a la "
+"producción, acopio y comercialización de café y de otros productos "
+"agrícolas de la zona."
+msgstr ""
+"Founded on August 20, 2017, the cooperative has 95 members in Río Tambo "
+"District, Satipo Province, Junín Region. We produce, collect, and market "
+"coffee and other agricultural products from the area."
+
+#: app/templates/nosotros/index.html:118
+msgid ""
+"Trabajamos para llevar café peruano al mundo, respetando nuestra tierra y"
+" nuestras tradiciones."
+msgstr ""
+"We work to bring Peruvian coffee to the world while respecting our land "
+"and traditions."
+
+#: app/templates/nosotros/index.html:124
+msgid "Productor de café cosechando cerezas en una plantación de montaña"
+msgstr "Coffee farmer harvesting coffee cherries on a mountain plantation"
+
+#: app/templates/nosotros/index.html:128
+msgid "Desde 2017"
+msgstr "Since 2017"
+
+#: app/templates/nosotros/index.html:140
+msgid "Misión y visión"
+msgstr "Mission and Vision"
+
+#: app/templates/nosotros/index.html:144
+msgid "Qué hacemos"
+msgstr "What We Do"
+
+#: app/templates/nosotros/index.html:146
+#, fuzzy
+msgid "Nuestra misión"
+msgstr "Our essence"
+
+#: app/templates/nosotros/index.html:149
+msgid ""
+"Mejorar la calidad de vida de nuestros socios a través de la producción y"
+" comercialización de café de alta calidad."
+msgstr ""
+"To improve our members’ quality of life through the production and "
+"marketing of high-quality coffee."
+
+#: app/templates/nosotros/index.html:154
+msgid "A dónde vamos"
+msgstr "Where We Are Headed"
+
+#: app/templates/nosotros/index.html:156
+#, fuzzy
+msgid "Nuestra visión"
+msgstr "Our essence"
+
+#: app/templates/nosotros/index.html:159
+msgid ""
+"Ser una cooperativa reconocida a nivel nacional e internacional por "
+"nuestro café sostenible y de excelencia."
+msgstr ""
+"To be a nationally and internationally recognized cooperative known for "
+"sustainable, excellent-quality coffee."
+
+#: app/templates/nosotros/index.html:171
+msgid "La cooperativa en cifras"
+msgstr "The Cooperative in Numbers"
+
+#: app/templates/nosotros/index.html:193
+msgid "Cómo trabajamos"
+msgstr "How We Work"
+
+#: app/templates/nosotros/index.html:195
+msgid "Lo que nos guía"
+msgstr "What Guides Us"
+
+#: app/templates/nosotros/index.html:219
+msgid "Origen y producción"
+msgstr "Origin and Production"
+
+#: app/templates/nosotros/index.html:221
+#, fuzzy
+msgid "Nuestro café"
+msgstr "Discover our coffee"
+
+#: app/templates/nosotros/index.html:224
+msgid ""
+"Lo que nuestros compradores suelen preguntar primero: de dónde viene, "
+"cuánto hay y cuándo está disponible."
+msgstr ""
+"The first things our buyers usually ask are where our coffee comes from, "
+"how much is available, and when it can be delivered."
+
+#: app/templates/nosotros/index.html:246
+msgid "Respaldo"
+msgstr "Credentials"
+
+#: app/templates/nosotros/index.html:248
+#, fuzzy
+msgid "Formalización y respaldo"
+msgstr "General information"
+
+#: app/templates/nosotros/index.html:277
+msgid "Ver documento (PDF)"
+msgstr "View Document (PDF)"
+
+#: app/templates/nosotros/index.html:286
+msgid "Premios"
+msgstr "Awards"
+
+#: app/templates/nosotros/index.html:292
+msgid "Certificado de premio: "
+msgstr "Award certificate: "
+
+#: app/templates/nosotros/index.html:308
+msgid "¿Necesitas documentación específica?"
+msgstr "Do You Need Specific Documentation?"
+
+#: app/templates/nosotros/index.html:311
+msgid ""
+"Escríbenos y te indicamos cómo recibir la ficha técnica y los documentos "
+"de la cooperativa."
+msgstr ""
+"Contact us and we’ll explain how to obtain the technical data sheet and "
+"the cooperative’s documents."
+
+#: app/templates/nosotros/index.html:316
+#, fuzzy
+msgid "Solicitar documentación"
+msgstr "Request a quote"
+
+#: app/templates/nosotros/index.html:327
+msgid "Lema de la cooperativa"
+msgstr "Cooperative Motto"
+
+#: app/templates/nosotros/index.html:335
+msgid "Cuidamos hoy, para un mejor mañana."
+msgstr "We care today for a better tomorrow."
+
+#: app/templates/nosotros/index.html:347
+#, fuzzy
+msgid "Conoce nuestro café"
+msgstr "Discover our coffee"
+
+#: app/templates/nosotros/index.html:350
+msgid ""
+"Trabajamos con exportadores, importadores, cafeterías y centros "
+"comerciales. Escríbenos y conversemos."
+msgstr ""
+"We work with exporters, importers, coffee shops, and retailers. Get in "
+"touch and let’s talk."
+
+#: app/templates/nosotros/index.html:359
+#, fuzzy
+msgid "Contactar"
+msgstr "Contact"
+
+#: app/templates/productos/index.html:13
 msgid "Nuestros Productos"
 msgstr "Our Products"
 
+#: app/templates/productos/index.html:17
 msgid "Café de origen, calidad que se siente"
 msgstr "Origin coffee, quality you can taste"
 
-msgid "Ofrecemos granos de café de alta calidad, cultivados con prácticas sostenibles en el Valle de Río Tambo, listos para los mercados más exigentes."
-msgstr "We offer high-quality coffee beans, grown using sustainable practices in the Tambo River Valley and ready for the most demanding markets."
+#: app/templates/productos/index.html:30
+msgid ""
+"Ofrecemos granos de café de alta calidad, cultivados con prácticas "
+"sostenibles en el Valle de Río Tambo, listos para los mercados más "
+"exigentes."
+msgstr ""
+"We offer high-quality coffee beans, grown using sustainable practices in "
+"the Tambo River Valley and ready for the most demanding markets."
 
+#: app/templates/productos/index.html:44 app/templates/productos/index.html:49
 msgid "Café Verde"
 msgstr "Green Coffee"
 
+#: app/templates/productos/index.html:53
 msgid "Grano crudo de alta calidad, ideal para procesos de selección y tostado."
 msgstr "High-quality raw beans, ideal for sorting and roasting."
 
+#: app/templates/productos/index.html:57 app/templates/productos/index.html:92
 msgid "100 por ciento orgánico."
 msgstr "100 percent organic."
 
+#: app/templates/productos/index.html:58
 msgid "Alta calidad."
 msgstr "High quality."
 
+#: app/templates/productos/index.html:59 app/templates/productos/index.html:94
 msgid "Cultivado en el Valle de Río Tambo."
 msgstr "Grown in the Tambo River Valley."
 
+#: app/templates/productos/index.html:67 app/templates/productos/index.html:101
 msgid "Agregar al carrito"
 msgstr "Add to cart"
 
+#: app/templates/productos/index.html:79 app/templates/productos/index.html:84
 msgid "Café Pergamino"
 msgstr "Parchment Coffee"
 
-msgid "Grano con capa de pergamino, seleccionado cuidadosamente de nuestras fincas."
+#: app/templates/productos/index.html:88
+msgid ""
+"Grano con capa de pergamino, seleccionado cuidadosamente de nuestras "
+"fincas."
 msgstr "Coffee beans with a parchment layer, carefully selected from our farms."
 
+#: app/templates/productos/index.html:93
 msgid "Proceso natural."
 msgstr "Natural process."
 
+#: app/templates/productos/index.html:118
 msgid "Misión"
 msgstr "Mission"
 
-msgid "Ofrecer café de calidad, producido responsablemente y con compromiso hacia nuestros clientes y productores."
-msgstr "To offer quality coffee produced responsibly and with commitment to our customers and producers."
+#: app/templates/productos/index.html:121
+msgid ""
+"Ofrecer café de calidad, producido responsablemente y con compromiso "
+"hacia nuestros clientes y productores."
+msgstr ""
+"To offer quality coffee produced responsibly and with commitment to our "
+"customers and producers."
 
+#: app/templates/productos/index.html:126
 msgid "Visión"
 msgstr "Vision"
 
-msgid "Fortalecer nuestra presencia en los mercados nacionales e internacionales mediante productos de calidad."
-msgstr "To strengthen our presence in national and international markets through quality products."
+#: app/templates/productos/index.html:129
+msgid ""
+"Fortalecer nuestra presencia en los mercados nacionales e internacionales"
+" mediante productos de calidad."
+msgstr ""
+"To strengthen our presence in national and international markets through "
+"quality products."
 
+#: app/templates/productos/index.html:142
 msgid "Calidad desde el origen"
 msgstr "Quality from the source"
 
+#: app/templates/productos/index.html:149
 msgid "Café desde el origen"
 msgstr "Coffee from the source"
 
+#: app/templates/productos/index.html:160
 msgid "¿Quieres conocer nuestros productos?"
 msgstr "Would you like to learn about our products?"
 
+#: app/templates/productos/index.html:164
 msgid "Contáctanos para conocer más sobre nuestra oferta."
 msgstr "Contact us to learn more about our offering."
+

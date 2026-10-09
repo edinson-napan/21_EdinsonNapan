@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 
+
 {# =====================================================================
    DATOS DEL SITIO. Se editan aquí y se reflejan en cabecera y footer.
    Lo que se deja vacío ('') no se muestra, así no quedan enlaces rotos.
@@ -44,7 +45,7 @@
 {% set sitio = {
     'nombre': 'Cooperativa Río Tambo',
     'nombre_legal': 'Cooperativa Agraria Cafetalera Río Tambo Ltda.',
-    'lema': 'Café peruano, calidad que transforma.',
+    'lema': _('Café peruano, calidad que transforma.'),
     'ubicacion': 'Av. La Unión, Mz. Z, Lt. 1, Caña Edén, Río Tambo, Satipo, Junín',
     'whatsapp': '51962854114',
     'whatsapp_texto': '+51 962 854 114',
@@ -52,6 +53,7 @@
     'ruc': '20602712657',
     'privacidad_url': '',
 } %}
+
 {# TODO: confirmar cuál es el WhatsApp de la cooperativa (la ficha lista 962854114
          y 921140072) y que quieran publicarlo. Solo dígitos con código de país.
          privacidad_url: ruta de la política cuando exista. #}
@@ -59,16 +61,18 @@
 {% set redes = [
     {'nombre': 'Facebook', 'icono': 'facebook', 'url': 'https://www.facebook.com/cacriotamboltda'},
     {'nombre': 'Instagram', 'icono': 'instagram', 'url': ''},
-    {'nombre': 'WhatsApp', 'icono': 'whatsapp', 'url': ''},
+    {'nombre': 'WhatsApp', 'icono': 'whatsapp', 'url': ''}
 ] %}
+
 {# TODO: poner la URL real de cada red; las que queden vacías no se muestran. #}
 
 {% set enlaces = [
-    ('inicio.index', 'INICIO'),
-    ('productos.mostrarProductos', 'PRODUCTOS'),
-    ('nosotros.nosotros_page', 'NOSOTROS'),
-    ('contacto.contacto_page', 'CONTACTO'),
+    ('inicio.index', _('INICIO')),
+    ('productos.mostrarProductos', _('PRODUCTOS')),
+    ('nosotros.nosotros_page', _('NOSOTROS')),
+    ('contacto.contacto_page', _('CONTACTO'))
 ] %}
+
 {% set redes_activas = redes | selectattr('url') | list %}
 
 <body class="flex min-h-screen flex-col bg-crema text-cafe-950">

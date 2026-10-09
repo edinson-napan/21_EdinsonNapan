@@ -1,19 +1,60 @@
-// ==========================================
-// FUNCIONALIDAD 3: CHATBOT
-// ==========================================
+
 
 document.addEventListener("DOMContentLoaded", () => {
+    const idioma = (document.documentElement.lang || "es")
+        .toLowerCase()
+        .startsWith("en") ? "en" : "es";
 
-    // Crear botón flotante del chatbot
+    const textos = {
+        es: {
+            abrir: "Abrir asistente",
+            titulo: "Asistente Río Tambo",
+            estado: "En línea",
+            saludo: "¡Hola! 👋 Soy el asistente de Río Tambo. ¿En qué puedo ayudarte?",
+            productos: "☕ Productos",
+            nosotros: "🌿 Nosotros",
+            contacto: "📞 Contacto",
+            ubicacion: "📍 Ubicación",
+            placeholder: "Escribe tu pregunta...",
+            saludoRespuesta: "¡Hola! 👋 ¿En qué puedo ayudarte?",
+            productosRespuesta: "☕ Contamos con diferentes productos de café. Puedes revisar nuestra sección de productos para conocerlos.",
+            nosotrosRespuesta: "🌿 Río Tambo Ltda. es una cooperativa dedicada a la producción y comercialización de café y al desarrollo de sus comunidades.",
+            contactoRespuesta: "📞 Puedes comunicarte con nosotros desde la sección de contacto de nuestra página.",
+            ubicacionRespuesta: "📍 Puedes encontrar nuestra ubicación en la sección de contacto.",
+            graciasRespuesta: "¡De nada! 😊 Estoy aquí para ayudarte.",
+            desconocido: "🤔 No entendí muy bien tu pregunta. Puedes preguntarme sobre productos, contacto, ubicación o sobre nosotros."
+        },
+        en: {
+            abrir: "Open assistant",
+            titulo: "Río Tambo Assistant",
+            estado: "Online",
+            saludo: "Hello! 👋 I'm the Río Tambo assistant. How can I help you?",
+            productos: "☕ Products",
+            nosotros: "🌿 About us",
+            contacto: "📞 Contact",
+            ubicacion: "📍 Location",
+            placeholder: "Type your question...",
+            saludoRespuesta: "Hello! 👋 How can I help you?",
+            productosRespuesta: "☕ We offer a variety of coffee products. Visit our Products section to learn more.",
+            nosotrosRespuesta: "🌿 Río Tambo Ltda. is a cooperative dedicated to coffee production and marketing and to the development of its communities.",
+            contactoRespuesta: "📞 You can contact us through the Contact section of our website.",
+            ubicacionRespuesta: "📍 You can find our location in the Contact section.",
+            graciasRespuesta: "You're welcome! 😊 I'm here to help.",
+            desconocido: "🤔 I'm not sure I understood. You can ask me about our products, contact details, location, or the cooperative."
+        }
+    }[idioma];
+
     const botonChat = document.createElement("button");
     botonChat.id = "btn-chatbot";
-    botonChat.innerHTML = "💬";
-    botonChat.title = "Abrir asistente";
+    botonChat.type = "button";
+    botonChat.textContent = "💬";
+    botonChat.title = textos.abrir;
+    botonChat.setAttribute("aria-label", textos.abrir);
 
     document.body.appendChild(botonChat);
 
 
-    // Crear ventana del chatbot
+
     const chatbot = document.createElement("div");
 
     chatbot.id = "chatbot";
@@ -22,122 +63,53 @@ document.addEventListener("DOMContentLoaded", () => {
     chatbot.innerHTML = `
         <div class="chatbot-header">
             <div>
-                <strong>Asistente Río Tambo</strong>
-                <p>En línea</p>
+                <strong></strong>
+                <p></p>
             </div>
-
-            <button id="cerrar-chat">✕</button>
+            <button id="cerrar-chat" type="button" aria-label="${idioma === "en" ? "Close assistant" : "Cerrar asistente"}">✕</button>
         </div>
 
-        <div class="chatbot-mensajes" id="chatbot-mensajes">
-
-            <div class="mensaje bot">
-                ¡Hola! 👋 Soy el asistente de Río Tambo.
-                ¿En qué puedo ayudarte?
-            </div>
-
-        </div>
+        <div class="chatbot-mensajes" id="chatbot-mensajes"></div>
 
         <div class="chatbot-opciones">
-            <button data-pregunta="productos">☕ Productos</button>
-            <button data-pregunta="nosotros">🌿 Nosotros</button>
-            <button data-pregunta="contacto">📞 Contacto</button>
-            <button data-pregunta="ubicacion">📍 Ubicación</button>
+            <button type="button" data-pregunta="productos"></button>
+            <button type="button" data-pregunta="nosotros"></button>
+            <button type="button" data-pregunta="contacto"></button>
+            <button type="button" data-pregunta="ubicacion"></button>
         </div>
 
         <div class="chatbot-input">
-            <input
-                type="text"
-                id="mensaje-chat"
-                placeholder="Escribe tu pregunta..."
-                autocomplete="off"
-            >
-
-            <button id="enviar-chat">➤</button>
+            <input type="text" id="mensaje-chat"
+                   autocomplete="off">
+            <button id="enviar-chat" type="button"
+                    aria-label="${idioma === "en" ? "Send message" : "Enviar mensaje"}">➤</button>
         </div>
     `;
 
     document.body.appendChild(chatbot);
 
+    const cerrarChat = chatbot.querySelector("#cerrar-chat");
+    const enviarChat = chatbot.querySelector("#enviar-chat");
+    const inputChat = chatbot.querySelector("#mensaje-chat");
+    const mensajes = chatbot.querySelector("#chatbot-mensajes");
+    const encabezado = chatbot.querySelector(".chatbot-header strong");
+    const estado = chatbot.querySelector(".chatbot-header p");
 
-    // Elementos que vamos a utilizar
-    const cerrarChat = document.getElementById("cerrar-chat");
-    const enviarChat = document.getElementById("enviar-chat");
-    const inputChat = document.getElementById("mensaje-chat");
-    const mensajes = document.getElementById("chatbot-mensajes");
+    encabezado.textContent = textos.titulo;
+    estado.textContent = textos.estado;
+    inputChat.placeholder = textos.placeholder;
 
+    const opcionesTexto = {
+        productos: textos.productos,
+        nosotros: textos.nosotros,
+        contacto: textos.contacto,
+        ubicacion: textos.ubicacion
+    };
 
-    // Abrir chatbot
-    botonChat.addEventListener("click", () => {
-        chatbot.classList.remove("chatbot-oculto");
-        botonChat.style.display = "none";
+    chatbot.querySelectorAll(".chatbot-opciones button").forEach((boton) => {
+        boton.textContent = opcionesTexto[boton.dataset.pregunta];
     });
 
-
-    // Cerrar chatbot
-    cerrarChat.addEventListener("click", () => {
-        chatbot.classList.add("chatbot-oculto");
-        botonChat.style.display = "block";
-    });
-
-
-    // Respuestas del chatbot
-    function obtenerRespuesta(texto) {
-
-        const mensaje = texto.toLowerCase();
-
-        if (
-            mensaje.includes("hola") ||
-            mensaje.includes("buenos días") ||
-            mensaje.includes("buenas tardes")
-        ) {
-            return "¡Hola! 👋 ¿En qué puedo ayudarte?";
-        }
-
-        if (
-            mensaje.includes("producto") ||
-            mensaje.includes("café") ||
-            mensaje.includes("cafe")
-        ) {
-            return "☕ Contamos con diferentes productos de café. Puedes revisar nuestra sección de productos para conocerlos.";
-        }
-
-        if (
-            mensaje.includes("nosotros") ||
-            mensaje.includes("empresa") ||
-            mensaje.includes("quienes")
-        ) {
-            return "🌿 Río Tambo Ltda es una empresa dedicada a ofrecer productos relacionados con el café.";
-        }
-
-        if (
-            mensaje.includes("contacto") ||
-            mensaje.includes("teléfono") ||
-            mensaje.includes("telefono")
-        ) {
-            return "📞 Puedes comunicarte con nosotros desde la sección de contacto de nuestra página.";
-        }
-
-        if (
-            mensaje.includes("ubicación") ||
-            mensaje.includes("ubicacion") ||
-            mensaje.includes("donde")
-        ) {
-            return "📍 Puedes encontrar nuestra ubicación en la sección de contacto.";
-        }
-
-        if (
-            mensaje.includes("gracias") ||
-            mensaje.includes("muchas gracias")
-        ) {
-            return "¡De nada! 😊 Estoy aquí para ayudarte.";
-        }
-
-        return "🤔 No entendí muy bien tu pregunta. Puedes preguntarme sobre productos, contacto, ubicación o sobre nosotros.";
-    }
-
-
-    // Mostrar mensaje
     function agregarMensaje(texto, tipo) {
 
         const mensaje = document.createElement("div");
@@ -147,42 +119,86 @@ document.addEventListener("DOMContentLoaded", () => {
 
         mensajes.appendChild(mensaje);
 
-        // Bajar automáticamente al último mensaje
+
         mensajes.scrollTop = mensajes.scrollHeight;
     }
 
+    agregarMensaje(textos.saludo, "bot");
 
-    // Enviar mensaje
+    function obtenerRespuesta(texto) {
+        const mensaje = texto
+            .toLocaleLowerCase(idioma === "en" ? "en" : "es")
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "");
+
+        const contiene = (...palabras) =>
+            palabras.some((palabra) => mensaje.includes(palabra));
+
+        if (contiene("hola", "hello", "hi", "buenos dias", "buenas tardes", "good morning", "good afternoon")) {
+            return textos.saludoRespuesta;
+        }
+
+        if (contiene("producto", "productos", "product", "products", "cafe", "coffee")) {
+            return textos.productosRespuesta;
+        }
+
+        if (contiene("nosotros", "empresa", "cooperativa", "about us", "about the company", "who are you", "who we are")) {
+            return textos.nosotrosRespuesta;
+        }
+
+        if (contiene("contacto", "contact", "telefono", "phone", "email", "correo", "number")) {
+            return textos.contactoRespuesta;
+        }
+
+        if (contiene("ubicacion", "donde", "direccion", "location", "where", "address", "find you")) {
+            return textos.ubicacionRespuesta;
+        }
+
+        if (contiene("gracias", "thank you", "thanks", "thank")) {
+            return textos.graciasRespuesta;
+        }
+
+        return textos.desconocido;
+    }
+
     function enviarMensaje() {
 
         const texto = inputChat.value.trim();
 
-        // Evitar mensajes vacíos
-        if (texto === "") {
+        if (!texto) {
             return;
         }
 
-        // Mostrar mensaje del usuario
+
         agregarMensaje(texto, "usuario");
 
-        // Limpiar input
+
         inputChat.value = "";
 
-        // Obtener respuesta
+
         const respuesta = obtenerRespuesta(texto);
 
-        // Pequeña espera para que parezca conversación
-        setTimeout(() => {
+        window.setTimeout(() => {
             agregarMensaje(respuesta, "bot");
-        }, 500);
+        }, 300);
     }
 
+    botonChat.addEventListener("click", () => {
+        chatbot.classList.remove("chatbot-oculto");
+        botonChat.style.display = "none";
+        inputChat.focus();
+    });
 
-    // Botón enviar
+    cerrarChat.addEventListener("click", () => {
+        chatbot.classList.add("chatbot-oculto");
+        botonChat.style.display = "block";
+        botonChat.focus();
+    });
+
     enviarChat.addEventListener("click", enviarMensaje);
 
 
-    // Enviar utilizando Enter
+
     inputChat.addEventListener("keydown", (event) => {
 
         if (event.key === "Enter") {
@@ -191,26 +207,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-
-    // Botones de preguntas rápidas
-    const opciones = document.querySelectorAll(
-        ".chatbot-opciones button"
-    );
-
-    opciones.forEach((boton) => {
-
+    chatbot.querySelectorAll(".chatbot-opciones button").forEach((boton) => {
         boton.addEventListener("click", () => {
 
             const pregunta = boton.dataset.pregunta;
 
             agregarMensaje(boton.textContent, "usuario");
 
-            const respuesta = obtenerRespuesta(pregunta);
-
-            setTimeout(() => {
-                agregarMensaje(respuesta, "bot");
-            }, 500);
-
+            window.setTimeout(() => {
+                agregarMensaje(obtenerRespuesta(pregunta), "bot");
+            }, 300);
         });
 
     });

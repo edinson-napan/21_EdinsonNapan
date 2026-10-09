@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-08 23:44-0500\n"
+"POT-Creation-Date: 2026-10-09 01:20-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,64 +17,80 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.18.0\n"
 
-#: app/templates/base.html:78
+#: app/templates/base.html:48
+msgid "Café peruano, calidad que transforma."
+msgstr ""
+
+#: app/templates/base.html:70
+msgid "INICIO"
+msgstr ""
+
+#: app/templates/base.html:71
+msgid "PRODUCTOS"
+msgstr ""
+
+#: app/templates/base.html:72
+msgid "NOSOTROS"
+msgstr ""
+
+#: app/templates/base.html:73 app/templates/base.html:277
+msgid "CONTACTO"
+msgstr ""
+
+#: app/templates/base.html:82
 msgid "Saltar al contenido"
 msgstr ""
 
-#: app/templates/base.html:84
+#: app/templates/base.html:88
 msgid "Principal"
 msgstr ""
 
-#: app/templates/base.html:93
+#: app/templates/base.html:97
 msgid "Café de Junín · Perú"
 msgstr ""
 
-#: app/templates/base.html:116 app/templates/base.html:220
+#: app/templates/base.html:120 app/templates/base.html:224
 #: app/templates/carrito/index.html:94
 msgid "Solicitar cotización"
 msgstr ""
 
-#: app/templates/base.html:121 app/templates/base.html:200
+#: app/templates/base.html:125 app/templates/base.html:204
 msgid "Buscar"
 msgstr ""
 
-#: app/templates/base.html:128 app/templates/carrito/index.html:14
+#: app/templates/base.html:132 app/templates/carrito/index.html:14
 msgid "Carrito de compras"
 msgstr ""
 
-#: app/templates/base.html:150
+#: app/templates/base.html:154
 msgid "Idioma"
 msgstr ""
 
-#: app/templates/base.html:181
+#: app/templates/base.html:185
 msgid "Menú"
 msgstr ""
 
-#: app/templates/base.html:195 app/templates/base.html:196
+#: app/templates/base.html:199 app/templates/base.html:200
 msgid "Buscar productos..."
 msgstr ""
 
-#: app/templates/base.html:261
+#: app/templates/base.html:265
 msgid "Páginas del sitio"
 msgstr ""
 
-#: app/templates/base.html:262
+#: app/templates/base.html:266
 msgid "Páginas"
 msgstr ""
 
-#: app/templates/base.html:273
-msgid "CONTACTO"
-msgstr ""
-
-#: app/templates/base.html:290
+#: app/templates/base.html:294
 msgid "Escríbenos desde el formulario"
 msgstr ""
 
-#: app/templates/base.html:299
+#: app/templates/base.html:303
 msgid "Todos los derechos reservados."
 msgstr ""
 
-#: app/templates/base.html:301
+#: app/templates/base.html:305
 msgid "Políticas de Privacidad"
 msgstr ""
 
@@ -126,7 +142,7 @@ msgstr ""
 msgid "Agrega alguno de nuestros productos para verlo aquí."
 msgstr ""
 
-#: app/templates/carrito/index.html:124
+#: app/templates/carrito/index.html:124 app/templates/nosotros/index.html:355
 msgid "Ver productos"
 msgstr ""
 
@@ -256,7 +272,7 @@ msgstr ""
 msgid "Sin agroquímicos"
 msgstr ""
 
-#: app/templates/inicio/index.html:43
+#: app/templates/inicio/index.html:43 app/templates/nosotros/index.html:26
 msgid "Calidad"
 msgstr ""
 
@@ -264,7 +280,7 @@ msgstr ""
 msgid "En cada grano"
 msgstr ""
 
-#: app/templates/inicio/index.html:50
+#: app/templates/inicio/index.html:50 app/templates/nosotros/index.html:27
 msgid "Sostenibilidad"
 msgstr ""
 
@@ -310,6 +326,341 @@ msgstr ""
 
 #: app/templates/inicio/index.html:110
 msgid "Trabajo por un futuro sostenible"
+msgstr ""
+
+#: app/templates/nosotros/index.html:4 app/templates/nosotros/index.html:86
+msgid "Nosotros"
+msgstr ""
+
+#: app/templates/nosotros/index.html:5
+msgid ""
+"Conoce a la Cooperativa Agraria Cafetalera Río Tambo, de Satipo, Junín: "
+"nuestra historia, misión, visión, valores, origen del café y registros."
+msgstr ""
+
+#: app/templates/nosotros/index.html:19
+msgid "Año de fundación"
+msgstr ""
+
+#: app/templates/nosotros/index.html:20
+msgid "Socios productores"
+msgstr ""
+
+#: app/templates/nosotros/index.html:21
+msgid "Mujeres entre los socios"
+msgstr ""
+
+#: app/templates/nosotros/index.html:22
+msgid "Hectáreas de la organización"
+msgstr ""
+
+#: app/templates/nosotros/index.html:26
+msgid ""
+"Cuidamos cada etapa, de la cosecha al almacenado, para entregar un café "
+"de alta calidad."
+msgstr ""
+
+#: app/templates/nosotros/index.html:27
+msgid ""
+"Producimos con respeto por nuestra tierra y por las comunidades donde "
+"trabajamos."
+msgstr ""
+
+#: app/templates/nosotros/index.html:28
+msgid "Trabajo en equipo"
+msgstr ""
+
+#: app/templates/nosotros/index.html:28
+msgid "Somos una organización de productores: decidimos y avanzamos juntos."
+msgstr ""
+
+#: app/templates/nosotros/index.html:29
+msgid "Responsabilidad social"
+msgstr ""
+
+#: app/templates/nosotros/index.html:29
+msgid ""
+"Buscamos mejorar la calidad de vida de nuestros socios y de nuestras "
+"comunidades."
+msgstr ""
+
+#: app/templates/nosotros/index.html:30
+msgid "Honestidad"
+msgstr ""
+
+#: app/templates/nosotros/index.html:30
+msgid "Actuamos con transparencia con nuestros socios y con quienes nos compran."
+msgstr ""
+
+#: app/templates/nosotros/index.html:34
+msgid "Zona de origen"
+msgstr ""
+
+#: app/templates/nosotros/index.html:34
+msgid "Distrito de Río Tambo, provincia de Satipo, región Junín"
+msgstr ""
+
+#: app/templates/nosotros/index.html:35
+msgid "Altitud"
+msgstr ""
+
+#: app/templates/nosotros/index.html:35
+msgid "1200 a 1700 msnm"
+msgstr ""
+
+#: app/templates/nosotros/index.html:36
+msgid "Variedades"
+msgstr ""
+
+#: app/templates/nosotros/index.html:36
+msgid "Catuai, catimor, caturra, geisha, castillo y obata"
+msgstr ""
+
+#: app/templates/nosotros/index.html:37
+msgid "Cosecha"
+msgstr ""
+
+#: app/templates/nosotros/index.html:37
+msgid "De marzo a setiembre"
+msgstr ""
+
+#: app/templates/nosotros/index.html:38
+msgid "Disponibilidad"
+msgstr ""
+
+#: app/templates/nosotros/index.html:38
+msgid "Para embarque o entrega: de mayo a octubre"
+msgstr ""
+
+#: app/templates/nosotros/index.html:39
+msgid "Producción estimada, cosecha 2026"
+msgstr ""
+
+#: app/templates/nosotros/index.html:39
+msgid "6320 quintales de café verde"
+msgstr ""
+
+#: app/templates/nosotros/index.html:40
+msgid "Calidad prevista, cosecha 2026"
+msgstr ""
+
+#: app/templates/nosotros/index.html:40
+msgid "Grados 1, 2, 3 y 4"
+msgstr ""
+
+#: app/templates/nosotros/index.html:41
+msgid "Café tostado"
+msgstr ""
+
+#: app/templates/nosotros/index.html:41
+msgid "Marca KIMOSHIRI, en grano y molido, en envases de 50 g a 1 kg"
+msgstr ""
+
+#: app/templates/nosotros/index.html:46
+msgid "Registro sanitario"
+msgstr ""
+
+#: app/templates/nosotros/index.html:47
+msgid "La cooperativa cuenta con registro sanitario vigente."
+msgstr ""
+
+#: app/templates/nosotros/index.html:48
+msgid "Vigente"
+msgstr ""
+
+#: app/templates/nosotros/index.html:50
+msgid "Número"
+msgstr ""
+
+#: app/templates/nosotros/index.html:51
+msgid "Vigente hasta"
+msgstr ""
+
+#: app/templates/nosotros/index.html:51
+msgid "22 de octubre de 2029"
+msgstr ""
+
+#: app/templates/nosotros/index.html:56
+msgid "Formalización"
+msgstr ""
+
+#: app/templates/nosotros/index.html:57
+msgid "Cooperativa constituida legalmente, con RUC activo y habido ante la SUNAT."
+msgstr ""
+
+#: app/templates/nosotros/index.html:58
+msgid "Activo"
+msgstr ""
+
+#: app/templates/nosotros/index.html:60
+msgid "RUC"
+msgstr ""
+
+#: app/templates/nosotros/index.html:61
+msgid "Estado verificado el"
+msgstr ""
+
+#: app/templates/nosotros/index.html:61
+msgid "24 de febrero de 2026"
+msgstr ""
+
+#: app/templates/nosotros/index.html:88
+msgid "Nuestra Cooperativa"
+msgstr ""
+
+#: app/templates/nosotros/index.html:91
+msgid "Unidos por un café de calidad, comprometidos con un futuro sostenible."
+msgstr ""
+
+#: app/templates/nosotros/index.html:104
+msgid "Quiénes somos"
+msgstr ""
+
+#: app/templates/nosotros/index.html:106
+msgid "Una organización de productores de Río Tambo"
+msgstr ""
+
+#: app/templates/nosotros/index.html:110
+msgid ""
+"La Cooperativa Agraria Cafetalera Río Tambo Ltda. es una organización de "
+"productores comprometidos con la calidad, la sostenibilidad y el "
+"desarrollo de nuestras comunidades."
+msgstr ""
+
+#: app/templates/nosotros/index.html:114
+msgid ""
+"Fundada el 20 de agosto de 2017, cuenta con 95 socios en el distrito de "
+"Río Tambo, provincia de Satipo, región Junín. Nos dedicamos a la "
+"producción, acopio y comercialización de café y de otros productos "
+"agrícolas de la zona."
+msgstr ""
+
+#: app/templates/nosotros/index.html:118
+msgid ""
+"Trabajamos para llevar café peruano al mundo, respetando nuestra tierra y"
+" nuestras tradiciones."
+msgstr ""
+
+#: app/templates/nosotros/index.html:124
+msgid "Productor de café cosechando cerezas en una plantación de montaña"
+msgstr ""
+
+#: app/templates/nosotros/index.html:128
+msgid "Desde 2017"
+msgstr ""
+
+#: app/templates/nosotros/index.html:140
+msgid "Misión y visión"
+msgstr ""
+
+#: app/templates/nosotros/index.html:144
+msgid "Qué hacemos"
+msgstr ""
+
+#: app/templates/nosotros/index.html:146
+msgid "Nuestra misión"
+msgstr ""
+
+#: app/templates/nosotros/index.html:149
+msgid ""
+"Mejorar la calidad de vida de nuestros socios a través de la producción y"
+" comercialización de café de alta calidad."
+msgstr ""
+
+#: app/templates/nosotros/index.html:154
+msgid "A dónde vamos"
+msgstr ""
+
+#: app/templates/nosotros/index.html:156
+msgid "Nuestra visión"
+msgstr ""
+
+#: app/templates/nosotros/index.html:159
+msgid ""
+"Ser una cooperativa reconocida a nivel nacional e internacional por "
+"nuestro café sostenible y de excelencia."
+msgstr ""
+
+#: app/templates/nosotros/index.html:171
+msgid "La cooperativa en cifras"
+msgstr ""
+
+#: app/templates/nosotros/index.html:193
+msgid "Cómo trabajamos"
+msgstr ""
+
+#: app/templates/nosotros/index.html:195
+msgid "Lo que nos guía"
+msgstr ""
+
+#: app/templates/nosotros/index.html:219
+msgid "Origen y producción"
+msgstr ""
+
+#: app/templates/nosotros/index.html:221
+msgid "Nuestro café"
+msgstr ""
+
+#: app/templates/nosotros/index.html:224
+msgid ""
+"Lo que nuestros compradores suelen preguntar primero: de dónde viene, "
+"cuánto hay y cuándo está disponible."
+msgstr ""
+
+#: app/templates/nosotros/index.html:246
+msgid "Respaldo"
+msgstr ""
+
+#: app/templates/nosotros/index.html:248
+msgid "Formalización y respaldo"
+msgstr ""
+
+#: app/templates/nosotros/index.html:277
+msgid "Ver documento (PDF)"
+msgstr ""
+
+#: app/templates/nosotros/index.html:286
+msgid "Premios"
+msgstr ""
+
+#: app/templates/nosotros/index.html:292
+msgid "Certificado de premio: "
+msgstr ""
+
+#: app/templates/nosotros/index.html:308
+msgid "¿Necesitas documentación específica?"
+msgstr ""
+
+#: app/templates/nosotros/index.html:311
+msgid ""
+"Escríbenos y te indicamos cómo recibir la ficha técnica y los documentos "
+"de la cooperativa."
+msgstr ""
+
+#: app/templates/nosotros/index.html:316
+msgid "Solicitar documentación"
+msgstr ""
+
+#: app/templates/nosotros/index.html:327
+msgid "Lema de la cooperativa"
+msgstr ""
+
+#: app/templates/nosotros/index.html:335
+msgid "Cuidamos hoy, para un mejor mañana."
+msgstr ""
+
+#: app/templates/nosotros/index.html:347
+msgid "Conoce nuestro café"
+msgstr ""
+
+#: app/templates/nosotros/index.html:350
+msgid ""
+"Trabajamos con exportadores, importadores, cafeterías y centros "
+"comerciales. Escríbenos y conversemos."
+msgstr ""
+
+#: app/templates/nosotros/index.html:359
+msgid "Contactar"
 msgstr ""
 
 #: app/templates/productos/index.html:13
