@@ -1,0 +1,296 @@
+# English translations for PROJECT.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Rio Tambo Website\n"
+"POT-Creation-Date: 2026-10-08 23:44-0500\n"
+"PO-Revision-Date: 2026-10-08 23:44-0500\n"
+"Language: en\n"
+"Language-Team: English\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+msgid "Saltar al contenido"
+msgstr "Skip to content"
+
+msgid "Principal"
+msgstr "Home"
+
+msgid "Café de Junín · Perú"
+msgstr "Coffee from Junín · Peru"
+
+msgid "Solicitar cotización"
+msgstr "Request a quote"
+
+msgid "Buscar"
+msgstr "Search"
+
+msgid "Carrito de compras"
+msgstr "Shopping cart"
+
+msgid "Idioma"
+msgstr "Language"
+
+msgid "Menú"
+msgstr "Menu"
+
+msgid "Buscar productos..."
+msgstr "Search products..."
+
+msgid "Páginas del sitio"
+msgstr "Site pages"
+
+msgid "Páginas"
+msgstr "Pages"
+
+msgid "CONTACTO"
+msgstr "CONTACT"
+
+msgid "Escríbenos desde el formulario"
+msgstr "Write to us using the form"
+
+msgid "Todos los derechos reservados."
+msgstr "All rights reserved."
+
+msgid "Políticas de Privacidad"
+msgstr "Privacy Policy"
+
+msgid "Tu selección"
+msgstr "Your selection"
+
+msgid "Revisa los productos que deseas solicitar a Río Tambo."
+msgstr "Review the products you would like to request from Río Tambo."
+
+msgid "Producto seleccionado para cotización."
+msgstr "Product selected for quotation."
+
+msgid "Eliminar"
+msgstr "Remove"
+
+msgid "Resumen"
+msgstr "Summary"
+
+msgid "Productos"
+msgstr "Products"
+
+msgid "Unidades"
+msgstr "Units"
+
+msgid "Los productos de esta sección se gestionan mediante cotización."
+msgstr "Products in this section are handled through a quotation request."
+
+msgid "El precio final dependerá de la solicitud realizada."
+msgstr "The final price will depend on the request submitted."
+
+msgid "Vaciar carrito"
+msgstr "Empty cart"
+
+msgid "Tu carrito está vacío"
+msgstr "Your cart is empty"
+
+msgid "Agrega alguno de nuestros productos para verlo aquí."
+msgstr "Add one of our products to see it here."
+
+msgid "Ver productos"
+msgstr "View products"
+
+msgid "Contacto"
+msgstr "Contact"
+
+msgid "Contáctanos"
+msgstr "Contact us"
+
+msgid "Estamos aquí para atenderte"
+msgstr "We are here to assist you"
+
+msgid "Envíanos un mensaje"
+msgstr "Send us a message"
+
+msgid "Escríbenos y nuestro equipo te responderá a la brevedad."
+msgstr "Write to us and our team will respond shortly."
+
+msgid "¡Mensaje enviado!"
+msgstr "Message sent!"
+
+msgid "Gracias por contactarnos. Te responderemos pronto."
+msgstr "Thank you for contacting us. We will respond soon."
+
+msgid "Nombre completo:"
+msgstr "Full name:"
+
+msgid "Tu nombre"
+msgstr "Your name"
+
+msgid "Correo electrónico:"
+msgstr "Email address:"
+
+msgid "Teléfono:"
+msgstr "Phone:"
+
+msgid "Motivo de consulta:"
+msgstr "Reason for inquiry:"
+
+msgid "Selecciona una opción"
+msgstr "Select an option"
+
+msgid "Cotización de productos"
+msgstr "Product quotation"
+
+msgid "Información general"
+msgstr "General information"
+
+msgid "Quiero ser socio"
+msgstr "I want to become a member"
+
+msgid "Otros"
+msgstr "Other"
+
+msgid "Mensaje:"
+msgstr "Message:"
+
+msgid "Cuéntanos qué necesitas..."
+msgstr "Tell us what you need..."
+
+msgid "Enviar mensaje"
+msgstr "Send message"
+
+msgid "Ubicación"
+msgstr "Location"
+
+msgid "Teléfono"
+msgstr "Phone"
+
+msgid "Correo Electrónico"
+msgstr "Email"
+
+msgid "Horario de atención"
+msgstr "Business hours"
+
+msgid "Lunes - Viernes"
+msgstr "Monday - Friday"
+
+msgid "Inicio"
+msgstr "Home"
+
+msgid "Café que cultiva un mejor mañana"
+msgstr "Coffee that cultivates a better tomorrow"
+
+msgid "Desde nuestras tierras en el Valle del Río Tambo, llevamos el mejor café peruano a tu taza."
+msgstr "From our lands in the Tambo River Valley, we bring the finest Peruvian coffee to your cup."
+
+msgid "Descubre nuestro café"
+msgstr "Discover our coffee"
+
+msgid "Orgánico"
+msgstr "Organic"
+
+msgid "Sin agroquímicos"
+msgstr "Free from agrochemicals"
+
+msgid "Calidad"
+msgstr "Quality"
+
+msgid "En cada grano"
+msgstr "In every bean"
+
+msgid "Sostenibilidad"
+msgstr "Sustainability"
+
+msgid "Con nuestras comunidades"
+msgstr "Alongside our communities"
+
+msgid "Social"
+msgstr "Social impact"
+
+msgid "Impulsamos el desarrollo local"
+msgstr "We promote local development"
+
+msgid "Nuestra esencia"
+msgstr "Our essence"
+
+msgid "De nuestra tierra a tu taza, cultivamos calidad que inspira"
+msgstr "From our land to your cup, we cultivate quality that inspires"
+
+msgid "Conoce más sobre nosotros"
+msgstr "Learn more about us"
+
+msgid "Últimas Novedades"
+msgstr "Latest news"
+
+msgid "Ver todos"
+msgstr "View all"
+
+msgid "La importancia del café para el mundo"
+msgstr "The importance of coffee to the world"
+
+msgid "Buenas prácticas en el cultivo de café"
+msgstr "Good practices in coffee cultivation"
+
+msgid "Trabajo por un futuro sostenible"
+msgstr "Working toward a sustainable future"
+
+msgid "Nuestros Productos"
+msgstr "Our Products"
+
+msgid "Café de origen, calidad que se siente"
+msgstr "Origin coffee, quality you can taste"
+
+msgid "Ofrecemos granos de café de alta calidad, cultivados con prácticas sostenibles en el Valle de Río Tambo, listos para los mercados más exigentes."
+msgstr "We offer high-quality coffee beans, grown using sustainable practices in the Tambo River Valley and ready for the most demanding markets."
+
+msgid "Café Verde"
+msgstr "Green Coffee"
+
+msgid "Grano crudo de alta calidad, ideal para procesos de selección y tostado."
+msgstr "High-quality raw beans, ideal for sorting and roasting."
+
+msgid "100 por ciento orgánico."
+msgstr "100 percent organic."
+
+msgid "Alta calidad."
+msgstr "High quality."
+
+msgid "Cultivado en el Valle de Río Tambo."
+msgstr "Grown in the Tambo River Valley."
+
+msgid "Agregar al carrito"
+msgstr "Add to cart"
+
+msgid "Café Pergamino"
+msgstr "Parchment Coffee"
+
+msgid "Grano con capa de pergamino, seleccionado cuidadosamente de nuestras fincas."
+msgstr "Coffee beans with a parchment layer, carefully selected from our farms."
+
+msgid "Proceso natural."
+msgstr "Natural process."
+
+msgid "Misión"
+msgstr "Mission"
+
+msgid "Ofrecer café de calidad, producido responsablemente y con compromiso hacia nuestros clientes y productores."
+msgstr "To offer quality coffee produced responsibly and with commitment to our customers and producers."
+
+msgid "Visión"
+msgstr "Vision"
+
+msgid "Fortalecer nuestra presencia en los mercados nacionales e internacionales mediante productos de calidad."
+msgstr "To strengthen our presence in national and international markets through quality products."
+
+msgid "Calidad desde el origen"
+msgstr "Quality from the source"
+
+msgid "Café desde el origen"
+msgstr "Coffee from the source"
+
+msgid "¿Quieres conocer nuestros productos?"
+msgstr "Would you like to learn about our products?"
+
+msgid "Contáctanos para conocer más sobre nuestra oferta."
+msgstr "Contact us to learn more about our offering."

@@ -1,0 +1,403 @@
+# Spanish translations for PROJECT.
+# Copyright (C) 2026 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2026-10-08 23:44-0500\n"
+"PO-Revision-Date: 2026-10-09 00:11-0500\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: app/templates/base.html:78
+msgid "Saltar al contenido"
+msgstr ""
+
+#: app/templates/base.html:84
+msgid "Principal"
+msgstr ""
+
+#: app/templates/base.html:93
+msgid "Café de Junín · Perú"
+msgstr ""
+
+#: app/templates/base.html:116 app/templates/base.html:220
+#: app/templates/carrito/index.html:94
+msgid "Solicitar cotización"
+msgstr ""
+
+#: app/templates/base.html:121 app/templates/base.html:200
+msgid "Buscar"
+msgstr ""
+
+#: app/templates/base.html:128 app/templates/carrito/index.html:14
+msgid "Carrito de compras"
+msgstr ""
+
+#: app/templates/base.html:150
+msgid "Idioma"
+msgstr ""
+
+#: app/templates/base.html:181
+msgid "Menú"
+msgstr ""
+
+#: app/templates/base.html:195 app/templates/base.html:196
+msgid "Buscar productos..."
+msgstr ""
+
+#: app/templates/base.html:261
+msgid "Páginas del sitio"
+msgstr ""
+
+#: app/templates/base.html:262
+msgid "Páginas"
+msgstr ""
+
+#: app/templates/base.html:273
+msgid "CONTACTO"
+msgstr ""
+
+#: app/templates/base.html:290
+msgid "Escríbenos desde el formulario"
+msgstr ""
+
+#: app/templates/base.html:299
+msgid "Todos los derechos reservados."
+msgstr ""
+
+#: app/templates/base.html:301
+msgid "Políticas de Privacidad"
+msgstr ""
+
+#: app/templates/carrito/index.html:11
+msgid "Tu selección"
+msgstr ""
+
+#: app/templates/carrito/index.html:17
+msgid "Revisa los productos que deseas solicitar a Río Tambo."
+msgstr ""
+
+#: app/templates/carrito/index.html:37
+msgid "Producto seleccionado para cotización."
+msgstr ""
+
+#: app/templates/carrito/index.html:63
+msgid "Eliminar"
+msgstr ""
+
+#: app/templates/carrito/index.html:73
+msgid "Resumen"
+msgstr ""
+
+#: app/templates/carrito/index.html:77 app/templates/productos/index.html:3
+msgid "Productos"
+msgstr ""
+
+#: app/templates/carrito/index.html:81
+msgid "Unidades"
+msgstr ""
+
+#: app/templates/carrito/index.html:87
+msgid "Los productos de esta sección se gestionan mediante cotización."
+msgstr ""
+
+#: app/templates/carrito/index.html:88
+msgid "El precio final dependerá de la solicitud realizada."
+msgstr ""
+
+#: app/templates/carrito/index.html:100
+msgid "Vaciar carrito"
+msgstr ""
+
+#: app/templates/carrito/index.html:114
+msgid "Tu carrito está vacío"
+msgstr ""
+
+#: app/templates/carrito/index.html:118
+msgid "Agrega alguno de nuestros productos para verlo aquí."
+msgstr ""
+
+#: app/templates/carrito/index.html:124
+msgid "Ver productos"
+msgstr ""
+
+#: app/templates/contacto/index.html:3
+msgid "Contacto"
+msgstr ""
+
+#: app/templates/contacto/index.html:15 app/templates/productos/index.html:169
+msgid "Contáctanos"
+msgstr ""
+
+#: app/templates/contacto/index.html:18
+msgid "Estamos aquí para atenderte"
+msgstr ""
+
+#: app/templates/contacto/index.html:28
+msgid "Envíanos un mensaje"
+msgstr ""
+
+#: app/templates/contacto/index.html:29
+msgid "Escríbenos y nuestro equipo te responderá a la brevedad."
+msgstr ""
+
+#: app/templates/contacto/index.html:33
+msgid "¡Mensaje enviado!"
+msgstr ""
+
+#: app/templates/contacto/index.html:34
+msgid "Gracias por contactarnos. Te responderemos pronto."
+msgstr ""
+
+#: app/templates/contacto/index.html:41
+msgid "Nombre completo:"
+msgstr ""
+
+#: app/templates/contacto/index.html:42
+msgid "Tu nombre"
+msgstr ""
+
+#: app/templates/contacto/index.html:47
+msgid "Correo electrónico:"
+msgstr ""
+
+#: app/templates/contacto/index.html:53
+msgid "Teléfono:"
+msgstr ""
+
+#: app/templates/contacto/index.html:59
+msgid "Motivo de consulta:"
+msgstr ""
+
+#: app/templates/contacto/index.html:62
+msgid "Selecciona una opción"
+msgstr ""
+
+#: app/templates/contacto/index.html:63
+msgid "Cotización de productos"
+msgstr ""
+
+#: app/templates/contacto/index.html:64
+msgid "Información general"
+msgstr ""
+
+#: app/templates/contacto/index.html:65
+msgid "Quiero ser socio"
+msgstr ""
+
+#: app/templates/contacto/index.html:66
+msgid "Otros"
+msgstr ""
+
+#: app/templates/contacto/index.html:71
+msgid "Mensaje:"
+msgstr ""
+
+#: app/templates/contacto/index.html:72
+msgid "Cuéntanos qué necesitas..."
+msgstr ""
+
+#: app/templates/contacto/index.html:78
+msgid "Enviar mensaje"
+msgstr ""
+
+#: app/templates/contacto/index.html:93
+msgid "Ubicación"
+msgstr ""
+
+#: app/templates/contacto/index.html:105
+msgid "Teléfono"
+msgstr ""
+
+#: app/templates/contacto/index.html:116
+msgid "Correo Electrónico"
+msgstr ""
+
+#: app/templates/contacto/index.html:127
+msgid "Horario de atención"
+msgstr ""
+
+#: app/templates/contacto/index.html:128
+msgid "Lunes - Viernes"
+msgstr ""
+
+#: app/templates/inicio/index.html:3
+msgid "Inicio"
+msgstr ""
+
+#: app/templates/inicio/index.html:17
+msgid "Café que cultiva un mejor mañana"
+msgstr ""
+
+#: app/templates/inicio/index.html:20
+msgid ""
+"Desde nuestras tierras en el Valle del Río Tambo, llevamos el mejor café "
+"peruano a tu taza."
+msgstr ""
+
+#: app/templates/inicio/index.html:23
+msgid "Descubre nuestro café"
+msgstr ""
+
+#: app/templates/inicio/index.html:36
+msgid "Orgánico"
+msgstr ""
+
+#: app/templates/inicio/index.html:37
+msgid "Sin agroquímicos"
+msgstr ""
+
+#: app/templates/inicio/index.html:43
+msgid "Calidad"
+msgstr ""
+
+#: app/templates/inicio/index.html:44
+msgid "En cada grano"
+msgstr ""
+
+#: app/templates/inicio/index.html:50
+msgid "Sostenibilidad"
+msgstr ""
+
+#: app/templates/inicio/index.html:51
+msgid "Con nuestras comunidades"
+msgstr ""
+
+#: app/templates/inicio/index.html:57
+msgid "Social"
+msgstr ""
+
+#: app/templates/inicio/index.html:58
+msgid "Impulsamos el desarrollo local"
+msgstr ""
+
+#: app/templates/inicio/index.html:69
+msgid "Nuestra esencia"
+msgstr ""
+
+#: app/templates/inicio/index.html:71
+msgid "De nuestra tierra a tu taza, cultivamos calidad que inspira"
+msgstr ""
+
+#: app/templates/inicio/index.html:74
+msgid "Conoce más sobre nosotros"
+msgstr ""
+
+#: app/templates/inicio/index.html:83
+msgid "Últimas Novedades"
+msgstr ""
+
+#: app/templates/inicio/index.html:85
+msgid "Ver todos"
+msgstr ""
+
+#: app/templates/inicio/index.html:94
+msgid "La importancia del café para el mundo"
+msgstr ""
+
+#: app/templates/inicio/index.html:102
+msgid "Buenas prácticas en el cultivo de café"
+msgstr ""
+
+#: app/templates/inicio/index.html:110
+msgid "Trabajo por un futuro sostenible"
+msgstr ""
+
+#: app/templates/productos/index.html:13
+msgid "Nuestros Productos"
+msgstr ""
+
+#: app/templates/productos/index.html:17
+msgid "Café de origen, calidad que se siente"
+msgstr ""
+
+#: app/templates/productos/index.html:30
+msgid ""
+"Ofrecemos granos de café de alta calidad, cultivados con prácticas "
+"sostenibles en el Valle de Río Tambo, listos para los mercados más "
+"exigentes."
+msgstr ""
+
+#: app/templates/productos/index.html:44 app/templates/productos/index.html:49
+msgid "Café Verde"
+msgstr ""
+
+#: app/templates/productos/index.html:53
+msgid "Grano crudo de alta calidad, ideal para procesos de selección y tostado."
+msgstr ""
+
+#: app/templates/productos/index.html:57 app/templates/productos/index.html:92
+msgid "100 por ciento orgánico."
+msgstr ""
+
+#: app/templates/productos/index.html:58
+msgid "Alta calidad."
+msgstr ""
+
+#: app/templates/productos/index.html:59 app/templates/productos/index.html:94
+msgid "Cultivado en el Valle de Río Tambo."
+msgstr ""
+
+#: app/templates/productos/index.html:67 app/templates/productos/index.html:101
+msgid "Agregar al carrito"
+msgstr ""
+
+#: app/templates/productos/index.html:79 app/templates/productos/index.html:84
+msgid "Café Pergamino"
+msgstr ""
+
+#: app/templates/productos/index.html:88
+msgid ""
+"Grano con capa de pergamino, seleccionado cuidadosamente de nuestras "
+"fincas."
+msgstr ""
+
+#: app/templates/productos/index.html:93
+msgid "Proceso natural."
+msgstr ""
+
+#: app/templates/productos/index.html:118
+msgid "Misión"
+msgstr ""
+
+#: app/templates/productos/index.html:121
+msgid ""
+"Ofrecer café de calidad, producido responsablemente y con compromiso "
+"hacia nuestros clientes y productores."
+msgstr ""
+
+#: app/templates/productos/index.html:126
+msgid "Visión"
+msgstr ""
+
+#: app/templates/productos/index.html:129
+msgid ""
+"Fortalecer nuestra presencia en los mercados nacionales e internacionales"
+" mediante productos de calidad."
+msgstr ""
+
+#: app/templates/productos/index.html:142
+msgid "Calidad desde el origen"
+msgstr ""
+
+#: app/templates/productos/index.html:149
+msgid "Café desde el origen"
+msgstr ""
+
+#: app/templates/productos/index.html:160
+msgid "¿Quieres conocer nuestros productos?"
+msgstr ""
+
+#: app/templates/productos/index.html:164
+msgid "Contáctanos para conocer más sobre nuestra oferta."
+msgstr ""
