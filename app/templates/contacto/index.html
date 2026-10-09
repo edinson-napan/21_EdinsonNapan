@@ -25,58 +25,145 @@
 
     <!-- COLUMNA IZQUIERDA: FORMULARIO -->
     <div>
-        <h2 class="text-3xl font-bold text-[#1F150C]">{{ _("Envíanos un mensaje") }}</h2>
-        <p class="mt-2 text-[#1F150C] mb-8">{{ _("Escríbenos y nuestro equipo te responderá a la brevedad.") }}</p>
+        <h2 class="text-3xl font-bold text-[#1F150C]">{{ _("Solicita atención comercial mayorista") }}</h2>
+        <p class="mt-2 text-[#1F150C] mb-8">{{ _("Cuéntanos sobre tu empresa y tus necesidades de abastecimiento para que nuestro equipo comercial pueda orientarte.") }}</p>
 
         {% if enviado %}
-        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-xl mb-6 shadow-sm" role="alert">
-            <strong class="font-bold">{{ _("¡Mensaje enviado!") }}</strong>
-            <span class="block sm:inline">{{ _("Gracias por contactarnos. Te responderemos pronto.") }}</span>
+        <div class="bg-green-100 border border-green-400 text-green-800 px-4 py-3 rounded-xl mb-6" role="status" aria-live="polite">
+            <strong class="font-bold">{{ _("¡Solicitud enviada!") }}</strong>
+            <span class="block sm:inline">{{ _("Gracias por tu interés comercial. Nuestro equipo revisará tus datos y se pondrá en contacto contigo.") }}</span>
         </div>
         {% endif %}
 
+        {% if errores.get('general') %}
+        <div class="bg-red-50 border border-red-300 text-red-800 px-4 py-3 rounded-xl mb-6" role="alert">{{ errores['general'] }}</div>
+        {% endif %}
+
         <form method="POST" action="{{ url_for('contacto.contacto_page') }}" class="space-y-5">
-            
+            <p class="text-sm text-gray-600">{{ _("Los campos marcados con * son obligatorios.") }}</p>
+
             <div>
-                <label for="nombre" class="block font-bold text-sm mb-1 text-[#1F150C]">{{ _("Nombre completo:") }}</label>
-                <input type="text" id="nombre" name="nombre" placeholder="{{ _('Tu nombre') }}" required
-                       class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 outline-none focus:border-[#8B5E34] focus:ring-1 focus:ring-[#8B5E34] transition">
+                <label for="empresa" class="block font-bold text-sm mb-1 text-[#1F150C]">{{ _("Empresa o razón social *") }}</label>
+                <input type="text" id="empresa" name="empresa" maxlength="150" autocomplete="organization" required value="{{ datos.get('empresa', '') }}" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 focus:border-[#8B5E34] focus:ring-1 focus:ring-[#8B5E34]">
+                {% if errores.get('empresa') %}<p class="text-sm text-red-700 mt-1">{{ errores['empresa'] }}</p>{% endif %}
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                    <label for="contacto_nombre" class="block font-bold text-sm mb-1 text-[#1F150C]">{{ _("Nombre del contacto *") }}</label>
+                    <input type="text" id="contacto_nombre" name="contacto_nombre" maxlength="120" autocomplete="name" required value="{{ datos.get('contacto_nombre', '') }}" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 focus:border-[#8B5E34] focus:ring-1 focus:ring-[#8B5E34]">
+                    {% if errores.get('contacto_nombre') %}<p class="text-sm text-red-700 mt-1">{{ errores['contacto_nombre'] }}</p>{% endif %}
+                </div>
+                <div>
+                    <label for="contacto_cargo" class="block font-bold text-sm mb-1 text-[#1F150C]">{{ _("Cargo *") }}</label>
+                    <input type="text" id="contacto_cargo" name="contacto_cargo" maxlength="100" autocomplete="organization-title" required value="{{ datos.get('contacto_cargo', '') }}" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 focus:border-[#8B5E34] focus:ring-1 focus:ring-[#8B5E34]">
+                    {% if errores.get('contacto_cargo') %}<p class="text-sm text-red-700 mt-1">{{ errores['contacto_cargo'] }}</p>{% endif %}
+                </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                    <label for="correo" class="block font-bold text-sm mb-1 text-[#1F150C]">{{ _("Correo de trabajo *") }}</label>
+                    <input type="email" id="correo" name="correo" maxlength="254" autocomplete="email" required value="{{ datos.get('correo', '') }}" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 focus:border-[#8B5E34] focus:ring-1 focus:ring-[#8B5E34]">
+                    {% if errores.get('correo') %}<p class="text-sm text-red-700 mt-1">{{ errores['correo'] }}</p>{% endif %}
+                </div>
+                <div>
+                    <label for="telefono" class="block font-bold text-sm mb-1 text-[#1F150C]">{{ _("Teléfono o WhatsApp *") }}</label>
+                    <input type="tel" id="telefono" name="telefono" maxlength="25" autocomplete="tel" required value="{{ datos.get('telefono', '') }}" placeholder="+51 999 000 000" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 focus:border-[#8B5E34] focus:ring-1 focus:ring-[#8B5E34]">
+                    {% if errores.get('telefono') %}<p class="text-sm text-red-700 mt-1">{{ errores['telefono'] }}</p>{% endif %}
+                </div>
             </div>
 
             <div>
-                <label for="correo" class="block font-bold text-sm mb-1 text-[#1F150C]">{{ _("Correo electrónico:") }}</label>
-                <input type="email" id="correo" name="correo" placeholder="tucorreo@ejemplo.com" required
-                       class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 outline-none focus:border-[#8B5E34] focus:ring-1 focus:ring-[#8B5E34] transition">
+                <label for="ruc" class="block font-bold text-sm mb-1 text-[#1F150C]">{{ _("RUC (opcional para empresas extranjeras)") }}</label>
+                <input type="text" id="ruc" name="ruc" inputmode="numeric" maxlength="11" pattern="[0-9]{11}" value="{{ datos.get('ruc', '') }}" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 focus:border-[#8B5E34] focus:ring-1 focus:ring-[#8B5E34]">
+                {% if errores.get('ruc') %}<p class="text-sm text-red-700 mt-1">{{ errores['ruc'] }}</p>{% endif %}
             </div>
 
             <div>
-                <label for="telefono" class="block font-bold text-sm mb-1 text-[#1F150C]">{{ _("Teléfono:") }}</label>
-                <input type="tel" id="telefono" name="telefono" placeholder="+51 999 000 000" required
-                       class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 outline-none focus:border-[#8B5E34] focus:ring-1 focus:ring-[#8B5E34] transition">
-            </div>
-
-            <div>
-                <label for="motivo" class="block font-bold text-sm mb-1 text-[#1F150C]">{{ _("Motivo de consulta:") }}</label>
-                <select id="motivo" name="motivo" required
-                        class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 outline-none focus:border-[#8B5E34] focus:ring-1 focus:ring-[#8B5E34] transition appearance-none cursor-pointer">
-                    <option value="" disabled selected>{{ _("Selecciona una opción") }}</option>
-                    <option value="cotizacion">{{ _("Cotización de productos") }}</option>
-                    <option value="informacion">{{ _("Información general") }}</option>
-                    <option value="asociarse">{{ _("Quiero ser socio") }}</option>
-                    <option value="otros">{{ _("Otros") }}</option>
+                <label for="tipo_negocio" class="block font-bold text-sm mb-1 text-[#1F150C]">{{ _("Tipo de negocio *") }}</label>
+                <select id="tipo_negocio" name="tipo_negocio" required class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 focus:border-[#8B5E34] focus:ring-1 focus:ring-[#8B5E34]">
+                    <option value="">{{ _("Selecciona una opción") }}</option>
+                    {% for valor, etiqueta in [('distribuidor', _('Distribuidor')), ('cafeteria', _('Cafetería')), ('tostador', _('Tostador de café')), ('comercializador', _('Comercializador')), ('industria', _('Industria o fabricante')), ('exportador', _('Exportador')), ('otro', _('Otro negocio'))] %}
+                    <option value="{{ valor }}" {% if datos.get('tipo_negocio') == valor %}selected{% endif %}>{{ etiqueta }}</option>
+                    {% endfor %}
                 </select>
+                {% if errores.get('tipo_negocio') %}<p class="text-sm text-red-700 mt-1">{{ errores['tipo_negocio'] }}</p>{% endif %}
             </div>
+
+            <fieldset>
+                <legend class="block font-bold text-sm mb-2 text-[#1F150C]">{{ _("Productos de interés * (puedes elegir varios)") }}</legend>
+                <div class="grid sm:grid-cols-2 gap-2">
+                    {% for valor, etiqueta in [('cafe_verde', _('Café verde')), ('cafe_pergamino', _('Café pergamino')), ('cafe_tostado', _('Café tostado')), ('cafe_molido', _('Café molido')), ('otros', _('Otros productos'))] %}
+                    <label class="flex items-center gap-2 rounded-lg border border-gray-200 p-3"><input type="checkbox" name="productos" value="{{ valor }}" {% if valor in datos.get('productos', []) %}checked{% endif %}> <span>{{ etiqueta }}</span></label>
+                    {% endfor %}
+                </div>
+                {% if errores.get('productos') %}<p class="text-sm text-red-700 mt-1">{{ errores['productos'] }}</p>{% endif %}
+            </fieldset>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                    <label for="volumen" class="block font-bold text-sm mb-1 text-[#1F150C]">{{ _("Volumen aproximado por pedido *") }}</label>
+                    <input type="number" id="volumen" name="volumen" min="0.001" max="999999999" step="0.001" required value="{{ datos.get('volumen', '') }}" placeholder="Ej. 500" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 focus:border-[#8B5E34] focus:ring-1 focus:ring-[#8B5E34]">
+                    {% if errores.get('volumen') %}<p class="text-sm text-red-700 mt-1">{{ errores['volumen'] }}</p>{% endif %}
+                </div>
+                <div>
+                    <label for="unidad_volumen" class="block font-bold text-sm mb-1 text-[#1F150C]">{{ _("Unidad *") }}</label>
+                    <select id="unidad_volumen" name="unidad_volumen" required class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 focus:border-[#8B5E34] focus:ring-1 focus:ring-[#8B5E34]">
+                        <option value="">{{ _("Selecciona una unidad") }}</option>
+                        {% for valor, etiqueta in [('kg', _('Kilogramos (kg)')), ('toneladas', _('Toneladas')), ('sacos', _('Sacos'))] %}<option value="{{ valor }}" {% if datos.get('unidad_volumen') == valor %}selected{% endif %}>{{ etiqueta }}</option>{% endfor %}
+                    </select>
+                    {% if errores.get('unidad_volumen') %}<p class="text-sm text-red-700 mt-1">{{ errores['unidad_volumen'] }}</p>{% endif %}
+                </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                    <label for="frecuencia_compra" class="block font-bold text-sm mb-1 text-[#1F150C]">{{ _("Frecuencia de compra *") }}</label>
+                    <select id="frecuencia_compra" name="frecuencia_compra" required class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 focus:border-[#8B5E34] focus:ring-1 focus:ring-[#8B5E34]">
+                        <option value="">{{ _("Selecciona una opción") }}</option>
+                        {% for valor, etiqueta in [('unica', _('Compra única')), ('semanal', _('Semanal')), ('mensual', _('Mensual')), ('trimestral', _('Trimestral')), ('campana', _('Por campaña o cosecha'))] %}<option value="{{ valor }}" {% if datos.get('frecuencia_compra') == valor %}selected{% endif %}>{{ etiqueta }}</option>{% endfor %}
+                    </select>
+                    {% if errores.get('frecuencia_compra') %}<p class="text-sm text-red-700 mt-1">{{ errores['frecuencia_compra'] }}</p>{% endif %}
+                </div>
+                <div>
+                    <label for="modalidad_entrega" class="block font-bold text-sm mb-1 text-[#1F150C]">{{ _("Entrega preferida *") }}</label>
+                    <select id="modalidad_entrega" name="modalidad_entrega" required class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 focus:border-[#8B5E34] focus:ring-1 focus:ring-[#8B5E34]">
+                        <option value="">{{ _("Selecciona una opción") }}</option>
+                        {% for valor, etiqueta in [('recojo', _('Recojo en cooperativa')), ('entrega_nacional', _('Entrega nacional')), ('consulta_exportacion', _('Consultar exportación'))] %}<option value="{{ valor }}" {% if datos.get('modalidad_entrega') == valor %}selected{% endif %}>{{ etiqueta }}</option>{% endfor %}
+                    </select>
+                    {% if errores.get('modalidad_entrega') %}<p class="text-sm text-red-700 mt-1">{{ errores['modalidad_entrega'] }}</p>{% endif %}
+                </div>
+            </div>
+
+            <fieldset class="space-y-3">
+                <legend class="block font-bold text-sm mb-2 text-[#1F150C]">{{ _("Ubicación de la empresa") }}</legend>
+                <div>
+                    <label for="pais" class="block text-sm mb-1">{{ _("País *") }}</label>
+                    <input type="text" id="pais" name="pais" maxlength="100" autocomplete="country-name" required value="{{ datos.get('pais', 'Perú') }}" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 focus:border-[#8B5E34] focus:ring-1 focus:ring-[#8B5E34]">
+                    {% if errores.get('pais') %}<p class="text-sm text-red-700 mt-1">{{ errores['pais'] }}</p>{% endif %}
+                </div>
+                <div class="grid sm:grid-cols-3 gap-3">
+                    <div><label for="departamento" class="block text-sm mb-1">{{ _("Departamento / región") }}</label><input type="text" id="departamento" name="departamento" maxlength="100" value="{{ datos.get('departamento', '') }}" class="w-full bg-white border border-gray-300 rounded-xl px-3 py-3"></div>
+                    <div><label for="provincia" class="block text-sm mb-1">{{ _("Provincia") }}</label><input type="text" id="provincia" name="provincia" maxlength="100" value="{{ datos.get('provincia', '') }}" class="w-full bg-white border border-gray-300 rounded-xl px-3 py-3"></div>
+                    <div><label for="distrito" class="block text-sm mb-1">{{ _("Distrito / ciudad") }}</label><input type="text" id="distrito" name="distrito" maxlength="100" value="{{ datos.get('distrito', '') }}" class="w-full bg-white border border-gray-300 rounded-xl px-3 py-3"></div>
+                </div>
+            </fieldset>
 
             <div>
-                <label for="mensaje" class="block font-bold text-sm mb-1 text-[#1F150C]">{{ _("Mensaje:") }}</label>
-                <textarea id="mensaje" name="mensaje" rows="4" placeholder="{{ _('Cuéntanos qué necesitas...') }}" required
-                          class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 outline-none focus:border-[#8B5E34] focus:ring-1 focus:ring-[#8B5E34] transition resize-y"></textarea>
+                <label for="detalle_solicitud" class="block font-bold text-sm mb-1 text-[#1F150C]">{{ _("Cuéntanos qué necesitas *") }}</label>
+                <textarea id="detalle_solicitud" name="detalle_solicitud" rows="5" minlength="20" maxlength="2000" required placeholder="{{ _('Indica especificaciones, presentación, destino u otros requisitos relevantes...') }}" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 focus:border-[#8B5E34] focus:ring-1 focus:ring-[#8B5E34] resize-y">{{ datos.get('detalle_solicitud', '') }}</textarea>
+                {% if errores.get('detalle_solicitud') %}<p class="text-sm text-red-700 mt-1">{{ errores['detalle_solicitud'] }}</p>{% endif %}
             </div>
 
-            <button type="submit" 
-                    class="bg-[#2B1A0F] text-white font-medium py-3 px-8 rounded-xl hover:bg-[#543722] transition w-full md:w-auto shadow-md">
-                {{ _("Enviar mensaje") }}
-            </button>
+            <div class="hidden" aria-hidden="true"><label for="website">No rellenes este campo</label><input type="text" id="website" name="website" tabindex="-1" autocomplete="off"></div>
+            <div class="space-y-3">
+                <label class="flex items-start gap-3 text-sm"><input type="checkbox" name="acepto_privacidad" required class="mt-1" {% if datos.get('acepto_privacidad') %}checked{% endif %}><span>{{ _("He leído y acepto la política de privacidad y el tratamiento de mis datos para atender esta solicitud. *") }}</span></label>
+                {% if errores.get('acepto_privacidad') %}<p class="text-sm text-red-700">{{ errores['acepto_privacidad'] }}</p>{% endif %}
+                <label class="flex items-start gap-3 text-sm"><input type="checkbox" name="acepto_novedades" class="mt-1" {% if datos.get('acepto_novedades') %}checked{% endif %}><span>{{ _("Deseo recibir novedades y comunicaciones comerciales (opcional).") }}</span></label>
+            </div>
+
+            <button type="submit" class="bg-[#2B1A0F] text-white font-medium py-3 px-8 rounded-xl hover:bg-[#543722] transition w-full md:w-auto shadow-md">{{ _("Enviar solicitud comercial") }}</button>
         </form>
     </div>
 

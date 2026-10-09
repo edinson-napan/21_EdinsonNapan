@@ -18,7 +18,7 @@ def seleccionarIdioma():
 def create_app():
     app = Flask(__name__)
 
-    app.secret_key = "rio-tambo-clave-secreta"
+    app.config["SECRET_KEY"] = os.getenv("FLASK_SECRET_KEY") or os.urandom(32)
 
     app.config["BABEL_DEFAULT_LOCALE"] = "es"
     app.config["BABEL_SUPPORTED_LOCALES"] = ["es", "en"]

@@ -1,0 +1,15 @@
+services:
+  rio-tambo-web:
+    build: .
+    image: edinsonapan/team08:1.0
+    ports:
+      - "${PORT:-5000}:5000"
+    env_file:
+      - .env
+    environment:
+      MYSQL_SSL_CA: /run/secrets/aiven-ca.pem
+    volumes:
+      
+      - ./app/certs/ca.pem:/run/secrets/aiven-ca.pem:ro
+    restart: unless-stopped
+
