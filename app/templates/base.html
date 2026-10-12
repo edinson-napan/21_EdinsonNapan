@@ -336,6 +336,22 @@
 
             var menuAnimation;
 
+            var reducedMotion = window.matchMedia(
+                '(prefers-reduced-motion: reduce)'
+            );
+
+            reducedMotion.addEventListener('change', function (event) {
+                if (!event.matches) return;
+
+                if (menuAnimation) {
+                    menuAnimation.cancel();
+                    menuAnimation = null;
+                }
+
+            menuPanel.hidden =
+                menuBtn.getAttribute('aria-expanded') !== 'true';
+        });
+
             function setOpen(btn, panel, open) {
                 // El buscador mantiene su comportamiento actual.
                 if (panel !== menuPanel) {
@@ -355,6 +371,23 @@
                 }
 
                 btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+
+                // Evitar que el teclado entre en el menú durante el cierre.
+                if (!open && panel.contains(document.activeElement)) {
+                    btn.focus();
+                }
+                panel.inert = !open;
+
+                // Mostrar u ocultar directamente cuando no se debe animar.
+                if (
+                    reducedMotion.matches ||
+                    typeof panel.animate !== 'function' ||
+                    window.matchMedia('(min-width: 64rem)').matches
+                ) {
+                    panel.hidden = !open;
+                    return;
+                }
+
                 panel.hidden = false;
 
                 menuAnimation = panel.animate(
