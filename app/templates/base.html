@@ -26,7 +26,14 @@
 
         @custom-variant dark (&:where(body.modo-oscuro, body.modo-oscuro *));
 
+        @layer base {
+            h1, h2, h3 {
+                font-family: var(--font-serif, ui-serif, Georgia, Cambria, "Times New Roman", serif);
+            }
+        }
+
         @utility etiqueta {
+            font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
             font-size: 0.75rem;
             line-height: 1rem;
             font-weight: 600;
@@ -185,7 +192,9 @@
                         aria-label="{{ _('Menú') }}" aria-expanded="false" aria-controls="menu-movil">
                     <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                          stroke-width="2" stroke-linecap="round" aria-hidden="true">
-                        <path d="M4 7h16M4 12h16M4 17h16" />
+                        <path class="menu-line-top" d="M4 7h16" />
+                        <path class="menu-line-middle" d="M4 12h16" />
+                        <path class="menu-line-bottom" d="M4 17h16" />
                     </svg>
                 </button>
 
