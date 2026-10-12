@@ -927,3 +927,39 @@ img {
         width: 100%;
     }
 }
+
+/* Animación del icono del menú móvil */
+#menu-toggle path {
+    transition: transform 220ms ease, opacity 220ms ease;
+}
+
+#menu-toggle .menu-line-top {
+    transform-origin: 12px 7px;
+}
+
+#menu-toggle .menu-line-bottom {
+    transform-origin: 12px 17px;
+}
+
+#menu-toggle[aria-expanded="true"] .menu-line-top {
+    transform: translateY(5px) rotate(45deg);
+}
+
+#menu-toggle[aria-expanded="true"] .menu-line-middle {
+    opacity: 0;
+}
+
+#menu-toggle[aria-expanded="true"] .menu-line-bottom {
+    transform: translateY(-5px) rotate(-45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #menu-toggle path {
+        transition: none;
+    }
+}
+
+/* Oculta el contenido que queda fuera durante el despliegue. */
+#menu-movil {
+    overflow: hidden;
+}

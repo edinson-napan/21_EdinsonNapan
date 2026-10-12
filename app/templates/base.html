@@ -26,7 +26,14 @@
 
         @custom-variant dark (&:where(body.modo-oscuro, body.modo-oscuro *));
 
+        @layer base {
+            h1, h2, h3 {
+                font-family: var(--font-serif, ui-serif, Georgia, Cambria, "Times New Roman", serif);
+            }
+        }
+
         @utility etiqueta {
+            font-family: var(--font-sans, ui-sans-serif, system-ui, sans-serif);
             font-size: 0.75rem;
             line-height: 1rem;
             font-weight: 600;
@@ -185,7 +192,9 @@
                         aria-label="{{ _('Menú') }}" aria-expanded="false" aria-controls="menu-movil">
                     <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                          stroke-width="2" stroke-linecap="round" aria-hidden="true">
-                        <path d="M4 7h16M4 12h16M4 17h16" />
+                        <path class="menu-line-top" d="M4 7h16" />
+                        <path class="menu-line-middle" d="M4 12h16" />
+                        <path class="menu-line-bottom" d="M4 17h16" />
                     </svg>
                 </button>
 
@@ -325,9 +334,77 @@
 
             if (anio) anio.textContent = new Date().getFullYear();
 
+            var menuAnimation;
+
+            var reducedMotion = window.matchMedia(
+                '(prefers-reduced-motion: reduce)'
+            );
+
+            reducedMotion.addEventListener('change', function (event) {
+                if (!event.matches) return;
+
+                if (menuAnimation) {
+                    menuAnimation.cancel();
+                    menuAnimation = null;
+                }
+
+            menuPanel.hidden =
+                menuBtn.getAttribute('aria-expanded') !== 'true';
+        });
+
             function setOpen(btn, panel, open) {
-                panel.hidden = !open;
+                // El buscador mantiene su comportamiento actual.
+                if (panel !== menuPanel) {
+                    panel.hidden = !open;
+                    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                    return;
+                }
+
+                // Partir de la altura actual permite invertir la animación.
+                var currentHeight = panel.hidden
+                    ? 0
+                    : panel.getBoundingClientRect().height;
+
+                if (menuAnimation) {
+                    menuAnimation.cancel();
+                    menuAnimation = null;
+                }
+
                 btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+
+                // Evitar que el teclado entre en el menú durante el cierre.
+                if (!open && panel.contains(document.activeElement)) {
+                    btn.focus();
+                }
+                panel.inert = !open;
+
+                // Mostrar u ocultar directamente cuando no se debe animar.
+                if (
+                    reducedMotion.matches ||
+                    typeof panel.animate !== 'function' ||
+                    window.matchMedia('(min-width: 64rem)').matches
+                ) {
+                    panel.hidden = !open;
+                    return;
+                }
+
+                panel.hidden = false;
+
+                menuAnimation = panel.animate(
+                    [
+                        { height: currentHeight + 'px' },
+                        { height: (open ? panel.scrollHeight : 0) + 'px' }
+                    ],
+                    {
+                        duration: 240,
+                        easing: 'ease-out'
+                    }
+                );
+
+                menuAnimation.onfinish = function () {
+                    panel.hidden = !open;
+                    menuAnimation = null;
+                };
             }
 
             function setLang(open) {
@@ -352,7 +429,7 @@
             });
 
             menuBtn.addEventListener('click', function () {
-                var open = menuPanel.hidden;
+                var open = menuBtn.getAttribute('aria-expanded') !== 'true';
                 setOpen(menuBtn, menuPanel, open);
                 if (open) {
                     setOpen(searchBtn, searchPanel, false);
