@@ -334,9 +334,44 @@
 
             if (anio) anio.textContent = new Date().getFullYear();
 
+            var menuAnimation;
+
             function setOpen(btn, panel, open) {
-                panel.hidden = !open;
+                // El buscador mantiene su comportamiento actual.
+                if (panel !== menuPanel) {
+                    panel.hidden = !open;
+                    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                    return;
+                }
+
+                // Partir de la altura actual permite invertir la animación.
+                var currentHeight = panel.hidden
+                    ? 0
+                    : panel.getBoundingClientRect().height;
+
+                if (menuAnimation) {
+                    menuAnimation.cancel();
+                    menuAnimation = null;
+                }
+
                 btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+                panel.hidden = false;
+
+                menuAnimation = panel.animate(
+                    [
+                        { height: currentHeight + 'px' },
+                        { height: (open ? panel.scrollHeight : 0) + 'px' }
+                    ],
+                    {
+                        duration: 240,
+                        easing: 'ease-out'
+                    }
+                );
+
+                menuAnimation.onfinish = function () {
+                    panel.hidden = !open;
+                    menuAnimation = null;
+                };
             }
 
             function setLang(open) {
@@ -361,7 +396,7 @@
             });
 
             menuBtn.addEventListener('click', function () {
-                var open = menuPanel.hidden;
+                var open = menuBtn.getAttribute('aria-expanded') !== 'true';
                 setOpen(menuBtn, menuPanel, open);
                 if (open) {
                     setOpen(searchBtn, searchPanel, false);

@@ -958,3 +958,8 @@ img {
         transition: none;
     }
 }
+
+/* Oculta el contenido que queda fuera durante el despliegue. */
+#menu-movil {
+    overflow: hidden;
+}
