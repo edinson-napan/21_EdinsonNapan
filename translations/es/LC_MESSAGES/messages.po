@@ -1,403 +1,390 @@
-# Spanish translations for PROJECT.
-# Copyright (C) 2026 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+# Spanish translations for Rio Tambo.
+# Copyright (C) 2026 Rio Tambo
+# This file is distributed under the same license as the Rio Tambo project.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: PROJECT VERSION\n"
-"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"Project-Id-Version: Rio Tambo Website 1.0\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-10-08 23:44-0500\n"
-"PO-Revision-Date: 2026-10-09 00:11-0500\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2026-10-12 00:00-0500\n"
 "Language: es\n"
-"Language-Team: es <LL@li.org>\n"
+"Language-Team: Spanish\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.18.0\n"
 
-#: app/templates/base.html:78
+
+# ============================================================
+# 1. ACCESIBILIDAD Y ELEMENTOS GENERALES
+# ============================================================
+
 msgid "Saltar al contenido"
-msgstr ""
+msgstr "Saltar al contenido"
 
-#: app/templates/base.html:84
 msgid "Principal"
-msgstr ""
+msgstr "Principal"
 
-#: app/templates/base.html:93
 msgid "Café de Junín · Perú"
-msgstr ""
+msgstr "Café de Junín · Perú"
 
-#: app/templates/base.html:116 app/templates/base.html:220
-#: app/templates/carrito/index.html:94
-msgid "Solicitar cotización"
-msgstr ""
-
-#: app/templates/base.html:121 app/templates/base.html:200
-msgid "Buscar"
-msgstr ""
-
-#: app/templates/base.html:128 app/templates/carrito/index.html:14
-msgid "Carrito de compras"
-msgstr ""
-
-#: app/templates/base.html:150
 msgid "Idioma"
-msgstr ""
+msgstr "Idioma"
 
-#: app/templates/base.html:181
 msgid "Menú"
-msgstr ""
+msgstr "Menú"
 
-#: app/templates/base.html:195 app/templates/base.html:196
+msgid "Buscar"
+msgstr "Buscar"
+
 msgid "Buscar productos..."
-msgstr ""
+msgstr "Buscar productos..."
 
-#: app/templates/base.html:261
 msgid "Páginas del sitio"
-msgstr ""
+msgstr "Páginas del sitio"
 
-#: app/templates/base.html:262
 msgid "Páginas"
-msgstr ""
+msgstr "Páginas"
 
-#: app/templates/base.html:273
-msgid "CONTACTO"
-msgstr ""
-
-#: app/templates/base.html:290
-msgid "Escríbenos desde el formulario"
-msgstr ""
-
-#: app/templates/base.html:299
 msgid "Todos los derechos reservados."
-msgstr ""
+msgstr "Todos los derechos reservados."
 
-#: app/templates/base.html:301
 msgid "Políticas de Privacidad"
-msgstr ""
+msgstr "Políticas de Privacidad"
 
-#: app/templates/carrito/index.html:11
-msgid "Tu selección"
-msgstr ""
 
-#: app/templates/carrito/index.html:17
-msgid "Revisa los productos que deseas solicitar a Río Tambo."
-msgstr ""
+# ============================================================
+# 2. NAVEGACIÓN, CABECERA Y PIE DE PÁGINA
+# ============================================================
 
-#: app/templates/carrito/index.html:37
-msgid "Producto seleccionado para cotización."
-msgstr ""
-
-#: app/templates/carrito/index.html:63
-msgid "Eliminar"
-msgstr ""
-
-#: app/templates/carrito/index.html:73
-msgid "Resumen"
-msgstr ""
-
-#: app/templates/carrito/index.html:77 app/templates/productos/index.html:3
-msgid "Productos"
-msgstr ""
-
-#: app/templates/carrito/index.html:81
-msgid "Unidades"
-msgstr ""
-
-#: app/templates/carrito/index.html:87
-msgid "Los productos de esta sección se gestionan mediante cotización."
-msgstr ""
-
-#: app/templates/carrito/index.html:88
-msgid "El precio final dependerá de la solicitud realizada."
-msgstr ""
-
-#: app/templates/carrito/index.html:100
-msgid "Vaciar carrito"
-msgstr ""
-
-#: app/templates/carrito/index.html:114
-msgid "Tu carrito está vacío"
-msgstr ""
-
-#: app/templates/carrito/index.html:118
-msgid "Agrega alguno de nuestros productos para verlo aquí."
-msgstr ""
-
-#: app/templates/carrito/index.html:124
-msgid "Ver productos"
-msgstr ""
-
-#: app/templates/contacto/index.html:3
-msgid "Contacto"
-msgstr ""
-
-#: app/templates/contacto/index.html:15 app/templates/productos/index.html:169
-msgid "Contáctanos"
-msgstr ""
-
-#: app/templates/contacto/index.html:18
-msgid "Estamos aquí para atenderte"
-msgstr ""
-
-#: app/templates/contacto/index.html:28
-msgid "Envíanos un mensaje"
-msgstr ""
-
-#: app/templates/contacto/index.html:29
-msgid "Escríbenos y nuestro equipo te responderá a la brevedad."
-msgstr ""
-
-#: app/templates/contacto/index.html:33
-msgid "¡Mensaje enviado!"
-msgstr ""
-
-#: app/templates/contacto/index.html:34
-msgid "Gracias por contactarnos. Te responderemos pronto."
-msgstr ""
-
-#: app/templates/contacto/index.html:41
-msgid "Nombre completo:"
-msgstr ""
-
-#: app/templates/contacto/index.html:42
-msgid "Tu nombre"
-msgstr ""
-
-#: app/templates/contacto/index.html:47
-msgid "Correo electrónico:"
-msgstr ""
-
-#: app/templates/contacto/index.html:53
-msgid "Teléfono:"
-msgstr ""
-
-#: app/templates/contacto/index.html:59
-msgid "Motivo de consulta:"
-msgstr ""
-
-#: app/templates/contacto/index.html:62
-msgid "Selecciona una opción"
-msgstr ""
-
-#: app/templates/contacto/index.html:63
-msgid "Cotización de productos"
-msgstr ""
-
-#: app/templates/contacto/index.html:64
-msgid "Información general"
-msgstr ""
-
-#: app/templates/contacto/index.html:65
-msgid "Quiero ser socio"
-msgstr ""
-
-#: app/templates/contacto/index.html:66
-msgid "Otros"
-msgstr ""
-
-#: app/templates/contacto/index.html:71
-msgid "Mensaje:"
-msgstr ""
-
-#: app/templates/contacto/index.html:72
-msgid "Cuéntanos qué necesitas..."
-msgstr ""
-
-#: app/templates/contacto/index.html:78
-msgid "Enviar mensaje"
-msgstr ""
-
-#: app/templates/contacto/index.html:93
-msgid "Ubicación"
-msgstr ""
-
-#: app/templates/contacto/index.html:105
-msgid "Teléfono"
-msgstr ""
-
-#: app/templates/contacto/index.html:116
-msgid "Correo Electrónico"
-msgstr ""
-
-#: app/templates/contacto/index.html:127
-msgid "Horario de atención"
-msgstr ""
-
-#: app/templates/contacto/index.html:128
-msgid "Lunes - Viernes"
-msgstr ""
-
-#: app/templates/inicio/index.html:3
 msgid "Inicio"
-msgstr ""
+msgstr "Inicio"
 
-#: app/templates/inicio/index.html:17
+msgid "Productos"
+msgstr "Productos"
+
+msgid "Contacto"
+msgstr "Contacto"
+
+msgid "CONTACTO"
+msgstr "CONTACTO"
+
+msgid "Solicitar cotización"
+msgstr "Solicitar cotización"
+
+msgid "Contáctanos"
+msgstr "Contáctanos"
+
+msgid "Escríbenos desde el formulario"
+msgstr "Escríbenos desde el formulario"
+
+
+# ============================================================
+# 3. PÁGINA DE INICIO
+# ============================================================
+
 msgid "Café que cultiva un mejor mañana"
-msgstr ""
+msgstr "Café que cultiva un mejor mañana"
 
-#: app/templates/inicio/index.html:20
-msgid ""
-"Desde nuestras tierras en el Valle del Río Tambo, llevamos el mejor café "
-"peruano a tu taza."
-msgstr ""
+msgid "Desde nuestras tierras en el Valle del Río Tambo, llevamos el mejor café peruano a tu taza."
+msgstr "Desde nuestras tierras en el Valle del Río Tambo, llevamos el mejor café peruano a tu taza."
 
-#: app/templates/inicio/index.html:23
 msgid "Descubre nuestro café"
-msgstr ""
+msgstr "Descubre nuestro café"
 
-#: app/templates/inicio/index.html:36
 msgid "Orgánico"
-msgstr ""
+msgstr "Orgánico"
 
-#: app/templates/inicio/index.html:37
 msgid "Sin agroquímicos"
-msgstr ""
+msgstr "Sin agroquímicos"
 
-#: app/templates/inicio/index.html:43
 msgid "Calidad"
-msgstr ""
+msgstr "Calidad"
 
-#: app/templates/inicio/index.html:44
 msgid "En cada grano"
-msgstr ""
+msgstr "En cada grano"
 
-#: app/templates/inicio/index.html:50
 msgid "Sostenibilidad"
-msgstr ""
+msgstr "Sostenibilidad"
 
-#: app/templates/inicio/index.html:51
 msgid "Con nuestras comunidades"
-msgstr ""
+msgstr "Con nuestras comunidades"
 
-#: app/templates/inicio/index.html:57
 msgid "Social"
-msgstr ""
+msgstr "Social"
 
-#: app/templates/inicio/index.html:58
 msgid "Impulsamos el desarrollo local"
-msgstr ""
+msgstr "Impulsamos el desarrollo local"
 
-#: app/templates/inicio/index.html:69
 msgid "Nuestra esencia"
-msgstr ""
+msgstr "Nuestra esencia"
 
-#: app/templates/inicio/index.html:71
 msgid "De nuestra tierra a tu taza, cultivamos calidad que inspira"
-msgstr ""
+msgstr "De nuestra tierra a tu taza, cultivamos calidad que inspira"
 
-#: app/templates/inicio/index.html:74
 msgid "Conoce más sobre nosotros"
-msgstr ""
+msgstr "Conoce más sobre nosotros"
 
-#: app/templates/inicio/index.html:83
 msgid "Últimas Novedades"
-msgstr ""
+msgstr "Últimas Novedades"
 
-#: app/templates/inicio/index.html:85
 msgid "Ver todos"
-msgstr ""
+msgstr "Ver todos"
 
-#: app/templates/inicio/index.html:94
 msgid "La importancia del café para el mundo"
-msgstr ""
+msgstr "La importancia del café para el mundo"
 
-#: app/templates/inicio/index.html:102
 msgid "Buenas prácticas en el cultivo de café"
-msgstr ""
+msgstr "Buenas prácticas en el cultivo de café"
 
-#: app/templates/inicio/index.html:110
 msgid "Trabajo por un futuro sostenible"
-msgstr ""
+msgstr "Trabajo por un futuro sostenible"
 
-#: app/templates/productos/index.html:13
+
+# ============================================================
+# 4. PÁGINA DE PRODUCTOS: PRESENTACIÓN GENERAL
+# ============================================================
+
 msgid "Nuestros Productos"
-msgstr ""
+msgstr "Nuestros Productos"
 
-#: app/templates/productos/index.html:17
 msgid "Café de origen, calidad que se siente"
-msgstr ""
+msgstr "Café de origen, calidad que se siente"
 
-#: app/templates/productos/index.html:30
-msgid ""
-"Ofrecemos granos de café de alta calidad, cultivados con prácticas "
-"sostenibles en el Valle de Río Tambo, listos para los mercados más "
-"exigentes."
-msgstr ""
+msgid "Ofrecemos granos de café de alta calidad, cultivados con prácticas sostenibles en el Valle de Río Tambo, listos para los mercados más exigentes."
+msgstr "Ofrecemos granos de café de alta calidad, cultivados con prácticas sostenibles en el Valle de Río Tambo, listos para los mercados más exigentes."
 
-#: app/templates/productos/index.html:44 app/templates/productos/index.html:49
-msgid "Café Verde"
-msgstr ""
-
-#: app/templates/productos/index.html:53
-msgid "Grano crudo de alta calidad, ideal para procesos de selección y tostado."
-msgstr ""
-
-#: app/templates/productos/index.html:57 app/templates/productos/index.html:92
-msgid "100 por ciento orgánico."
-msgstr ""
-
-#: app/templates/productos/index.html:58
-msgid "Alta calidad."
-msgstr ""
-
-#: app/templates/productos/index.html:59 app/templates/productos/index.html:94
-msgid "Cultivado en el Valle de Río Tambo."
-msgstr ""
-
-#: app/templates/productos/index.html:67 app/templates/productos/index.html:101
 msgid "Agregar al carrito"
-msgstr ""
+msgstr "Agregar al carrito"
 
-#: app/templates/productos/index.html:79 app/templates/productos/index.html:84
-msgid "Café Pergamino"
-msgstr ""
-
-#: app/templates/productos/index.html:88
-msgid ""
-"Grano con capa de pergamino, seleccionado cuidadosamente de nuestras "
-"fincas."
-msgstr ""
-
-#: app/templates/productos/index.html:93
-msgid "Proceso natural."
-msgstr ""
-
-#: app/templates/productos/index.html:118
-msgid "Misión"
-msgstr ""
-
-#: app/templates/productos/index.html:121
-msgid ""
-"Ofrecer café de calidad, producido responsablemente y con compromiso "
-"hacia nuestros clientes y productores."
-msgstr ""
-
-#: app/templates/productos/index.html:126
-msgid "Visión"
-msgstr ""
-
-#: app/templates/productos/index.html:129
-msgid ""
-"Fortalecer nuestra presencia en los mercados nacionales e internacionales"
-" mediante productos de calidad."
-msgstr ""
-
-#: app/templates/productos/index.html:142
 msgid "Calidad desde el origen"
-msgstr ""
+msgstr "Calidad desde el origen"
 
-#: app/templates/productos/index.html:149
 msgid "Café desde el origen"
-msgstr ""
+msgstr "Café desde el origen"
 
-#: app/templates/productos/index.html:160
 msgid "¿Quieres conocer nuestros productos?"
-msgstr ""
+msgstr "¿Quieres conocer nuestros productos?"
 
-#: app/templates/productos/index.html:164
 msgid "Contáctanos para conocer más sobre nuestra oferta."
-msgstr ""
+msgstr "Contáctanos para conocer más sobre nuestra oferta."
+
+
+# ============================================================
+# 5. PRODUCTO: CAFÉ VERDE
+# ============================================================
+
+msgid "Café Verde"
+msgstr "Café Verde"
+
+msgid "Grano crudo de alta calidad, ideal para procesos de selección y tostado."
+msgstr "Grano crudo de alta calidad, ideal para procesos de selección y tostado."
+
+msgid "100 por ciento orgánico."
+msgstr "100 por ciento orgánico."
+
+msgid "Alta calidad."
+msgstr "Alta calidad."
+
+msgid "Cultivado en el Valle de Río Tambo."
+msgstr "Cultivado en el Valle de Río Tambo."
+
+
+# ============================================================
+# 6. PRODUCTO: CAFÉ PERGAMINO
+# ============================================================
+
+msgid "Café Pergamino"
+msgstr "Café Pergamino"
+
+msgid "Grano con capa de pergamino, seleccionado cuidadosamente de nuestras fincas."
+msgstr "Grano con capa de pergamino, seleccionado cuidadosamente de nuestras fincas."
+
+msgid "Proceso natural."
+msgstr "Proceso natural."
+
+
+# ============================================================
+# 7. PRODUCTO: CAFÉ ORO MCM
+# ============================================================
+
+msgid "Café oro MCM"
+msgstr "Café oro MCM"
+
+msgid "Café seleccionado y listo para procesos de exportación, con origen Río Tambo."
+msgstr "Café seleccionado y listo para procesos de exportación, con origen Río Tambo."
+
+msgid "Presentación: quintal de 46 kg."
+msgstr "Presentación: quintal de 46 kg."
+
+msgid "Variedades: Caturra, Castillo, Geisha y Catimor."
+msgstr "Variedades: Caturra, Castillo, Geisha y Catimor."
+
+msgid "Precio según mercado de Nueva York y diferencial."
+msgstr "Precio según mercado de Nueva York y diferencial."
+
+
+# ============================================================
+# 8. PRODUCTO: CAFÉ TOSTADO
+# ============================================================
+
+msgid "Café tostado"
+msgstr "Café tostado"
+
+msgid "Café de especialidad tostado y molido para disfrutar el origen Cana Edén en casa."
+msgstr "Café de especialidad tostado y molido para disfrutar el origen Cana Edén en casa."
+
+msgid "Bolsas trilaminadas de 250 g, 500 g y 1 kg."
+msgstr "Bolsas trilaminadas de 250 g, 500 g y 1 kg."
+
+msgid "Envío por agencia; el flete lo paga el cliente."
+msgstr "Envío por agencia; el flete lo paga el cliente."
+
+msgid "Promociones disponibles por temporada."
+msgstr "Promociones disponibles por temporada."
+
+
+# ============================================================
+# 9. MISIÓN Y VISIÓN
+# ============================================================
+
+msgid "Misión"
+msgstr "Misión"
+
+msgid "Ofrecer café de calidad, producido responsablemente y con compromiso hacia nuestros clientes y productores."
+msgstr "Ofrecer café de calidad, producido responsablemente y con compromiso hacia nuestros clientes y productores."
+
+msgid "Visión"
+msgstr "Visión"
+
+msgid "Fortalecer nuestra presencia en los mercados nacionales e internacionales mediante productos de calidad."
+msgstr "Fortalecer nuestra presencia en los mercados nacionales e internacionales mediante productos de calidad."
+
+
+# ============================================================
+# 10. CARRITO DE COMPRAS
+# ============================================================
+
+msgid "Carrito de compras"
+msgstr "Carrito de compras"
+
+msgid "Tu selección"
+msgstr "Tu selección"
+
+msgid "Revisa los productos que deseas solicitar a Río Tambo."
+msgstr "Revisa los productos que deseas solicitar a Río Tambo."
+
+msgid "Producto seleccionado para cotización."
+msgstr "Producto seleccionado para cotización."
+
+msgid "Eliminar"
+msgstr "Eliminar"
+
+msgid "Resumen"
+msgstr "Resumen"
+
+msgid "Unidades"
+msgstr "Unidades"
+
+msgid "Los productos de esta sección se gestionan mediante cotización."
+msgstr "Los productos de esta sección se gestionan mediante cotización."
+
+msgid "El precio final dependerá de la solicitud realizada."
+msgstr "El precio final dependerá de la solicitud realizada."
+
+msgid "Vaciar carrito"
+msgstr "Vaciar carrito"
+
+msgid "Tu carrito está vacío"
+msgstr "Tu carrito está vacío"
+
+msgid "Agrega alguno de nuestros productos para verlo aquí."
+msgstr "Agrega alguno de nuestros productos para verlo aquí."
+
+msgid "Ver productos"
+msgstr "Ver productos"
+
+msgid "Producto no encontrado."
+msgstr "Producto no encontrado."
+
+msgid "El producto no está en el carrito."
+msgstr "El producto no está en el carrito."
+
+msgid "%(producto)s agregado al carrito."
+msgstr "%(producto)s agregado al carrito."
+
+
+# ============================================================
+# 11. PÁGINA DE CONTACTO
+# ============================================================
+
+msgid "Estamos aquí para atenderte"
+msgstr "Estamos aquí para atenderte"
+
+msgid "Envíanos un mensaje"
+msgstr "Envíanos un mensaje"
+
+msgid "Escríbenos y nuestro equipo te responderá a la brevedad."
+msgstr "Escríbenos y nuestro equipo te responderá a la brevedad."
+
+msgid "¡Mensaje enviado!"
+msgstr "¡Mensaje enviado!"
+
+msgid "Gracias por contactarnos. Te responderemos pronto."
+msgstr "Gracias por contactarnos. Te responderemos pronto."
+
+msgid "Nombre completo:"
+msgstr "Nombre completo:"
+
+msgid "Tu nombre"
+msgstr "Tu nombre"
+
+msgid "Correo electrónico:"
+msgstr "Correo electrónico:"
+
+msgid "Teléfono:"
+msgstr "Teléfono:"
+
+msgid "Motivo de consulta:"
+msgstr "Motivo de consulta:"
+
+msgid "Selecciona una opción"
+msgstr "Selecciona una opción"
+
+msgid "Cotización de productos"
+msgstr "Cotización de productos"
+
+msgid "Información general"
+msgstr "Información general"
+
+msgid "Quiero ser socio"
+msgstr "Quiero ser socio"
+
+msgid "Otros"
+msgstr "Otros"
+
+msgid "Mensaje:"
+msgstr "Mensaje:"
+
+msgid "Cuéntanos qué necesitas..."
+msgstr "Cuéntanos qué necesitas..."
+
+msgid "Enviar mensaje"
+msgstr "Enviar mensaje"
+
+msgid "Ubicación"
+msgstr "Ubicación"
+
+msgid "Teléfono"
+msgstr "Teléfono"
+
+msgid "Correo Electrónico"
+msgstr "Correo Electrónico"
+
+msgid "Horario de atención"
+msgstr "Horario de atención"
+
+msgid "Lunes - Viernes"
+msgstr "Lunes - Viernes"

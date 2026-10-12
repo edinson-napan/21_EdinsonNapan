@@ -20,8 +20,7 @@
 
 </section>
 
-
-<!-- INTRODUCCIÓN -->
+<!-- INTRODUCCIÓN Y CATÁLOGO -->
 <section class="max-w-5xl mx-auto px-6 py-12">
 
     <div class="bg-[#F3F1EC] rounded-2xl p-8 text-center shadow-sm">
@@ -32,8 +31,7 @@
 
     </div>
 
-
-    <!-- CARDS -->
+    <!-- PRODUCTOS ORIGINALES -->
     <div class="grid md:grid-cols-2 gap-8 mt-10">
 
         <!-- CAFÉ VERDE -->
@@ -59,11 +57,9 @@
                     <li>{{ _("Cultivado en el Valle de Río Tambo.") }}</li>
                 </ul>
 
-                
-                <button
-                    type="button"
-                    class="js-agregar-carrito w-full mt-6 bg-[#2B1A0F] text-white py-3 rounded-xl"
-                    data-producto-id="cafe-verde">
+                <button type="button"
+                        class="js-agregar-carrito w-full mt-6 bg-[#2B1A0F] text-white py-3 rounded-xl hover:bg-[#543722] transition"
+                        data-producto-id="cafe-verde">
                     {{ _("Agregar al carrito") }}
                 </button>
 
@@ -95,8 +91,7 @@
                 </ul>
 
                 <button type="button"
-                        class="js-agregar-carrito w-full mt-6 bg-[#2B1A0F] text-white py-3
-                               rounded-xl hover:bg-[#543722] transition"
+                        class="js-agregar-carrito w-full mt-6 bg-[#2B1A0F] text-white py-3 rounded-xl hover:bg-[#543722] transition"
                         data-producto-id="cafe-pergamino">
                     {{ _("Agregar al carrito") }}
                 </button>
@@ -106,6 +101,70 @@
 
     </div>
 
+    <!-- NUEVOS PRODUCTOS -->
+    <div class="grid md:grid-cols-2 gap-8 mt-8">
+
+        <!-- CAFÉ ORO MCM -->
+        <article class="bg-[#F3F1EC] rounded-2xl overflow-hidden shadow-md">
+
+            <img src="{{ url_for('static', filename='img/cafe-origen.jpg') }}"
+                 class="w-full h-48 object-cover"
+                 alt="{{ _('Café oro MCM') }}">
+
+            <div class="p-6">
+                <h2 class="text-2xl font-bold">
+                    {{ _("Café oro MCM") }}
+                </h2>
+
+                <p class="mt-2">
+                    {{ _("Café seleccionado y listo para procesos de exportación, con origen Río Tambo.") }}
+                </p>
+
+                <ul class="list-disc ml-5 mt-4">
+                    <li>{{ _("Presentación: quintal de 46 kg.") }}</li>
+                    <li>{{ _("Variedades: Caturra, Castillo, Geisha y Catimor.") }}</li>
+                    <li>{{ _("Precio según mercado de Nueva York y diferencial.") }}</li>
+                </ul>
+
+                <button type="button"
+                        class="js-agregar-carrito w-full mt-6 bg-[#2B1A0F] text-white py-3 rounded-xl hover:bg-[#543722] transition"
+                        data-producto-id="cafe-oro-mcm">
+                    {{ _("Agregar al carrito") }}
+                </button>
+            </div>
+        </article>
+
+        <!-- CAFÉ TOSTADO -->
+        <article class="bg-[#F3F1EC] rounded-2xl overflow-hidden shadow-md">
+
+            <img src="{{ url_for('static', filename='img/cafe-origen.jpg') }}"
+                 class="w-full h-48 object-cover"
+                 alt="{{ _('Café tostado') }}">
+
+            <div class="p-6">
+                <h2 class="text-2xl font-bold">
+                    {{ _("Café tostado") }}
+                </h2>
+
+                <p class="mt-2">
+                    {{ _("Café de especialidad tostado y molido para disfrutar el origen Cana Edén en casa.") }}
+                </p>
+
+                <ul class="list-disc ml-5 mt-4">
+                    <li>{{ _("Bolsas trilaminadas de 250 g, 500 g y 1 kg.") }}</li>
+                    <li>{{ _("Envío por agencia; el flete lo paga el cliente.") }}</li>
+                    <li>{{ _("Promociones disponibles por temporada.") }}</li>
+                </ul>
+
+                <button type="button"
+                        class="js-agregar-carrito w-full mt-6 bg-[#2B1A0F] text-white py-3 rounded-xl hover:bg-[#543722] transition"
+                        data-producto-id="cafe-tostado">
+                    {{ _("Agregar al carrito") }}
+                </button>
+            </div>
+        </article>
+
+    </div>
 </section>
 
 
@@ -134,8 +193,7 @@
 
 </section>
 
-
-<!-- CARRUSEL SIMPLE -->
+<!-- CALIDAD DESDE EL ORIGEN -->
 <section class="max-w-5xl mx-auto px-6 py-12">
 
     <h2 class="text-3xl font-bold text-center mb-8">
@@ -165,11 +223,13 @@
     </p>
 
     <a href="{{ url_for('contacto.contacto_page') }}"
-        class="inline-block mt-6 bg-[#2B1A0F] text-white px-8 py-3 rounded-xl hover:bg-[#543722] transition">
-            {{ _("Contáctanos") }}
+       class="inline-block mt-6 bg-[#2B1A0F] text-white px-8 py-3 rounded-xl hover:bg-[#543722] transition">
+        {{ _("Contáctanos") }}
     </a>
 
 </section>
- <script src="{{ url_for('static', filename='js/funcionalidad2.js') }}"></script>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+<script src="{{ url_for('static', filename='js/funcionalidad2.js') }}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
 {% endblock %}
